@@ -48,15 +48,11 @@
   /* --dev-y is the gap between the stage centre and the well centre, written
      by hero-cinema.js once per layout. Multiplying by --hp means the device
      is centred while the headline is up and has slid into the well by the
-     time the grid is solid.
-
-     No rotation: the device used to lean up to 18deg across the scroll, which
-     read as a skewed product shot rather than a deliberate angle. It now stays
-     upright and square to the grid the whole way down — only the slide and the
-     scale animate. */
+     time the grid is solid. */
   transform:
     translateY(calc(var(--dev-y, 0px) * var(--hp)))
-    scale(calc(1 + (1 - var(--hp)) * var(--dev-grow))) !important;
+    scale(calc(1 + (1 - var(--hp)) * var(--dev-grow)))
+    rotate(calc(var(--hp) * 18deg)) !important;
 }
 
 /* ---------------------------------------------------------------- the grid */
