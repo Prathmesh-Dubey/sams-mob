@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Smart Ex-04 — Camera Exploded View</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<style>
+  :root{
+    --bg:#05070a; --bg-1:#0a0f16;
+    --fg:#f2f4f7; --fg-60:rgba(242,244,247,.62); --fg-35:rgba(242,244,247,.35);
+    --line:rgba(255,255,255,.10);
+    --accent:#4da3ff;
+    --sans:'Inter',sans-serif; --display:'Space Grotesk','Inter',sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{ background:var(--bg); }
+  body{ font-family:var(--sans); color:var(--fg); -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+
+  .note{
+    padding:26px 64px; max-width:860px; font-size:13px; line-height:1.65; color:var(--fg-35);
+    border-bottom:1px solid var(--line); position:relative; z-index:5;
+  }
+  .note b{ color:var(--accent); }
+  .spacer{ height:36vh; display:flex; align-items:center; justify-content:center; color:var(--fg-35); font-family:var(--mono); font-size:12px; letter-spacing:.2em; text-transform:uppercase; }
+
+  /* ============================================================== SECTION */
+  .cam2-section{ position:relative; height:340vh; background:var(--bg); }
+  html.is-debug .cam2-section{ height:100vh !important; }
+  html.is-debug .cam2-sticky{ position:relative !important; }
+  .cam2-sticky{
+    position:sticky; top:0; height:100vh; overflow:hidden;
+    background: radial-gradient(120% 90% at 50% 42%, var(--bg-1) 0%, var(--bg) 62%);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .cam2-grid{
+    position:absolute; inset:0; z-index:0; pointer-events:none;
+    background-image:
+      linear-gradient(rgba(77,163,255,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(77,163,255,.05) 1px, transparent 1px);
+    background-size:52px 52px;
+    -webkit-mask-image: radial-gradient(ellipse 65% 60% at 50% 46%, #000 20%, transparent 76%);
+            mask-image: radial-gradient(ellipse 65% 60% at 50% 46%, #000 20%, transparent 76%);
+  }
+  .cam2-head{
+    position:absolute; top:40px; left:64px; z-index:6;
+    font-family:var(--display); font-weight:700; font-size:15px; letter-spacing:.02em;
+  }
+  .cam2-head b{ color:var(--accent); }
+  .cam2-head span{
+    display:block; margin-top:5px; font-family:var(--mono); font-weight:400; font-size:10px;
+    letter-spacing:.22em; text-transform:uppercase; color:var(--fg-35);
+  }
+  .cam2-progress{
+    position:absolute; right:40px; top:50%; transform:translateY(-50%); width:2px; height:220px; z-index:6;
+    background:var(--line);
+  }
+  .cam2-progress i{ position:absolute; left:0; top:0; width:100%; height:0%; background:var(--accent); box-shadow:0 0 10px rgba(77,163,255,.6); display:block; }
+
+  /* the exploded stack - every layer shares this centre point, same as the
+     Design/Imaging rigs elsewhere in this prototype (proven pattern) */
+  .cam2-stage{ position:relative; width:260px; height:260px; z-index:2; }
+  .cam2-layer{
+    position:absolute; left:50%; top:50%; width:220px; margin-left:-110px; margin-top:-110px;
+    transform-origin:50% 50%; will-change:transform, opacity;
+  }
+  .cam2-layer img{ width:100%; display:block; filter:drop-shadow(0 20px 40px rgba(0,0,0,.55)); }
+  .cam2-layer--complete img{ filter:drop-shadow(0 26px 50px rgba(0,0,0,.6)); }
+
+  .cam2-axis{
+    position:absolute; left:50%; top:50%; width:1px; height:640px; transform:translate(-50%,-50%);
+    background:linear-gradient(var(--line), rgba(77,163,255,.35), var(--line)); z-index:1;
+  }
+
+  /* ------------------------------------------------------------- labels */
+  .cam2-label{
+    position:absolute; top:50%; width:min(280px,34vw); transform:translateY(-50%);
+    opacity:0; will-change:opacity, transform; z-index:6; pointer-events:none;
+  }
+  .cam2-label--right{ left:calc(50% + 220px); text-align:left; }
+  .cam2-label--left{ right:calc(50% + 220px); text-align:right; }
+  .cam2-label__eyebrow{
+    font-family:var(--mono); font-size:10px; letter-spacing:.24em; text-transform:uppercase; color:var(--accent);
+    margin-bottom:10px;
+  }
+  .cam2-label__title{ font-family:var(--display); font-weight:700; font-size:clamp(18px,2vw,24px); line-height:1.15; }
+  .cam2-label__spec{ margin-top:8px; font-size:13px; line-height:1.55; color:var(--fg-60); }
+
+  .cam2-cue{
+    position:absolute; left:50%; bottom:28px; transform:translateX(-50%); z-index:6;
+    font-family:var(--mono); font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--fg-35);
+    display:flex; align-items:center; gap:10px; transition:opacity .4s ease;
+  }
+  .cam2-cue i{ width:26px; height:1px; background:var(--line); display:block; }
+
+  /* --------------------------------------------------------- responsive */
+  @media (max-width: 760px){
+    .cam2-head{ left:24px; }
+    .cam2-progress{ right:20px; height:160px; }
+    .cam2-stage{ width:190px; height:190px; }
+    .cam2-layer{ width:160px; margin-left:-80px; margin-top:-80px; }
+    .cam2-axis{ height:420px; }
+    /* labels move off to the side entirely and dock below the stage instead -
+       "beside" doesn't work once the camera itself needs most of the width */
+    .cam2-label{
+      position:absolute; left:50%; top:auto; bottom:64px; width:min(280px,84vw);
+      transform:translateX(-50%); text-align:center;
+    }
+    .cam2-label--right, .cam2-label--left{ left:50%; right:auto; text-align:center; }
+  }
+
+  @media (prefers-reduced-motion: reduce){ * { animation:none !important; } }
+</style>
+</head>
+<body>
+
+  <div class="note">
+    <b>Camera exploded view — standalone section</b>, built to be dropped into the Imaging act later.
+    GSAP + ScrollTrigger, scrubbed and reversible, config-driven (see <b>CAMERA_LAYERS</b> in the script -
+    each layer is one object with its own image/position/label, not hand-coded per-layer). Uses the real
+    cropped components you already have (Complete Module, Protective Glass, Ring, Lens Stack, Sensor, LED
+    Flash) — no new images generated, and no invented ultra-wide/telephoto lenses, since the real product
+    is a single 50&nbsp;MP&nbsp;·&nbsp;PDAF camera. <b>gsap.matchMedia()</b> swaps in a separate, smaller
+    mobile configuration under 760px rather than just scaling the desktop layout down.
+  </div>
+  <div class="spacer">— scroll to begin —</div>
+
+  <section class="cam2-section" id="cam2Section">
+    <div class="cam2-sticky">
+
+      <div class="cam2-grid"></div>
+      <div class="cam2-head">SAM<b>S</b> — Smart Ex-04<span>Camera System</span></div>
+      <div class="cam2-progress"><i id="cam2ProgFill"></i></div>
+
+      <div class="cam2-axis"></div>
+      <div class="cam2-stage" id="cam2Stage"></div>
+
+      <div class="cam2-cue" id="cam2Cue"><i></i>Scroll to explode</div>
+    </div>
+  </section>
+
+  <div class="spacer">— end of section —</div>
+
+<script>
+/* ================================================================
+   CONFIG — one object per physical layer. This is the only place
+   layer positions/labels live; the builder below reads this array,
+   nothing is hand-coded per-layer past this point.
+   Shape matches the brief: { id, image, start, exploded } plus the
+   label content and which side it docks on desktop.
+   ================================================================ */
+var CAMERA_LAYERS = [
+  {
+    id: 'window',
+    name: 'Protective Glass',
+    spec: 'Scratch-resistant cover glass, sealed to the housing.',
+    image: 'assets/phone/cam-window.png',
+    labelSide: 'right',
+    start:    { y: 0,    scale: .92, opacity: 0 },
+    exploded: { y: -180, scale: 1.05, opacity: 1 }
+  },
+  {
+    id: 'ring',
+    name: 'Camera Ring',
+    spec: 'Weather-sealed bezel, first line of defence against dust and moisture.',
+    image: 'assets/phone/cam-ring.png',
+    labelSide: 'left',
+    start:    { y: 0,   scale: .92, opacity: 0 },
+    exploded: { y: -95, scale: 1.0, opacity: 1 }
+  },
+  {
+    id: 'lens',
+    name: 'Lens Stack',
+    spec: 'Multi-element optics feeding the sensor below.',
+    image: 'assets/phone/cam-lens-assembly.png',
+    labelSide: 'right',
+    start:    { y: 0,   scale: .92, opacity: 0 },
+    exploded: { y: -12, scale: 1.0, opacity: 1 }
+  },
+  {
+    id: 'sensor',
+    name: 'Image Sensor',
+    spec: '50 MP · PDAF — larger sensor for improved low-light photography.',
+    image: 'assets/phone/cam-sensor.png',
+    labelSide: 'left',
+    start:    { y: 0,  scale: .92, opacity: 0 },
+    exploded: { y: 78, scale: 1.0, opacity: 1 }
+  },
+  {
+    id: 'flash',
+    name: 'LED Flash',
+    spec: 'Always ready, paired to the sensor for balanced exposure.',
+    image: 'assets/phone/cam-flash.png',
+    labelSide: 'right',
+    start:    { y: 0,   scale: .92, opacity: 0 },
+    exploded: { y: 155, scale: .95, opacity: 1 }
+  }
+];
+
+var MOBILE_SCALE = 0.55; // how much smaller the separation is on small screens
+
+/* ================================================================
+   BUILD — mounts the DOM for the complete-module bookend plus one
+   element per CAMERA_LAYERS entry, and one label per entry.
+   ================================================================ */
+(function(){
+  var stage = document.getElementById('cam2Stage');
+
+  var completeEl = document.createElement('div');
+  completeEl.className = 'cam2-layer cam2-layer--complete';
+  completeEl.id = 'cam2Complete';
+  completeEl.innerHTML = '<img src="assets/phone/camera.png" alt="Smart Ex-04 complete camera module">';
+  stage.appendChild(completeEl);
+
+  CAMERA_LAYERS.forEach(function(cfg){
+    var el = document.createElement('div');
+    el.className = 'cam2-layer';
+    el.id = 'cam2-' + cfg.id;
+    el.innerHTML = '<img src="' + cfg.image + '" alt="Smart Ex-04 ' + cfg.name + '">';
+    stage.appendChild(el);
+    cfg.el = el;
+
+    var label = document.createElement('div');
+    label.className = 'cam2-label cam2-label--' + cfg.labelSide;
+    label.id = 'cam2-label-' + cfg.id;
+    label.innerHTML =
+      '<div class="cam2-label__eyebrow">' + (CAMERA_LAYERS.indexOf(cfg) + 1) + ' / ' + CAMERA_LAYERS.length + '</div>' +
+      '<h3 class="cam2-label__title">' + cfg.name + '</h3>' +
+      '<p class="cam2-label__spec">' + cfg.spec + '</p>';
+    // labels sit in the sticky viewport, not the stage, so they aren't
+    // clipped by the stage's own small bounding box
+    document.querySelector('.cam2-sticky').appendChild(label);
+    cfg.labelEl = label;
+  });
+})();
+
+/* ================================================================
+   ANIMATE — one scrubbed GSAP timeline per breakpoint, built by
+   looping over CAMERA_LAYERS (not one hand-written tween per part).
+   Positions/durations are written as fractions of the timeline's
+   OWN total so they sum to 1.0 - with a scrubbed ScrollTrigger,
+   GSAP maps scroll progress (0..1) directly onto raw timeline time,
+   so "0.34" only means "34% through the scroll range" if the whole
+   timeline actually adds up to 1.0. Getting this wrong is what made
+   an earlier version of this same trick run out of scroll early.
+   ================================================================ */
+gsap.registerPlugin(ScrollTrigger);
+
+var qs = new URLSearchParams(location.search);
+var DEBUG_P = qs.has('p') ? Math.max(0, Math.min(1, parseFloat(qs.get('p')))) : null;
+if (DEBUG_P != null) document.documentElement.classList.add('is-debug');
+
+function buildCameraTimeline(context){
+    var isMobile = context.conditions.mobile;
+    var sep = isMobile ? MOBILE_SCALE : 1;
+
+    var completeEl = document.getElementById('cam2Complete');
+    var progFill = document.getElementById('cam2ProgFill');
+    var cue = document.getElementById('cam2Cue');
+
+    gsap.set(completeEl, { opacity: 1 });
+    CAMERA_LAYERS.forEach(function(cfg){
+      gsap.set(cfg.el, { opacity: 0, y: 0, scale: cfg.start.scale });
+      gsap.set(cfg.labelEl, { opacity: 0, y: 10 });
+    });
+
+    var STEP = 0.16;           // scroll-fraction each layer gets to rise+hold
+    var FIRST_RISE = 0.06;     // fraction devoted to the complete->parts handoff
+
+    function updateLabels(progress){
+      progFill.style.height = (progress * 100).toFixed(2) + '%';
+      cue.style.opacity = progress < 0.02 ? 1 : 0;
+
+      // active label = whichever layer's rise window we're currently at
+      // or past (mirrors the timeline's own layout below)
+      var activeIdx = -1;
+      CAMERA_LAYERS.forEach(function(cfg, i){
+        var riseFrom = FIRST_RISE + i * STEP;
+        if (progress >= riseFrom) activeIdx = i;
+      });
+      if (progress >= 0.90) activeIdx = -1; // reassembling - no label
+
+      CAMERA_LAYERS.forEach(function(cfg, i){
+        var active = i === activeIdx;
+        gsap.to(cfg.labelEl, {
+          opacity: active ? 1 : 0,
+          y: active ? 0 : 10,
+          duration: .35, overwrite: 'auto'
+        });
+      });
+    }
+
+    var tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#cam2Section',
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: 0.6,
+        onUpdate: function(self){ updateLabels(self.progress); }
+      }
+    });
+
+    tl.to(completeEl, { opacity: 0, duration: FIRST_RISE - 0.01 }, 0);
+
+    CAMERA_LAYERS.forEach(function(cfg, i){
+      var pos = FIRST_RISE + i * STEP;
+      tl.to(cfg.el, {
+        opacity: cfg.exploded.opacity,
+        y: cfg.exploded.y * sep,
+        scale: cfg.exploded.scale,
+        duration: STEP - 0.02,
+        ease: 'power2.out'
+      }, pos);
+    });
+
+    // hold the full exploded arrangement, then reassemble
+    var collapseAt = 0.90;
+    tl.to(CAMERA_LAYERS.map(function(c){ return c.el; }), {
+      opacity: 0, y: 0, scale: .9, duration: 0.08
+    }, collapseAt);
+    tl.to(completeEl, { opacity: 1, duration: 0.08 }, collapseAt);
+
+    // debug hook: ?p=0.42 freezes exactly there, no real scroll involved -
+    // for screenshotting a specific frame (see the html.is-debug CSS above).
+    if (DEBUG_P != null) {
+      tl.scrollTrigger.disable();
+      tl.progress(DEBUG_P).pause();
+      updateLabels(DEBUG_P);
+    }
+
+    return function(){ tl.scrollTrigger && tl.scrollTrigger.kill(); tl.kill(); };
+}
+
+gsap.matchMedia().add(
+  { desktop: '(min-width: 761px)', mobile: '(max-width: 760px)' },
+  buildCameraTimeline
+);
+
+ScrollTrigger.refresh();
+</script>
+</body>
+</html>

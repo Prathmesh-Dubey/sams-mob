@@ -1,0 +1,86 @@
+/* ===========================================================================
+   Smoother motion — homepage only. Pairs with assets/js/v3-smooth.js.
+   =========================================================================== */
+
+/* Longer, softer reveal. 28px of travel reads as a jump at .8s; 18px over
+   1.05s reads as a settle. Easing is a slow-out curve with no overshoot. */
+.js [data-reveal] { transform: translateY(18px); }
+.js [data-reveal].is-in {
+  transition:
+    opacity   1.05s cubic-bezier(.16, 1, .3, 1),
+    transform 1.05s cubic-bezier(.16, 1, .3, 1);
+}
+
+/* Promote the scroll-driven layers so the compositor owns them and the
+   spring doesn't fight layout on each frame. */
+.hero__stage, .product__stage, .rail, .hero__device, .hud-stage, .hud-panel {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+/* HUD stages currently pop between states; ease them instead. */
+.hud-stage, .hud-panel {
+  transition: opacity .55s cubic-bezier(.16, 1, .3, 1),
+              transform .55s cubic-bezier(.16, 1, .3, 1);
+}
+
+/* Hover transitions were .2s linear-ish; slightly longer and eased. */
+.spec, .view, .country, .sector, .cert-card, .btn {
+  transition: border-color .32s cubic-bezier(.16, 1, .3, 1),
+              background-color .32s cubic-bezier(.16, 1, .3, 1),
+              transform .32s cubic-bezier(.16, 1, .3, 1),
+              padding-left .32s cubic-bezier(.16, 1, .3, 1);
+}
+
+/* Respect the user's setting — everything above collapses to nothing. */
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal],
+  .js [data-reveal].is-in,
+  .hud-stage, .hud-panel,
+  .spec, .view, .country, .sector, .cert-card, .btn {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* ===========================================================================
+   PASS 2 — softer still
+   =========================================================================== */
+
+/* A touch of scale on the reveal reads as the element settling into place
+   rather than sliding in. Kept tiny (0.985) so it never looks bouncy. */
+.js [data-reveal]        { transform: translateY(16px) scale(.985); }
+.js [data-reveal].is-in  { transform: translateY(0) scale(1); }
+.js [data-reveal].is-in {
+  transition:
+    opacity   1.15s cubic-bezier(.16, 1, .3, 1),
+    transform 1.15s cubic-bezier(.16, 1, .3, 1);
+}
+
+/* The turntable's filter changes every frame during a hand-over. Without a
+   transition the blur and brightness step in discrete jumps. */
+.turntable { transition: filter .45s cubic-bezier(.16, 1, .3, 1); }
+
+/* Cards lift slightly on hover instead of only changing border colour. */
+.spec:hover, .view:hover, .country:hover, .cert-card:hover {
+  transform: translateY(-3px);
+}
+.spec, .view, .country, .cert-card {
+  transition:
+    border-color .38s cubic-bezier(.16, 1, .3, 1),
+    box-shadow   .38s cubic-bezier(.16, 1, .3, 1),
+    transform    .38s cubic-bezier(.16, 1, .3, 1);
+}
+.spec:hover, .view:hover, .country:hover, .cert-card:hover {
+  box-shadow: 0 14px 34px rgba(11, 18, 32, .10);
+}
+
+/* Nav + ticker easing */
+.nav a, .nav__logo, footer a { transition: color .28s cubic-bezier(.16,1,.3,1); }
+
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal], .js [data-reveal].is-in,
+  .turntable, .spec, .view, .country, .cert-card {
+    transition: none !important; transform: none !important;
+  }
+}

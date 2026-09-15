@@ -1,0 +1,121 @@
+/* ===========================================================================
+   HERO ROTATOR
+   Replaces the scroll-driven turntable with an auto-rotating product
+   showcase. The hero no longer needs 240vh of scroll to run its animation,
+   so it collapses to a single screen.
+   =========================================================================== */
+
+.hero              { height: 100vh !important; }
+.hero__stage       { height: 100vh; }
+.turntable         { display: none !important; }
+.hero__layer[data-hero-copy="1"],
+.hero__layer[data-hero-copy="2"] { display: none !important; }
+.hero__layer[data-hero-copy="0"] { opacity: 1 !important; transform: none !important; }
+.hero__progress    { display: none !important; }
+
+/* --- shell ------------------------------------------------------------ */
+.hx {
+  position: absolute; right: 6%; top: 50%; transform: translateY(-50%);
+  z-index: 3; display: grid; justify-items: center; gap: 22px;
+  width: min(42vw, 460px);
+}
+
+/* --- device ----------------------------------------------------------- */
+.hx__device {
+  position: relative; width: min(30vh, 268px); height: min(60vh, 536px);
+  /* The original build documented why naive cross-fades and rotateY fail:
+     two phones at once, or a flat photo turned edge-on into a sliver. So the
+     swap is a camera move instead — the device falls back, defocuses, and
+     returns on the new face. */
+  transition:
+    transform .58s cubic-bezier(.16, 1, .3, 1),
+    filter    .58s cubic-bezier(.16, 1, .3, 1);
+  filter:
+    drop-shadow(0 28px 44px rgba(11, 18, 32, .20))
+    drop-shadow(0 6px 12px rgba(11, 18, 32, .10));
+  will-change: transform, filter;
+}
+.hx__device.is-swapping {
+  transform: translateY(14px) scale(.935);
+  filter: blur(3px) brightness(.94)
+          drop-shadow(0 14px 24px rgba(11, 18, 32, .12));
+}
+.hx__device img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: contain; opacity: 0;
+  transition: opacity .3s linear;
+  filter: contrast(1.14) saturate(1.20) brightness(.96);
+}
+.hx__device img.is-active { opacity: 1; }
+
+/* --- benefit callout -------------------------------------------------- */
+.hx__info { text-align: center; min-height: 92px; max-width: 360px; }
+.hx__index {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--accent);
+}
+.hx__label {
+  margin: 6px 0 6px; font-family: var(--display);
+  font-size: clamp(20px, 2vw, 26px); line-height: 1.1; color: var(--fg);
+}
+.hx__desc { margin: 0; font-size: 14px; line-height: 1.55; color: var(--fg-70); }
+.hx__info.is-swapping .hx__index,
+.hx__info.is-swapping .hx__label,
+.hx__info.is-swapping .hx__desc { opacity: 0; transform: translateY(6px); }
+.hx__index, .hx__label, .hx__desc {
+  transition: opacity .34s cubic-bezier(.16,1,.3,1), transform .34s cubic-bezier(.16,1,.3,1);
+}
+
+/* --- controls --------------------------------------------------------- */
+.hx__controls { display: flex; align-items: center; gap: 14px; }
+.hx__dots { display: flex; gap: 8px; }
+.hx__dot {
+  width: 26px; height: 3px; padding: 0; border: 0; cursor: pointer;
+  background: var(--line); position: relative; overflow: hidden;
+  transition: background .3s;
+}
+.hx__dot[aria-selected="true"] { background: rgba(30, 111, 217, .25); }
+.hx__dot[aria-selected="true"]::after {
+  content: ""; position: absolute; inset: 0; transform-origin: left;
+  background: var(--accent); animation: hxfill var(--hx-dur, 3400ms) linear forwards;
+}
+.hx.is-paused .hx__dot[aria-selected="true"]::after { animation-play-state: paused; }
+@keyframes hxfill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.hx__dot:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+.hx__pause {
+  width: 26px; height: 26px; padding: 0; cursor: pointer;
+  border: 1px solid var(--line); background: transparent; color: var(--fg-55);
+  font-size: 10px; line-height: 1; display: grid; place-items: center;
+  transition: border-color .3s, color .3s;
+}
+.hx__pause:hover { border-color: var(--accent); color: var(--accent); }
+
+/* --- layout ----------------------------------------------------------- */
+@media (max-width: 1100px) { .hx { width: min(48vw, 380px); right: 4%; } }
+@media (max-width: 900px) {
+  .hero, .hero__stage { height: auto !important; }
+  .hx { position: relative; right: auto; top: auto; transform: none;
+        width: 100%; margin: 28px auto 8px; }
+  .hx__device { width: min(56vw, 240px); height: min(96vw, 470px); }
+}
+
+/* --- reduced motion: no autoplay, no camera move ---------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .hx__device, .hx__device img,
+  .hx__index, .hx__label, .hx__desc { transition: none !important; }
+  .hx__device.is-swapping { transform: none; filter: none; }
+  .hx__dot[aria-selected="true"]::after { animation: none; transform: scaleX(1); }
+}
+
+/* --- HUD elements -----------------------------------------------------
+   The six .hud-stage panels were choreographed to the scroll stages that no
+   longer exist, and the two .hud-panel callouts sit exactly where the
+   rotator's caption now lives. The rotator carries that job instead, so
+   they're retired here rather than left to collide.
+   To bring the two callouts back, delete this block and reposition them. */
+.hud-stage, .hud-panel { display: none !important; }
+
+/* The hero ticker keeps running along the bottom — it still carries the
+   zone rating and certification strings the panels used to show. */
+.ticker { z-index: 4; }

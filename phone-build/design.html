@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Smart Ex-04 — Category Cinema (Real Assets)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff; --bg-panel:#f4f6f9;
+    --ink:#0a0a0a; --ink-70:rgba(10,10,10,.74); --ink-45:rgba(10,10,10,.50); --ink-25:rgba(10,10,10,.40);
+    --line:rgba(10,10,10,.14);
+    --accent:#1e6fd9; --accent-2:#3b82c6; --accent-soft:rgba(30,111,217,.10);
+    --mono:'JetBrains Mono', monospace;
+    --display:'Space Grotesk','Inter',sans-serif;
+    --sans:'Inter',sans-serif;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{background:var(--bg);}
+  body{
+    font-family:var(--sans); color:var(--ink); background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+  }
+  .note{
+    position:relative; z-index:20; padding:28px 64px; max-width:820px;
+    font-size:13px; line-height:1.6; color:var(--ink-45); border-bottom:1px solid var(--line);
+  }
+  .note b{ color:var(--accent); }
+
+  /* ===================================================== CINEMA SHELL == */
+  .cine{ position:relative; height:600vh; background:var(--bg); }
+  html.is-debug .cine{ height:100vh !important; }
+  html.is-debug .cine__stage{ position:relative !important; }
+  .cine__stage{
+    position:sticky; top:0; height:100vh; overflow:hidden;
+    background: radial-gradient(120% 85% at 50% 34%, var(--bg-panel) 0%, var(--bg) 60%);
+  }
+
+  /* --------------------------------------------------------- sidebar -- */
+  .sidenav{
+    position:absolute; left:64px; top:50%; transform:translateY(-50%); z-index:10;
+    display:flex; flex-direction:column; gap:34px;
+  }
+  .sidenav__item{ display:flex; flex-direction:column; gap:10px; }
+  .sidenav__label{
+    font-family:var(--sans); font-weight:500; font-size:14px; color:var(--ink-25);
+    transition:color .5s var(--ease), font-weight .3s var(--ease);
+  }
+  .sidenav__tick{
+    width:1px; height:26px; background:var(--line);
+    transition:background .5s var(--ease), box-shadow .5s var(--ease);
+  }
+  .sidenav__item.is-active .sidenav__label{ color:var(--ink); font-weight:700; }
+  .sidenav__item.is-active .sidenav__tick{ background:var(--accent); box-shadow:0 0 10px rgba(30,111,217,.45); }
+
+  .cine__brand{
+    position:absolute; top:36px; left:64px; z-index:10;
+    font-family:var(--display); font-weight:700; font-size:15px; letter-spacing:.02em; color:var(--ink);
+  }
+  .cine__brand b{ color:var(--accent); }
+  .cine__brand span{
+    display:block; margin-top:4px; font-family:var(--mono); font-weight:400; font-size:10px;
+    letter-spacing:.22em; text-transform:uppercase; color:var(--ink-25);
+  }
+
+  .rail{ position:absolute; right:40px; top:50%; transform:translateY(-50%); width:2px; height:220px; background:var(--line); z-index:10; }
+  .rail__fill{ position:absolute; left:0; top:0; width:100%; height:0%; background:var(--accent); box-shadow:0 0 10px rgba(30,111,217,.4); transition:height .1s linear; }
+
+  /* ------------------------------------------------------------ acts -- */
+  .act{ position:absolute; inset:0; will-change:opacity, transform; }
+
+  .device-wrap{
+    position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+    width:clamp(125px, 11vw, 150px); text-align:center;
+  }
+  .device-wrap img{ width:100%; display:block; filter:drop-shadow(0 30px 46px rgba(13,20,32,.20)); }
+  .device-halo{
+    position:absolute; left:50%; top:50%; width:480px; height:480px; transform:translate(-50%,-50%);
+    border-radius:50%; pointer-events:none; z-index:-1;
+  }
+
+  .act__copy{ position:absolute; left:50%; bottom:68px; transform:translateX(-50%); text-align:center; width:min(620px,82vw); }
+  .act__eyebrow{
+    font-family:var(--mono); font-size:11px; letter-spacing:.26em; text-transform:uppercase; color:var(--accent);
+    margin-bottom:14px;
+  }
+  .act__title{ font-family:var(--display); font-weight:700; font-size:clamp(28px,3.6vw,42px); line-height:1.1; letter-spacing:-.01em; text-wrap:balance; }
+  .act__title em{ font-style:normal; color:var(--accent); }
+  .act__desc{ margin-top:14px; font-size:14px; line-height:1.6; color:var(--ink-45); }
+  .chipline{ margin-top:20px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+  .chipline span{
+    font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-70);
+    border:1px solid var(--line); padding:6px 12px; border-radius:20px; background:#fff;
+  }
+
+  /* ------------------------------------------------------- dot dissolve */
+  .dissolve{
+    position:absolute; inset:-4% ; z-index:15; pointer-events:none;
+    background-image: radial-gradient(rgba(10,10,10,.5) 1.3px, transparent 1.4px);
+    background-size: 13px 13px;
+    opacity:0;
+    -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 0%, #000 70%, transparent 100%);
+            mask-image: radial-gradient(circle at 50% 50%, #000 0%, #000 70%, transparent 100%);
+  }
+
+  /* ============================================================ ACT 0
+     DESIGN - real internal components (frame, board, battery, camera)
+     explode out of the real product photo, laid out on ONE shared axis,
+     the whole rig rotated into landscape so the phone opens up the way
+     you'd lay it down on a bench, not standing upright. -------------- */
+  .act--design .device-halo{ background: radial-gradient(circle, rgba(30,111,217,.10), transparent 68%); }
+
+  .rig-wrap{
+    position:absolute; left:50%; top:50%; width:220px; height:454px;
+    margin-left:-110px; margin-top:-227px;
+    transform:rotate(90deg); transform-origin:50% 50%; will-change:transform;
+  }
+  .rig{ position:absolute; left:0; top:50%; width:100%; margin-top:-227px; }
+  .rig__axis{
+    position:absolute; left:50%; top:-260px; bottom:-260px; width:1px;
+    background:linear-gradient(var(--line), rgba(30,111,217,.35), var(--line));
+    z-index:1;
+  }
+  .rig .layer{ position:absolute; left:0; top:0; width:100%; will-change:transform, opacity; }
+  .rig .layer img{ width:100%; display:block; }
+  .rig .layer--photo img{ filter:drop-shadow(0 24px 40px rgba(13,20,32,.22)); }
+  .rig .layer--part img{ filter:drop-shadow(0 16px 28px rgba(13,20,32,.18)); }
+
+  .design-copy{ position:relative; height:235px; }
+  .design-copy .act__desc{ margin-top:10px; font-size:13px; line-height:1.5; }
+  .dstage{ position:absolute; inset:0; }
+
+  .perf-chip-copy{ position:absolute; left:50%; bottom:32px; transform:translateX(-50%); text-align:center; width:min(560px,80vw); opacity:0; }
+  .perf-chip-copy .act__title{ font-size:clamp(22px,2.6vw,32px); }
+
+  /* ============================================================ ACT 1
+     PERFORMANCE - one continuous zoom, everything pinned to true centre
+     (left:50%/top:50%) so nothing drifts up or down between phases: the
+     phone rotates portrait -> landscape with a real 3D tumble (perspective
+     + rotateX/Y, not a flat rotateZ "playing card" spin), keeps growing
+     until it hands straight off to the real Snapdragon chip photo (no
+     dot/grid mid-step), holds, then reverses - zooms back out, returns to
+     portrait, and flips to the rear lens on the way into Imaging. -------- */
+  .perf-phase{ position:absolute; inset:0; will-change:opacity, transform; }
+  .act--performance{ perspective:1400px; }
+
+  .perf-device{
+    position:absolute; left:50%; top:50%; width:220px; margin-left:-110px; margin-top:-190px;
+    transform-origin:50% 50%; will-change:transform, opacity;
+  }
+  .perf-device img{ width:100%; display:block; filter:drop-shadow(0 30px 50px rgba(13,20,32,.22)); }
+  .perf-device-halo{
+    position:absolute; left:50%; top:50%; width:640px; height:640px; transform:translate(-50%,-50%);
+    border-radius:50%; pointer-events:none; z-index:-1;
+    background: radial-gradient(circle, rgba(30,111,217,.14), transparent 66%);
+  }
+
+  .perf-zoom{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); display:flex; align-items:center; justify-content:center; }
+  .chip-macro{
+    position:relative; width:min(460px,64vw); aspect-ratio:1; border-radius:36px; overflow:hidden; will-change:transform;
+    background: #0b1420;
+    box-shadow: 0 40px 80px rgba(13,20,32,.22), 0 0 0 1px rgba(13,20,32,.06);
+  }
+  .chip-macro img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .chip-macro::after{
+    content:""; position:absolute; inset:0; z-index:1; border-radius:inherit;
+    box-shadow:inset 0 0 0 1px rgba(111,179,255,.3), inset 0 0 70px rgba(0,0,0,.35);
+  }
+
+  /* ============================================================ ACT 2 - Display */
+  .act--display .device-halo{ background: radial-gradient(circle, rgba(30,111,217,.12), transparent 66%); }
+
+  /* ============================================================ ACT 3
+     IMAGING - the real camera components (ring, window, lens stack, sensor,
+     flash - all cropped from the same teardown reference sheet) explode out
+     from the rear housing photo and ASSEMBLE, exactly the same visual
+     language as Design's internal-parts rig (one shared vertical axis,
+     accumulate, hold, reassemble) - just upright/portrait instead of
+     rotated to landscape, and with smaller offsets sized to the vertical
+     room an upright layout actually has (Design gets to spread across the
+     wide screen because it's rotated; this can't, so it spreads less). --- */
+  .act--imaging .device-halo{ background: radial-gradient(circle, rgba(120,90,210,.12), transparent 66%); }
+  .act--imaging{ perspective:1400px; }
+
+  .cam-rig{ position:absolute; left:50%; top:50%; width:210px; margin-left:-105px; margin-top:-190px; }
+  .cam-rig .layer{ position:absolute; left:0; top:0; width:100%; will-change:transform, opacity; }
+  .cam-rig .layer img{ width:100%; display:block; }
+  .cam-rig .layer--photo img{ filter:drop-shadow(0 24px 40px rgba(13,20,32,.22)); }
+  .cam-rig .layer--part img{ filter:drop-shadow(0 16px 28px rgba(13,20,32,.18)); }
+
+  /* pin-points the lens stack's real position on the reassembled housing -
+     coordinates measured against the actual back.webp photo (camera module
+     centre sits at ~31% across, ~14% down a 220px-wide render of it). */
+  .cam-pin{
+    position:absolute; left:calc(50% - 42px); top:calc(50% - 132px); z-index:7;
+    opacity:0; will-change:opacity; pointer-events:none;
+  }
+  .cam-pin__dot{
+    position:absolute; left:-4px; top:-4px; width:8px; height:8px; border-radius:50%;
+    background:var(--accent); box-shadow:0 0 0 5px rgba(30,111,217,.16);
+  }
+  /* the phone render is 220px wide (rig width) and the dot sits 42px left
+     of centre, so the line has to clear 110+42=152px before it's actually
+     past the phone's own right edge - too short here is exactly what put
+     the label text on top of the housing instead of beside it. */
+  .cam-pin__line{ position:absolute; left:4px; top:0; width:176px; height:1px; background:var(--line); }
+  .cam-pin__label{
+    position:absolute; left:184px; top:-11px; width:190px;
+    font-family:var(--mono); font-size:10.5px; letter-spacing:.06em; line-height:1.5; color:var(--ink-45);
+  }
+  .cam-pin__label b{
+    display:block; margin-bottom:3px; font-family:var(--display); font-weight:700; font-size:13px;
+    letter-spacing:0; color:var(--ink);
+  }
+
+  /* premium Apple-style side callouts, one per component - ported from the
+     standalone camera-exploded-view prototype, recoloured for the white
+     theme instead of that prototype's dark one. */
+  .cam-label{
+    position:absolute; top:50%; width:min(230px,26vw); transform:translateY(-50%);
+    opacity:0; will-change:opacity, transform; z-index:6; pointer-events:none;
+  }
+  .cam-label--right{ left:calc(50% + 150px); text-align:left; }
+  .cam-label--left{ right:calc(50% + 150px); text-align:right; }
+  .cam-label__eyebrow{
+    font-family:var(--mono); font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent);
+    margin-bottom:8px;
+  }
+  .cam-label__title{ font-family:var(--display); font-weight:700; font-size:18px; line-height:1.22; color:var(--ink); }
+  .cam-label__spec{ margin-top:6px; font-size:12.5px; line-height:1.55; color:var(--ink-45); }
+  @media (max-width: 900px){
+    .cam-label{ display:none; } /* falls back to the bottom act__copy summary below */
+  }
+
+  /* ============================================================ ACT 4 - OS */
+  .act--os .device-halo{ background: radial-gradient(circle, rgba(40,170,140,.11), transparent 66%); }
+
+  .stagegrid{
+    position:absolute; inset:0; z-index:1; pointer-events:none;
+    background-image:
+      linear-gradient(rgba(10,10,10,.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(10,10,10,.045) 1px, transparent 1px);
+    background-size:64px 64px;
+    -webkit-mask-image: radial-gradient(ellipse 75% 70% at 50% 40%, #000 25%, transparent 78%);
+            mask-image: radial-gradient(ellipse 75% 70% at 50% 40%, #000 25%, transparent 78%);
+  }
+
+  .cue{
+    position:absolute; left:50%; bottom:24px; transform:translateX(-50%); z-index:10;
+    font-family:var(--mono); font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--ink-25);
+    display:flex; align-items:center; gap:10px; transition:opacity .5s var(--ease);
+  }
+  .cue span{ width:26px; height:1px; background:var(--line); display:block; }
+
+  @media (prefers-reduced-motion: reduce){
+    .act, .perf-phase, .chip-macro, .sidenav__label, .sidenav__tick, .cue{ transition:none !important; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="note">
+    White ground to match <b>index-ref.html</b> — standalone prototype, not wired into the live site.
+    <b>5 acts</b> (Design → Performance → Display → Imaging → OS) share one sticky stage; the left rail
+    tracks progress and a dot-halftone dissolve bridges every transition. Design now explodes the real
+    internal components (frame, board, battery, camera module — all cropped from your teardown reference
+    sheets, not generated) along one shared axis, with the whole rig rotated into landscape - then, once
+    reassembled, un-rotates back to portrait and matches Performance's exact size, so the handoff between
+    them is one continuous phone instead of two differently-oriented ones ghosting through each other.
+    Performance's
+    chip reveal uses your real Snapdragon chipset photo, holds with a platform detail panel, then zooms
+    back out, returns to portrait, and flips to the rear lens on the way into Imaging - which now
+    <b>assembles</b> the real camera parts (ring, window, lens stack, sensor, flash) exactly like Design's
+    internal-parts rig, just upright instead of rotated, with offsets sized to fit the frame, and now
+    carries the same premium per-component side callouts (name + real spec, alternating left/right) ported
+    over from the standalone camera exploded-view prototype, recoloured for this white theme. The lens
+    stack is now the last part to appear (deepest component, revealed right before reassembly) and paints
+    on top instead of behind ring/sensor/flash (a real DOM-order bug - its rise timing had moved to last,
+    but the markup order hadn't, so later parts still covered it). Ring, window, sensor and flash now clear
+    away together the moment the lens stack rises, so it gets to stand alone as the hero, rather than all
+    five sitting accumulated on screen together. Once everything closes back up, a small pin callout - now
+    positioned clear of the housing instead of overlapping it - marks the lens stack's real position before
+    the rear panel rotates from back to front, handing straight into Display.
+    Every act's phone is pinned to the exact same centre point, and adjacent acts genuinely overlap at
+    their shared boundary so the phone is never off-screen between sections. Display and OS are still
+    simple placeholders.
+  </div>
+
+  <section class="cine">
+    <div class="cine__stage" id="stage">
+
+      <div class="stagegrid"></div>
+      <div class="cine__brand">SAM<b>S</b> — Smart Ex-04<span>Category Walkthrough</span></div>
+
+      <nav class="sidenav" id="sidenav">
+        <div class="sidenav__item"><div class="sidenav__label">Design</div><div class="sidenav__tick"></div></div>
+        <div class="sidenav__item"><div class="sidenav__label">Performance</div><div class="sidenav__tick"></div></div>
+        <div class="sidenav__item"><div class="sidenav__label">Display</div><div class="sidenav__tick"></div></div>
+        <div class="sidenav__item"><div class="sidenav__label">Imaging</div><div class="sidenav__tick"></div></div>
+        <div class="sidenav__item"><div class="sidenav__label">OS</div><div class="sidenav__tick"></div></div>
+      </nav>
+
+      <div class="rail"><div class="rail__fill" id="railFill"></div></div>
+
+      <!-- ACT 0 — DESIGN: real internal parts explode, rotated to landscape -->
+      <div class="act act--design" id="act0">
+        <div class="rig-wrap" id="rigWrap">
+          <div class="rig" id="rig">
+            <div class="rig__axis"></div>
+            <div class="layer layer--part" id="lFrame"><img src="assets/phone/frame.png" alt=""></div>
+            <div class="layer layer--part" id="lBoard"><img src="assets/phone/board.png" alt=""></div>
+            <div class="layer layer--part" id="lBattery"><img src="assets/phone/battery.png" alt=""></div>
+            <div class="layer layer--part" id="lCamera"><img src="assets/phone/camera.png" alt=""></div>
+            <div class="layer layer--photo" id="lBack"><img src="assets/phone/back.webp" alt="Smart Ex-04 rear housing"></div>
+            <div class="layer layer--photo" id="lFront"><img src="assets/phone/front.webp" alt="Smart Ex-04 front glass and display"></div>
+          </div>
+        </div>
+
+        <div class="act__copy">
+          <div class="act__eyebrow">01 · Design</div>
+          <div class="design-copy" id="designCopy">
+            <div class="dstage" id="d0"><h2 class="act__title">Built for the<br><em>real world.</em></h2></div>
+            <div class="dstage" id="d1"><h2 class="act__title">Rugged<br><em>outer frame.</em></h2><div class="chipline"><span>MIL-STD-810H</span><span>Die-cast frame</span></div></div>
+            <div class="dstage" id="d2"><h2 class="act__title">Engineered<br><em>to perform.</em></h2><p class="act__desc">Flagship-class octa-core platform running enterprise apps, scanning and video calls without throttling.</p><div class="chipline"><span>Octa-core platform</span></div></div>
+            <div class="dstage" id="d3"><h2 class="act__title">Power at<br><em>the core.</em></h2><p class="act__desc">Full-shift capacity with intrinsically safe charging circuitry and low-temperature operation.</p><div class="chipline"><span>4,000 mAh</span><span>Li-Polymer</span></div></div>
+            <div class="dstage" id="d4"><h2 class="act__title">Precision<br><em>camera system.</em></h2><p class="act__desc">High-resolution inspection imaging with phase-detect autofocus and LED flash for dark plant areas.</p><div class="chipline"><span>50 MP · PDAF</span></div></div>
+            <div class="dstage" id="d5"><h2 class="act__title">Protected<br><em>from within.</em></h2><p class="act__desc">Designed for IECEx, ATEX and NEC 500 gas and dust atmospheres — certification in progress — and sealed to IP68 against dust and continuous immersion.</p><div class="chipline"><span>IP68</span><span>Ex ia IIC T4</span></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACT 1 — PERFORMANCE: rotate + zoom straight into the chip, then back -->
+      <div class="act act--performance" id="act1">
+
+        <div class="perf-device-halo" id="perfHalo"></div>
+        <div class="perf-device" id="perfDevice">
+          <img src="assets/phone/front.webp" alt="Smart Ex-04">
+        </div>
+
+        <div class="perf-phase" id="perfAmbient">
+          <div class="act__copy">
+            <div class="act__eyebrow">02 · Performance</div>
+            <h2 class="act__title">Flagship silicon,<br><em>intrinsically safe.</em></h2>
+            <div class="chipline"><span>Octa-core</span><span>4,000 mAh</span><span>Full-shift rated</span></div>
+          </div>
+        </div>
+
+        <div class="perf-phase perf-zoom" id="perfZoom">
+          <div class="chip-macro">
+            <img src="assets/phone/chipset.webp" alt="Qualcomm Snapdragon octa-core platform">
+          </div>
+        </div>
+
+        <div class="perf-chip-copy" id="perfChipCopy">
+          <div class="act__eyebrow">Qualcomm Snapdragon</div>
+          <h2 class="act__title">Octa-core platform,<br><em>built to last a shift.</em></h2>
+          <p class="act__desc">Flagship-class octa-core platform running enterprise apps, scanning and video calls without throttling.</p>
+          <div class="chipline"><span>8 / 8 cores active</span><span>Octa-core platform</span></div>
+        </div>
+
+      </div>
+
+      <!-- ACT 2 — DISPLAY -->
+      <div class="act act--display" id="act2">
+        <div class="device-wrap">
+          <div class="device-halo"></div>
+          <img src="assets/phone/front.webp" alt="Smart Ex-04">
+        </div>
+        <div class="act__copy">
+          <div class="act__eyebrow">03 · Display</div>
+          <h2 class="act__title">Readable through<br><em>gloves, glare, and rain.</em></h2>
+          <p class="act__desc">A high-brightness panel tuned for wet-glove touch and direct sunlight, with the Ex safety marking always in view.</p>
+        </div>
+      </div>
+
+      <!-- ACT 3 — IMAGING: real camera parts assemble, same pattern as Design -->
+      <div class="act act--imaging" id="act3">
+        <div class="cam-rig" id="camRig">
+          <div class="layer layer--photo" id="cBack"><img src="assets/phone/back.webp" alt="Smart Ex-04 rear housing"></div>
+          <div class="layer layer--part" id="cRing"><img src="assets/phone/cam-ring.png" alt=""></div>
+          <div class="layer layer--part" id="cWindow"><img src="assets/phone/cam-window.png" alt=""></div>
+          <div class="layer layer--part" id="cSensor"><img src="assets/phone/cam-sensor.png" alt=""></div>
+          <div class="layer layer--part" id="cFlash"><img src="assets/phone/cam-flash.png" alt=""></div>
+          <!-- lens stack paints LAST (on top) since it's the last part to
+               appear and should never sit behind ring/sensor/flash -->
+          <div class="layer layer--part" id="cLens"><img src="assets/phone/cam-lens-assembly.png" alt=""></div>
+        </div>
+
+        <!-- pin-points the lens stack's real position on the reassembled
+             rear housing, right before the back-to-front flip -->
+        <div class="cam-pin" id="camPin">
+          <div class="cam-pin__dot"></div>
+          <div class="cam-pin__line"></div>
+          <div class="cam-pin__label"><b>Lens Stack</b>Sits behind the camera window, top-left of the housing.</div>
+        </div>
+
+        <!-- per-component callouts are mounted here by CAM_PARTS at runtime -->
+
+        <div class="act__copy">
+          <div class="act__eyebrow">04 · Imaging</div>
+          <h2 class="act__title">Precision<br><em>camera system.</em></h2>
+          <div class="chipline"><span>50 MP · PDAF</span><span>LED flash</span></div>
+        </div>
+      </div>
+
+      <!-- ACT 4 — OS -->
+      <div class="act act--os" id="act4">
+        <div class="device-wrap">
+          <div class="device-halo"></div>
+          <img src="assets/phone/front.webp" alt="Smart Ex-04">
+        </div>
+        <div class="act__copy">
+          <div class="act__eyebrow">05 · OS</div>
+          <h2 class="act__title">Android 16,<br><em>fleet-ready from day one.</em></h2>
+          <div class="chipline"><span>Android 16</span><span>MDM ready</span><span>Work profiles</span></div>
+        </div>
+      </div>
+
+      <div class="dissolve" id="dissolve"></div>
+      <div class="cue" id="cue"><span></span>Scroll</div>
+
+    </div>
+  </section>
+
+<script>
+(function(){
+  var cine  = document.querySelector('.cine');
+  var acts  = [document.getElementById('act0'), document.getElementById('act1'), document.getElementById('act2'), document.getElementById('act3'), document.getElementById('act4')];
+  var navItems = document.querySelectorAll('.sidenav__item');
+  var railFill = document.getElementById('railFill');
+  var dissolve = document.getElementById('dissolve');
+  var cue = document.getElementById('cue');
+
+  // ---- Design act: real internal-parts rig -----------------------------
+  var rigWrap = document.getElementById('rigWrap');
+  var lFront = document.getElementById('lFront');
+  var lFrame = document.getElementById('lFrame');
+  var lBoard = document.getElementById('lBoard');
+  var lBattery = document.getElementById('lBattery');
+  var lCamera = document.getElementById('lCamera');
+  var lBack = document.getElementById('lBack');
+  var designStages = [0,1,2,3,4,5].map(function(i){ return document.getElementById('d'+i); });
+
+  var DESIGN_PARTS = [
+    { el:lFrame,   riseFrom:0.05, riseTo:0.21, y:-190, scale:.66 },
+    { el:lBoard,   riseFrom:0.21, riseTo:0.37, y:-70,  scale:.66 },
+    { el:lBattery, riseFrom:0.37, riseTo:0.53, y:50,   scale:.66 },
+    { el:lCamera,  riseFrom:0.51, riseTo:0.67, y:170,  scale:.62 },
+    { el:lBack,    riseFrom:0.65, riseTo:0.81, y:290,  scale:.60 }
+  ];
+
+  // ---- Imaging act: real camera parts, assembling like Design, with the
+  // same premium per-component side callouts as the standalone camera
+  // exploded-view prototype (ported in, recoloured for this white theme).
+  var cBack = document.getElementById('cBack');
+  var cBackImg = cBack.querySelector('img');
+  var cBackShowingFront = false;
+  var camPin = document.getElementById('camPin');
+  var cRing = document.getElementById('cRing');
+  var cWindow = document.getElementById('cWindow');
+  var cLens = document.getElementById('cLens');
+  var cSensor = document.getElementById('cSensor');
+  var cFlash = document.getElementById('cFlash');
+
+  // same accumulate/hold/reassemble timing as DESIGN_PARTS, offsets scaled
+  // down to what an upright layout actually has room for (Design's rig is
+  // rotated to landscape, so the same-looking offsets spread across the
+  // wide screen instead of running off the top/bottom of a portrait frame).
+  // lens stack comes in LAST (deepest/most-internal component revealed last,
+  // right before everything reassembles) - order below is the reveal order.
+  var CAM_PARTS = [
+    { el:cRing,   riseFrom:0.05, riseTo:0.21, y:-115, scale:.72,
+      name:'Camera Ring',   spec:'Weather-sealed bezel, first line of defence against dust and moisture.', side:'right' },
+    { el:cWindow, riseFrom:0.21, riseTo:0.37, y:-45,  scale:.75,
+      name:'Protective Glass', spec:'Scratch-resistant cover glass, sealed to the housing.', side:'left' },
+    { el:cSensor, riseFrom:0.37, riseTo:0.53, y:35,   scale:.62,
+      name:'Image Sensor',  spec:'50 MP · PDAF — larger sensor for improved low-light photography.', side:'right' },
+    { el:cFlash,  riseFrom:0.51, riseTo:0.67, y:105,  scale:.56,
+      name:'LED Flash',     spec:'Always ready, paired to the sensor for balanced exposure.', side:'left' },
+    { el:cLens,   riseFrom:0.65, riseTo:0.81, y:170,  scale:.85, isLens:true,
+      name:'Lens Stack',    spec:'Multi-element optics feeding the sensor below.', side:'right' }
+  ];
+
+  // mount one callout per part - config-driven, not hand-placed in the HTML
+  (function(){
+    var host = document.getElementById('act3');
+    CAM_PARTS.forEach(function(cfg, i){
+      var label = document.createElement('div');
+      label.className = 'cam-label cam-label--' + cfg.side;
+      label.innerHTML =
+        '<div class="cam-label__eyebrow">' + (i + 1) + ' / ' + CAM_PARTS.length + '</div>' +
+        '<h3 class="cam-label__title">' + cfg.name + '</h3>' +
+        '<p class="cam-label__spec">' + cfg.spec + '</p>';
+      host.appendChild(label);
+      cfg.labelEl = label;
+    });
+  })();
+
+  function updateCamLabels(dt){
+    var activeIdx = -1;
+    CAM_PARTS.forEach(function(cfg, i){ if (dt >= cfg.riseFrom) activeIdx = i; });
+    if (dt >= 0.90) activeIdx = -1; // reassembling - no callout
+    CAM_PARTS.forEach(function(cfg, i){
+      var active = i === activeIdx;
+      cfg.labelEl.style.opacity = active ? 1 : 0;
+      cfg.labelEl.style.transition = 'opacity .4s var(--ease)';
+    });
+  }
+
+  function lerpN(a,b,t){ return a + (b-a)*t; }
+  function mixToward(explodedVal, restVal, t){ return explodedVal + (restVal-explodedVal)*t; }
+
+  // shared by Design (front photo + internal parts) and Imaging (rear photo
+  // + camera parts) - same axis-explode / hold / reassemble timing, so both
+  // acts read as one consistent visual language.
+  function renderExplode(dt, baseEl, baseY, baseScale, parts, stages){
+    var collapse = ease(clamp01((dt-0.90)/0.095));
+    var baseProg = ease(clamp01(dt/0.16));
+    var by = mixToward(lerpN(0,baseY,baseProg), 0, collapse);
+    var bs = mixToward(lerpN(1,baseScale,baseProg), 1, collapse);
+    baseEl.style.opacity = 1;
+    baseEl.style.transform = 'translateY('+by.toFixed(2)+'px) scale('+bs.toFixed(3)+')';
+
+    parts.forEach(function(p){
+      var prog = ease(clamp01((dt-p.riseFrom)/(p.riseTo-p.riseFrom)));
+      var op = windowOp(dt, p.riseFrom, p.riseTo, 0.90, 0.985);
+      var y = mixToward(lerpN(0,p.y,prog), 0, collapse);
+      var sc = mixToward(lerpN(.92,p.scale,prog), .94, collapse);
+      p.el.style.opacity = op.toFixed(3);
+      p.el.style.transform = 'translateY('+y.toFixed(2)+'px) scale('+sc.toFixed(3)+')';
+    });
+
+    var stageIdx = Math.min(stages.length-1, Math.floor(dt*stages.length));
+    stages.forEach(function(el,i){
+      var active = i===stageIdx;
+      el.style.opacity = active ? 1 : 0;
+      el.style.transform = 'translateY(' + (active?0:14) + 'px)';
+      el.style.filter = active ? 'blur(0px)' : 'blur(5px)';
+      el.style.transition = 'opacity .4s var(--ease), transform .4s var(--ease), filter .4s var(--ease)';
+    });
+  }
+
+  // Imaging-specific: ring/window/sensor/flash accumulate exactly like
+  // renderExplode's parts do everywhere else, but they clear away together
+  // the moment the lens stack starts rising, instead of all lingering until
+  // the shared final collapse - so the lens stack gets to stand alone as
+  // the hero right before the housing closes back up around it. The lens
+  // stack itself still only falls at the shared collapse, same as before.
+  function renderImagingExplode(dt, baseEl, baseY, baseScale, parts){
+    var collapse = ease(clamp01((dt-0.90)/0.095));
+    var baseProg = ease(clamp01(dt/0.16));
+    var by = mixToward(lerpN(0,baseY,baseProg), 0, collapse);
+    var bs = mixToward(lerpN(1,baseScale,baseProg), 1, collapse);
+    baseEl.style.opacity = 1;
+    baseEl.style.transform = 'translateY('+by.toFixed(2)+'px) scale('+bs.toFixed(3)+')';
+
+    var lensCfg = parts.filter(function(p){ return p.isLens; })[0];
+
+    parts.forEach(function(p){
+      var prog = ease(clamp01((dt-p.riseFrom)/(p.riseTo-p.riseFrom)));
+      var fallFrom = p.isLens ? 0.90 : lensCfg.riseFrom;
+      var fallTo   = p.isLens ? 0.985 : lensCfg.riseTo;
+      var op = windowOp(dt, p.riseFrom, p.riseTo, fallFrom, fallTo);
+      var y = mixToward(lerpN(0,p.y,prog), 0, collapse);
+      var sc = mixToward(lerpN(.92,p.scale,prog), .94, collapse);
+      p.el.style.opacity = op.toFixed(3);
+      p.el.style.transform = 'translateY('+y.toFixed(2)+'px) scale('+sc.toFixed(3)+')';
+    });
+  }
+
+  var perfDevice = document.getElementById('perfDevice');
+  var perfHalo = document.getElementById('perfHalo');
+  var perfAmbient = document.getElementById('perfAmbient');
+  var perfZoom = document.getElementById('perfZoom');
+  var perfChipCopy = document.getElementById('perfChipCopy');
+  var chipMacro = document.querySelector('.chip-macro');
+  var perfDeviceImg = perfDevice.querySelector('img');
+  var FRONT_SRC = 'assets/phone/front.webp', BACK_SRC = 'assets/phone/back.webp';
+  var perfDeviceShowingBack = false;
+
+  var lens = [280, 540, 100, 280, 100];
+  var total = lens.reduce(function(a,b){ return a+b; }, 0);
+  var bounds = [0];
+  lens.forEach(function(l){ bounds.push(bounds[bounds.length-1] + l/total); });
+
+  function clamp01(v){ return v < 0 ? 0 : (v > 1 ? 1 : v); }
+  function ease(v){ var t = clamp01(v); return t * t * (3 - 2 * t); }
+
+  var target = 0, hp = 0;
+
+  function sample(){
+    var r = cine.getBoundingClientRect();
+    var range = r.height - window.innerHeight;
+    var p = range > 0 ? (-r.top) / range : 0;
+    target = clamp01(p);
+  }
+
+  function windowOp(pt, riseFrom, riseTo, fallFrom, fallTo){
+    var rise = riseTo > riseFrom ? ease((pt - riseFrom) / (riseTo - riseFrom)) : 1;
+    var fall = fallTo > fallFrom ? ease((pt - fallFrom) / (fallTo - fallFrom)) : 0;
+    return Math.min(rise, 1 - fall);
+  }
+
+  function render(){
+    railFill.style.height = (hp*100).toFixed(2) + '%';
+    cue.style.opacity = hp < 0.02 ? 1 : 0;
+
+    var activeIdx = 0;
+    for (var i = 0; i < 5; i++) {
+      if (hp >= bounds[i] && hp < bounds[i+1]) { activeIdx = i; break; }
+      if (hp >= bounds[5]) { activeIdx = 4; }
+    }
+
+    navItems.forEach(function(el, i){ el.classList.toggle('is-active', i === activeIdx); });
+
+    // capped, not full-strength: the dot dissolve used to be able to reach
+    // full opaque white right at each boundary, which combined with the
+    // hard act-swap below made it look like everything (the phone included)
+    // briefly vanished. Capping it means it's still a nice texture bridging
+    // the cut, but it never fully hides what's underneath.
+    var dissolveStrength = 0;
+    for (var j = 1; j < 5; j++) {
+      var d = Math.abs(hp - bounds[j]);
+      var s = ease(1 - d / 0.03);
+      if (s > dissolveStrength) dissolveStrength = s;
+    }
+    dissolve.style.opacity = (dissolveStrength * 0.5).toFixed(3);
+
+    // acts now generously OVERLAP at their shared boundary and are shown
+    // purely by their own fade value (no more hard "only one act visible"
+    // cut) - so as one act's phone is still fading out, the next act's
+    // phone is already fading in on top of it, and there's never a moment
+    // where nothing is on screen.
+    //
+    // Boundaries 0 (Design->Performance) and 1 (Performance->Display) both
+    // get a much smaller overlap than the rest, for the same reason: the
+    // act ending there has its own multi-step closing animation that only
+    // finishes right at that boundary - Design's parts reassemble and the
+    // rig un-rotates to portrait; Performance zooms back out and flips from
+    // the rear lens to the front photo. A big overlap made the next act's
+    // already-settled phone start fading in while the previous one's was
+    // still mid-motion (still diagonal, or still mid-flip edge-on) - two
+    // visibly different phones caught overlapping, not the two matched,
+    // aligned ones those closing animations were supposed to hand off
+    // between. The other boundaries keep the original overlap, since
+    // Display/Imaging/OS don't have a closing animation to wait out.
+    var EDGE = 0.05;
+    var OVERLAPS = [0.004, 0.004, 0.035, 0.035]; // one per boundary
+    var fade = [];
+    for (var k = 0; k < 5; k++) {
+      var fadeIn  = (k === 0) ? 1 : ease((hp - (bounds[k] - OVERLAPS[k-1])) / EDGE);
+      var fadeOut = (k === 4) ? 1 : ease(((bounds[k+1] + OVERLAPS[k]) - hp) / EDGE);
+      fade[k] = Math.min(fadeIn, fadeOut);
+      acts[k].style.opacity = fade[k].toFixed(3);
+      acts[k].style.pointerEvents = fade[k] > 0.5 ? 'auto' : 'none';
+      acts[k].style.transform = 'translateY(' + ((1-fade[k]) * 10).toFixed(2) + 'px)';
+    }
+
+    if (fade[0] > 0.001) {
+      var dt = clamp01(hp / bounds[1]);
+      renderExplode(dt, lFront, -330, .62, DESIGN_PARTS, designStages);
+
+      // once everything has reassembled, the whole rig turns from landscape
+      // back to portrait (same window as the reassemble collapse, so the
+      // phone visibly closes and turns as one continuous motion) - without
+      // this, Design's final frame was still landscape while Performance
+      // starts portrait, so the crossfade between them showed two
+      // differently-shaped phones overlapping instead of one continuous one.
+      var deRot = ease(clamp01((dt - 0.90) / 0.095));
+      rigWrap.style.transform = 'rotate(' + (90 * (1 - deRot)).toFixed(2) + 'deg)';
+    }
+
+    if (fade[3] > 0.001) {
+      // the explode/hold/reassemble sequence (CAM_PARTS' own timing, via
+      // renderExplode) is squeezed into the first 78% of this act's scroll.
+      // 0.78-0.86 pin-points the lens stack's real position on the now-
+      // reassembled housing. The remaining scroll is reserved for the rear
+      // housing rotating from back to front, handing into Display without
+      // a cut. dt3 stays what CAM_PARTS/renderExplode expect (0..1 over
+      // just the explode portion); dt3Full is the raw 0..1 over the WHOLE
+      // act, used only to gate the pin and the flip.
+      var EXPLODE_END = 0.78;
+      var PIN_END = 0.86;
+      var dt3Full = clamp01((hp - bounds[3]) / (bounds[4] - bounds[3]));
+      var dt3 = clamp01(dt3Full / EXPLODE_END);
+      renderImagingExplode(dt3, cBack, -160, .6, CAM_PARTS);
+      updateCamLabels(dt3);
+
+      var pinOp = windowOp(dt3Full, EXPLODE_END, EXPLODE_END + 0.03, PIN_END - 0.03, PIN_END);
+      camPin.style.opacity = pinOp.toFixed(3);
+
+      if (dt3Full > PIN_END) {
+        var flipLin = clamp01((dt3Full - PIN_END) / (1 - PIN_END));
+        var flipT = ease(flipLin);
+        var showFront = flipT >= 0.5;
+        if (showFront !== cBackShowingFront) {
+          cBackImg.src = showFront ? FRONT_SRC : BACK_SRC;
+          cBackShowingFront = showFront;
+        }
+        // overrides renderExplode's own (now-settled) transform for cBack -
+        // this runs after it, in the same frame, deliberately.
+        cBack.style.transform = 'rotateY(' + (flipT * 180).toFixed(2) + 'deg)';
+      } else if (cBackShowingFront) {
+        cBackImg.src = BACK_SRC;
+        cBackShowingFront = false;
+      }
+    }
+
+    var perfActive = (fade[1] > 0.001);
+    perfDevice.style.display = perfActive ? '' : 'none';
+    perfHalo.style.display = perfActive ? '' : 'none';
+    if (perfActive) {
+      // pt sweeps 0..1 across the whole Performance act. Every element here
+      // is centred purely by CSS (left:50%/top:50% + negative margin) - the
+      // transforms below deliberately never include translate(-50%,-50%)
+      // on top of that (the previous version did, which is exactly what
+      // made the phone drift up/down: a percentage translate composes with
+      // whatever rotation is already in the same transform list, so as the
+      // rotation angle changed every frame, that redundant translate swept
+      // the visible anchor point around in an arc instead of holding still).
+      //  0.00-0.26  rotate portrait -> landscape with a real 3D tumble
+      //             (rotateX/Y under perspective, not a flat rotateZ
+      //             "playing card" spin) while zooming in
+      //  0.20-0.42  keep flying into the screen, then hand straight off
+      //             to the real Snapdragon chip photo (no dot/grid step)
+      //  0.42-0.76  hold on the chip
+      //  0.78-0.88  zoom back OUT: device fades back in already landscape
+      //             and huge, shrinks back to ~1x first (scale settles
+      //             before any 3D tilt, to avoid perspective drift)
+      //  0.86-0.95  tumbles back to portrait
+      //  0.95-1.00  flips to the rear photo - handing straight into Imaging
+      var pt = clamp01((hp - bounds[1]) / (bounds[2] - bounds[1]));
+
+      var rotT    = ease(pt / 0.26);
+      var tumbleIn = Math.sin(rotT * Math.PI); // 0 -> peak mid-turn -> 0, the "dynamic" 3D wobble
+      var growA   = rotT * 1.3;
+      var growB   = ease(clamp01((pt - 0.20) / 0.20)) * 4.6;
+      var devScale = 1 + growA + growB;
+      var entryOp = 1 - ease(clamp01((pt - 0.34) / 0.08));
+      var copyOp  = 1 - ease(clamp01((pt - 0.10) / 0.10));
+
+      perfAmbient.style.opacity = copyOp.toFixed(3);
+      perfAmbient.style.transform = 'translateY(' + ((1 - copyOp) * -10).toFixed(2) + 'px)';
+
+      var zoomIn  = ease(clamp01((pt - 0.34) / 0.10));
+      var zoomOut = ease(clamp01((pt - 0.76) / 0.08));
+      var zoomOp  = Math.min(zoomIn, 1 - zoomOut);
+      perfZoom.style.opacity = zoomOp.toFixed(3);
+
+      var chipCopyOp = windowOp(pt, 0.44, 0.54, 0.68, 0.76);
+      perfChipCopy.style.opacity = chipCopyOp.toFixed(3);
+      perfChipCopy.style.transform = 'translateX(-50%) translateY(' + ((1 - chipCopyOp) * 10).toFixed(2) + 'px)';
+
+      // once the caption starts appearing, shrink + lift the chip photo so
+      // the two never occupy the same vertical space.
+      var chipBaseScale = 0.4 + zoomIn * 0.6;
+      var chipShrink = chipBaseScale * (1 - chipCopyOp * 0.35);
+      var chipLift = chipCopyOp * 90;
+      chipMacro.style.transform = 'translateY(' + (-chipLift).toFixed(2) + 'px) scale(' + chipShrink.toFixed(3) + ')';
+
+      // ---- zoom back out, portrait, flip to the rear lens -----------------
+      var retRise = ease(clamp01((pt - 0.78) / 0.10));
+      var finalOp = Math.max(entryOp, retRise);
+      perfDevice.style.opacity = finalOp.toFixed(3);
+      perfHalo.style.opacity = (0.5 + finalOp * 0.5).toFixed(3);
+
+      if (pt < 0.60) {
+        perfDevice.style.transform =
+          'rotateX(' + (tumbleIn * 16).toFixed(2) + 'deg) ' +
+          'rotateY(' + (tumbleIn * -24).toFixed(2) + 'deg) ' +
+          'rotateZ(' + (rotT * 90).toFixed(2) + 'deg) ' +
+          'scale(' + devScale.toFixed(3) + ')';
+      } else {
+        // scale settles back to 1x FIRST (0.78-0.88), then the tumble +
+        // un-rotate happens afterwards (0.86-0.95) once the element is back
+        // near its natural size - perspective foreshortening is much more
+        // pronounced on a heavily-scaled-up element, so doing the 3D tilt
+        // while still huge is what was reintroducing visible drift.
+        var retScaleT = ease(clamp01((pt - 0.78) / 0.10));
+        var retScale  = 5 - retScaleT * 4;
+        var retLin    = clamp01((pt - 0.86) / 0.09);
+        var retZ      = ease(retLin);                    // 90deg -> 0deg, landscape to portrait
+        var tumbleOut = Math.sin(retLin * Math.PI);       // same wobble, on the way back
+        var flipT = ease(clamp01((pt - 0.95) / 0.05));   // 0deg -> 180deg, front to back
+        var showBack = flipT >= 0.5;
+        if (showBack !== perfDeviceShowingBack) {
+          perfDeviceImg.src = showBack ? BACK_SRC : FRONT_SRC;
+          perfDeviceShowingBack = showBack;
+        }
+        perfDevice.style.transform =
+          'rotateX(' + (tumbleOut * 14).toFixed(2) + 'deg) ' +
+          'rotateY(' + (tumbleOut * -18 + flipT * 180).toFixed(2) + 'deg) ' +
+          'rotateZ(' + ((1 - retZ) * 90).toFixed(2) + 'deg) ' +
+          'scale(' + retScale.toFixed(3) + ')';
+      }
+    } else {
+      perfAmbient.style.opacity = 0;
+      perfZoom.style.opacity = 0;
+      perfChipCopy.style.opacity = 0;
+      if (perfDeviceShowingBack) { perfDeviceImg.src = FRONT_SRC; perfDeviceShowingBack = false; }
+    }
+  }
+
+  var raf = 0, running = false, EASE = 0.09;
+  function frame(){
+    sample();
+    var d = target - hp;
+    hp = Math.abs(d) < 0.0005 ? target : hp + d * EASE;
+    render();
+    if (running) { raf = requestAnimationFrame(frame); }
+  }
+  function start(){ if (running) return; running = true; raf = requestAnimationFrame(frame); }
+  function stop(){ running = false; if (raf) cancelAnimationFrame(raf); raf = 0; }
+
+  window.addEventListener('scroll', function(){ if (!running) { sample(); hp = target; render(); } }, { passive:true });
+  window.addEventListener('resize', function(){ sample(); render(); });
+
+  var qs = new URLSearchParams(location.search);
+  if (qs.has('hp')) {
+    document.documentElement.classList.add('is-debug');
+    var v = clamp01(parseFloat(qs.get('hp')));
+    target = v; hp = v; render();
+  } else {
+    sample(); hp = target; render();
+    start();
+  }
+})();
+</script>
+</body>
+</html>

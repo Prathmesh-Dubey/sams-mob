@@ -1,0 +1,78 @@
+/* ===========================================================================
+   MOTION — modelled on the reference's timing.
+
+   The reference runs 0.24s and 0.32s on cubic-bezier(.4, 0, .6, 1), a
+   symmetric ease-in-out. Smooth there means *well-eased and jank-free*, not
+   slow: long fades read as lag, not polish. This reverses the 1.15s reveals
+   from the earlier pass.
+   =========================================================================== */
+
+/* --- reveals ----------------------------------------------------------
+   Short travel, quick settle, generous stagger. The eye reads the stagger
+   as rhythm; it does not need each item to take a second. */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+}
+.js [data-reveal].is-in {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition:
+    opacity   .6s var(--ease),
+    transform .6s var(--ease);
+}
+
+/* --- hover: fast, never sticky ---------------------------------------- */
+.spec, .view, .country, .sector, .cert-card {
+  transition:
+    border-color var(--t-base) var(--ease),
+    background-color var(--t-base) var(--ease),
+    transform var(--t-base) var(--ease);
+  transform: translate3d(0, 0, 0);
+}
+.spec:hover, .view:hover, .country:hover, .cert-card:hover {
+  transform: translate3d(0, -4px, 0);
+  border-color: var(--accent-70) !important;
+}
+.sector:hover { padding-left: 16px; }
+
+.nav a, .nav__logo, footer a, .hx__dot, .hx__pause {
+  transition: color var(--t-fast) var(--ease),
+              opacity var(--t-fast) var(--ease),
+              background-color var(--t-fast) var(--ease),
+              border-color var(--t-fast) var(--ease);
+}
+
+/* --- the rotator's camera move ---------------------------------------- */
+.hx__device {
+  transition: transform .42s var(--ease), filter .42s var(--ease);
+}
+.hx__device.is-swapping { transform: translate3d(0, 10px, 0) scale(.945); }
+.hx__device img { transition: opacity .26s linear; }
+.hx__index, .hx__label, .hx__desc {
+  transition: opacity .26s var(--ease), transform .26s var(--ease);
+}
+
+/* --- compositor hygiene ----------------------------------------------
+   will-change is applied narrowly — the reference uses it on 31 elements
+   out of 5,313. Promoting everything costs memory and can make scrolling
+   worse, not better. */
+.hx__device, .hero__stage, .nav { will-change: transform; }
+[data-reveal] { will-change: auto; }
+[data-reveal]:not(.is-in) { will-change: opacity, transform; }
+
+/* Kill the inherited slow curves from the earlier pass. */
+.js [data-reveal].is-in,
+.turntable, .hud-stage, .hud-panel {
+  transition-timing-function: var(--ease) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal], .js [data-reveal].is-in,
+  .spec, .view, .country, .sector, .cert-card,
+  .hx__device, .hx__device img, .hx__index, .hx__label, .hx__desc {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

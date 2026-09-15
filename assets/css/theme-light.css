@@ -1,0 +1,166 @@
+/* ===========================================================================
+   SAMS Mobile — LIGHT THEME
+   Loaded after v3.css. Overrides only: no layout, type or component changes.
+
+   Palette keeps the brand's two colours and re-roles them:
+     navy-black #050810  ->  becomes the TEXT colour, not the background
+     steel blue #3B82C6  ->  deepened to #1E6FD9 so it passes contrast on light
+   =========================================================================== */
+
+:root {
+  /* --- surfaces --------------------------------------------------------
+     Not pure white. A cool paper tone reads as engineered rather than blank,
+     and stops large areas glaring. */
+  --bg:        #F4F7FB;   /* paper            */
+  --bg-alt:    #E9EEF6;   /* alternating band */
+  --panel-a:   rgba(255, 255, 255, .96);
+  --panel-b:   rgba(244, 247, 251, .98);
+
+  /* --- ink -------------------------------------------------------------
+     Deliberately NOT a straight inversion. On dark, white at 35% is legible;
+     on light, black at 35% is a ghost. Every step is raised so the visual
+     weight matches the dark theme instead of looking washed out. */
+  --fg:        #0B1220;                  /* was #fff  */
+  --fg-70:     rgba(11, 18, 32, .74);    /* was .70   */
+  --fg-55:     rgba(11, 18, 32, .64);    /* was .55   */
+  --fg-50:     rgba(11, 18, 32, .60);
+  --fg-45:     rgba(11, 18, 32, .56);
+  --fg-40:     rgba(11, 18, 32, .52);
+  --fg-35:     rgba(11, 18, 32, .48);
+  --fg-30:     rgba(11, 18, 32, .44);
+
+  --line:      rgba(11, 18, 32, .14);
+  --line-soft: rgba(11, 18, 32, .09);
+
+  /* --- accent ----------------------------------------------------------
+     #3B82C6 on paper is only ~3.4:1 — fails AA for body text. Deepened for
+     text and borders; the original stays for large fills and graphics. */
+  --accent:      #1E6FD9;
+  --accent-deep: #14539F;
+  --accent-15: rgba(30, 111, 217, .10);
+  --accent-25: rgba(30, 111, 217, .18);
+  --accent-30: rgba(30, 111, 217, .24);
+  --accent-70: rgba(30, 111, 217, .62);
+
+  --ok: #0E9F6E;   /* #34d399 is too pale on white */
+}
+
+/* --- background photographs ------------------------------------------
+   bg-main and bg-cert are dark industrial plates with no alpha. Rather than
+   replace them, they're lifted and desaturated into a faint texture so the
+   page stays light. The product shots need no treatment: they already carry
+   alpha channels, so they sit on paper cleanly. */
+.hero__bg,
+.certs__bg {
+  opacity: .13 !important;
+  filter: grayscale(.4) brightness(1.45) contrast(.82);
+}
+.hero__stage::after,
+.certs::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background: linear-gradient(180deg, rgba(244,247,251,.55), rgba(244,247,251,.88));
+}
+.hero__copy, .hero__cta, .hud-stage, .hud-panel, .certs__stack { position: relative; z-index: 2; }
+
+/* --- dark surface fills -> light -------------------------------------- */
+.nav                       { background: rgba(255, 255, 255, .88) !important; backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+.nav__drawer, .drawer      { background: rgba(255, 255, 255, .98) !important; }
+.hero__scrim               { background: linear-gradient(rgba(244,247,251,.85), rgba(244,247,251,0)) !important; }
+.hero__vignette            { background: radial-gradient(ellipse 60% 70% at 50% 60%, rgba(244,247,251,.08), rgba(244,247,251,.92)) !important; }
+.hud-stage, .hud-panel     { background: rgba(255, 255, 255, .86) !important; border-color: var(--line); box-shadow: 0 6px 24px rgba(11,18,32,.07); }
+.ticker                    { background: rgba(255, 255, 255, .9) !important; border-top-color: var(--line); }
+.rail, .rail__inner        { background: var(--bg-alt) !important; }
+.cert-card, .form, .spec, .view, .country, .perk {
+  background: linear-gradient(160deg, rgba(255,255,255,.98), rgba(244,247,251,.96)) !important;
+  box-shadow: 0 4px 18px rgba(11, 18, 32, .06);
+}
+.cert-card                 { box-shadow: 0 -10px 40px rgba(11, 18, 32, .05), 0 6px 22px rgba(11,18,32,.06); }
+footer                     { background: var(--bg-alt); border-top: 1px solid var(--line); }
+
+/* --- buttons ---------------------------------------------------------- */
+.btn--solid { background: var(--accent); color: #fff; border-color: var(--accent); }
+.btn--solid:hover { background: var(--accent-deep); border-color: var(--accent-deep); }
+.btn:not(.btn--solid) { color: var(--fg); border-color: var(--accent-70); }
+.btn:not(.btn--solid):hover { background: var(--accent-15); }
+
+/* --- glows read as dirt on light; soften them ------------------------- */
+.dot, .hud-stage__state .dot { box-shadow: none !important; }
+.reach__glow { background: radial-gradient(circle, rgba(30,111,217,.07), transparent 58%) !important; }
+.hero__glow  { background: radial-gradient(circle, rgba(30,111,217,.14), transparent 65%) !important; }
+
+/* --- selection + focus ------------------------------------------------ */
+::selection { background: rgba(30, 111, 217, .18); color: var(--fg); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* --- form fields ------------------------------------------------------ */
+.form input, .form select, .form textarea {
+  background: #fff; color: var(--fg); border: 1px solid var(--line);
+}
+.form input::placeholder, .form textarea::placeholder { color: var(--fg-40); }
+
+/* ===========================================================================
+   PASS 2 — fixing the washed-out look
+   =========================================================================== */
+
+/* --- 1. the dark scrim over the certs column --------------------------
+   .certs__fade hardcodes rgba(5,8,16,.5) across the middle 40% of the
+   section. On paper that greys out the heading and lede while the cards,
+   which carry their own background, stay crisp — hence the mismatch. */
+.certs__fade {
+  background: linear-gradient(
+    var(--bg),
+    rgba(244, 247, 251, .10) 30%,
+    rgba(244, 247, 251, .10) 70%,
+    var(--bg)) !important;
+}
+.certs__inner, .certs__intro { position: relative; z-index: 3; }
+
+/* --- 2. background plates: less grey, more air ------------------------ */
+.hero__bg, .certs__bg {
+  opacity: .09 !important;
+  filter: grayscale(.55) brightness(1.6) contrast(.75);
+}
+
+/* --- 3. the device ----------------------------------------------------
+   The shot is lit for a dark ground, so on paper it reads flat. A contrast
+   and saturation lift restores the punch, and the shadow is rebuilt: the
+   original 0 60px 80px black at 70% is a smudge on white. Two tighter
+   shadows ground the product instead. */
+.turntable {
+  filter:
+    drop-shadow(0 28px 44px rgba(11, 18, 32, .20))
+    drop-shadow(0 6px 12px rgba(11, 18, 32, .10))
+    blur(calc(var(--depth) * 4px))
+    brightness(calc(1 - var(--depth) * .22)) !important;
+}
+.turntable img,
+.view img, .chero__device > img {
+  filter: contrast(1.14) saturate(1.20) brightness(.96);
+}
+
+/* the product-section hero shot sits on a dark plate, so leave it alone */
+.product__stage .turntable img { filter: none; }
+
+/* --- 4. pale chips and tags ------------------------------------------
+   rgba(59,130,198,.6) text on a .08 tint is invisible on paper. */
+.chip, .tag, .spec__chip, .cert-card__mark {
+  background: rgba(30, 111, 217, .10) !important;
+  border-color: rgba(30, 111, 217, .28) !important;
+  color: #14539F !important;
+}
+
+/* --- 5. eyebrows and mono labels -------------------------------------- */
+.eyebrow, .certs__intro .eyebrow, .hero__meta { color: var(--accent) !important; }
+.hero__meta i { color: rgba(30, 111, 217, .75) !important; }
+
+/* --- 6. accent spans inside headings ---------------------------------- */
+h1 .accent, h2 .accent, h3 .accent { color: var(--accent) !important; }
+
+/* --- 7. the giant ghost wordmark -------------------------------------- */
+.hero__word { -webkit-text-stroke: 1px rgba(30, 111, 217, .13) !important; }
+
+/* --- 8. footer legibility --------------------------------------------
+   Footer links were inheriting the lightest ink steps. */
+footer a { color: var(--fg-70) !important; }
+footer a:hover { color: var(--accent) !important; }
+footer .footer__col h2, footer nav[aria-label] { color: var(--accent) !important; }

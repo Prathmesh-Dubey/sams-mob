@@ -1,0 +1,273 @@
+
+    /* Scoped under #cc-embed so nothing here can leak out to the rest of
+       the site, and nothing from the site's own stylesheets (which reuse
+       generic names like --bg-panel, --ease, --display, --mono at :root)
+       can leak in. Every custom property is renamed --cc-*, and the
+       universal reset + every rule is qualified under #cc-embed. */
+    #cc-embed{
+      --cc-bg:#ffffff; --cc-bg-panel:#f4f6f9;
+      --cc-ink:#0a0a0a; --cc-ink-70:rgba(10,10,10,.74); --cc-ink-45:rgba(10,10,10,.50); --cc-ink-25:rgba(10,10,10,.40);
+      --cc-line:rgba(10,10,10,.14);
+      --cc-accent:#1e6fd9; --cc-accent-2:#3b82c6; --cc-accent-soft:rgba(30,111,217,.10);
+      --cc-mono:'JetBrains Mono', monospace;
+      --cc-display:'Space Grotesk','Inter',sans-serif;
+      --cc-sans:'Inter',sans-serif;
+      --cc-ease:cubic-bezier(.22,.61,.36,1);
+      font-family:var(--cc-sans); color:var(--cc-ink); background:var(--cc-bg);
+      -webkit-font-smoothing:antialiased; position:relative; overflow-x:clip;
+    }
+    #cc-embed, #cc-embed *{ box-sizing:border-box; }
+    #cc-embed .cc-eyebrow-wrap{ padding:64px 64px 0; max-width:1180px; margin:0 auto; }
+
+    /* ===================================================== CINEMA SHELL == */
+    #cc-embed .cine{ position:relative; height:600vh; background:var(--cc-bg); }
+    html.is-debug #cc-embed .cine{ height:100vh !important; }
+    html.is-debug #cc-embed .cine__stage{ position:relative !important; }
+    #cc-embed .cine__stage{
+      position:sticky; top:0; height:100vh; overflow:hidden;
+      background: radial-gradient(120% 85% at 50% 34%, var(--cc-bg-panel) 0%, var(--cc-bg) 60%);
+    }
+
+    /* --------------------------------------------------------- sidebar -- */
+    #cc-embed .sidenav{
+      position:absolute; left:64px; top:50%; transform:translateY(-50%); z-index:10;
+      display:flex; flex-direction:column; gap:34px;
+    }
+    #cc-embed .sidenav__item{ display:flex; flex-direction:column; gap:10px; }
+    #cc-embed .sidenav__label{
+      font-family:var(--cc-sans); font-weight:500; font-size:14px; color:var(--cc-ink-25);
+      transition:color .5s var(--cc-ease), font-weight .3s var(--cc-ease);
+    }
+    #cc-embed .sidenav__tick{
+      width:1px; height:26px; background:var(--cc-line);
+      transition:background .5s var(--cc-ease), box-shadow .5s var(--cc-ease);
+    }
+    #cc-embed .sidenav__item.is-active .sidenav__label{ color:var(--cc-ink); font-weight:700; }
+    #cc-embed .sidenav__item.is-active .sidenav__tick{ background:var(--cc-accent); box-shadow:0 0 10px rgba(30,111,217,.45); }
+
+    #cc-embed .cine__brand{
+      position:absolute; top:36px; left:64px; z-index:10;
+      font-family:var(--cc-display); font-weight:700; font-size:15px; letter-spacing:.02em; color:var(--cc-ink);
+    }
+    #cc-embed .cine__brand b{ color:var(--cc-accent); }
+    #cc-embed .cine__brand span{
+      display:block; margin-top:4px; font-family:var(--cc-mono); font-weight:400; font-size:10px;
+      letter-spacing:.22em; text-transform:uppercase; color:var(--cc-ink-25);
+    }
+
+    #cc-embed .cc-rail{ position:absolute; right:40px; top:50%; transform:translateY(-50%); width:2px; height:220px; background:var(--cc-line); z-index:10; }
+    #cc-embed .cc-rail__fill{ position:absolute; left:0; top:0; width:100%; height:0%; background:var(--cc-accent); box-shadow:0 0 10px rgba(30,111,217,.4); transition:height .1s linear; }
+
+    /* ------------------------------------------------------------ acts -- */
+    #cc-embed .act{ position:absolute; inset:0; will-change:opacity, transform; }
+
+    #cc-embed .device-wrap{
+      position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+      width:clamp(125px, 11vw, 150px); text-align:center;
+    }
+    #cc-embed .device-wrap img{ width:100%; display:block; filter:drop-shadow(0 30px 46px rgba(13,20,32,.20)); }
+    #cc-embed .device-halo{
+      position:absolute; left:50%; top:50%; width:480px; height:480px; transform:translate(-50%,-50%);
+      border-radius:50%; pointer-events:none; z-index:-1;
+    }
+
+    #cc-embed .act__copy{ position:absolute; left:50%; bottom:68px; transform:translateX(-50%); text-align:center; width:min(620px,82vw); }
+    #cc-embed .act__eyebrow{
+      font-family:var(--cc-mono); font-size:11px; letter-spacing:.26em; text-transform:uppercase; color:var(--cc-accent);
+      margin-bottom:14px;
+    }
+    #cc-embed .act__title{ font-family:var(--cc-display); font-weight:700; font-size:clamp(28px,3.6vw,42px); line-height:1.1; letter-spacing:-.01em; text-wrap:balance; }
+    #cc-embed .act__title em{ font-style:normal; color:var(--cc-accent); }
+    #cc-embed .act__desc{ margin-top:14px; font-size:14px; line-height:1.6; color:var(--cc-ink-45); }
+    #cc-embed .chipline{ margin-top:20px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+    #cc-embed .chipline span{
+      font-family:var(--cc-mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--cc-ink-70);
+      border:1px solid var(--cc-line); padding:6px 12px; border-radius:20px; background:#fff;
+    }
+
+    /* ------------------------------------------------------- dot dissolve */
+    #cc-embed .dissolve{
+      position:absolute; inset:-4% ; z-index:15; pointer-events:none;
+      background-image: radial-gradient(rgba(10,10,10,.5) 1.3px, transparent 1.4px);
+      background-size: 13px 13px;
+      opacity:0;
+      -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 0%, #000 70%, transparent 100%);
+              mask-image: radial-gradient(circle at 50% 50%, #000 0%, #000 70%, transparent 100%);
+    }
+
+    /* ============================================================ ACT 0 - Design */
+    #cc-embed .act--design .device-halo{ background: radial-gradient(circle, rgba(30,111,217,.10), transparent 68%); }
+
+    #cc-embed .rig-wrap{
+      position:absolute; left:50%; top:50%; width:220px; height:454px;
+      margin-left:-110px; margin-top:-227px;
+      transform:rotate(90deg); transform-origin:50% 50%; will-change:transform;
+    }
+    #cc-embed .rig{ position:absolute; left:0; top:50%; width:100%; margin-top:-227px; }
+    #cc-embed .rig__axis{
+      position:absolute; left:50%; top:-260px; bottom:-260px; width:1px;
+      background:linear-gradient(var(--cc-line), rgba(30,111,217,.35), var(--cc-line));
+      z-index:1;
+    }
+    #cc-embed .rig .layer{ position:absolute; left:0; top:0; width:100%; will-change:transform, opacity; }
+    #cc-embed .rig .layer img{ width:100%; display:block; }
+    #cc-embed .rig .layer--photo img{ filter:drop-shadow(0 24px 40px rgba(13,20,32,.22)); }
+    #cc-embed .rig .layer--part img{ filter:drop-shadow(0 16px 28px rgba(13,20,32,.18)); }
+
+    #cc-embed .design-copy{ position:relative; height:235px; }
+    #cc-embed .design-copy .act__desc{ margin-top:10px; font-size:13px; line-height:1.5; }
+    #cc-embed .dstage{ position:absolute; inset:0; }
+
+    #cc-embed .perf-chip-copy{ position:absolute; left:50%; bottom:32px; transform:translateX(-50%); text-align:center; width:min(560px,80vw); opacity:0; }
+    #cc-embed .perf-chip-copy .act__title{ font-size:clamp(22px,2.6vw,32px); }
+
+    /* ============================================================ ACT 1 - Performance */
+    #cc-embed .perf-phase{ position:absolute; inset:0; will-change:opacity, transform; }
+    #cc-embed .act--performance{ perspective:1400px; }
+
+    #cc-embed .perf-device{
+      position:absolute; left:50%; top:50%; width:220px; margin-left:-110px; margin-top:-190px;
+      transform-origin:50% 50%; will-change:transform, opacity;
+    }
+    #cc-embed .perf-device img{ width:100%; display:block; filter:drop-shadow(0 30px 50px rgba(13,20,32,.22)); }
+    #cc-embed .perf-device-halo{
+      position:absolute; left:50%; top:50%; width:640px; height:640px; transform:translate(-50%,-50%);
+      border-radius:50%; pointer-events:none; z-index:-1;
+      background: radial-gradient(circle, rgba(30,111,217,.14), transparent 66%);
+    }
+
+    #cc-embed .perf-zoom{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); display:flex; align-items:center; justify-content:center; }
+    #cc-embed .chip-macro{
+      position:relative; width:min(460px,64vw); aspect-ratio:1; border-radius:36px; overflow:hidden; will-change:transform;
+      background: #0b1420;
+      box-shadow: 0 40px 80px rgba(13,20,32,.22), 0 0 0 1px rgba(13,20,32,.06);
+    }
+    #cc-embed .chip-macro img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    #cc-embed .chip-macro::after{
+      content:""; position:absolute; inset:0; z-index:1; border-radius:inherit;
+      box-shadow:inset 0 0 0 1px rgba(111,179,255,.3), inset 0 0 70px rgba(0,0,0,.35);
+    }
+
+    /* ============================================================ ACT 2 - Display */
+    #cc-embed .act--display .device-halo{ background: radial-gradient(circle, rgba(30,111,217,.12), transparent 66%); }
+    #cc-embed .act--display{ perspective:1400px; }
+
+    #cc-embed .disp-rig{
+      position:absolute; left:50%; top:50%; width:240px; height:320px;
+      margin-left:-120px; margin-top:-160px;
+      transform-style:preserve-3d; will-change:transform;
+    }
+    /* every part gets the SAME bounding box (not just the same width) and
+       object-fit:contain inside it - the knolled source art crops each part
+       to a slightly different aspect ratio, so matching width alone left
+       the housing rendering short/square next to the taller screen parts,
+       making it look like it had shrunk away underneath them. */
+    #cc-embed .disp-rig .layer{ position:absolute; left:0; top:0; width:100%; height:100%; will-change:transform, opacity; }
+    #cc-embed .disp-rig .layer img{ width:100%; height:100%; object-fit:contain; display:block; }
+    #cc-embed .disp-rig .layer--photo img{ filter:drop-shadow(0 24px 40px rgba(13,20,32,.22)); }
+    #cc-embed .disp-rig .layer--part img{ filter:drop-shadow(0 14px 24px rgba(13,20,32,.16)); }
+
+    /* ============================================================ ACT 3 - Imaging */
+    #cc-embed .act--imaging .device-halo{ background: radial-gradient(circle, rgba(120,90,210,.12), transparent 66%); }
+    #cc-embed .act--imaging{ perspective:1400px; }
+
+    #cc-embed .cam-rig{ position:absolute; left:50%; top:50%; width:210px; margin-left:-105px; margin-top:-190px; }
+    #cc-embed .cam-rig .layer{ position:absolute; left:0; top:0; width:100%; will-change:transform, opacity; }
+    #cc-embed .cam-rig .layer img{ width:100%; display:block; }
+    #cc-embed .cam-rig .layer--photo img{ filter:drop-shadow(0 24px 40px rgba(13,20,32,.22)); }
+    #cc-embed .cam-rig .layer--part img{ filter:drop-shadow(0 16px 28px rgba(13,20,32,.18)); }
+
+    #cc-embed .cam-pin{
+      position:absolute; left:calc(50% - 42px); top:calc(50% - 132px); z-index:7;
+      opacity:0; will-change:opacity; pointer-events:none;
+    }
+    #cc-embed .cam-pin__dot{
+      position:absolute; left:-4px; top:-4px; width:8px; height:8px; border-radius:50%;
+      background:var(--cc-accent); box-shadow:0 0 0 5px rgba(30,111,217,.16);
+    }
+    #cc-embed .cam-pin__line{ position:absolute; left:4px; top:0; width:176px; height:1px; background:var(--cc-line); }
+    #cc-embed .cam-pin__label{
+      position:absolute; left:184px; top:-11px; width:190px;
+      font-family:var(--cc-mono); font-size:10.5px; letter-spacing:.06em; line-height:1.5; color:var(--cc-ink-45);
+    }
+    #cc-embed .cam-pin__label b{
+      display:block; margin-bottom:3px; font-family:var(--cc-display); font-weight:700; font-size:13px;
+      letter-spacing:0; color:var(--cc-ink);
+    }
+
+    #cc-embed .cam-label{
+      position:absolute; top:50%; width:min(230px,26vw); transform:translateY(-50%);
+      opacity:0; will-change:opacity, transform; z-index:6; pointer-events:none;
+    }
+    #cc-embed .cam-label--right{ left:calc(50% + 150px); text-align:left; }
+    #cc-embed .cam-label--left{ right:calc(50% + 150px); text-align:right; }
+    #cc-embed .cam-label__eyebrow{
+      font-family:var(--cc-mono); font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--cc-accent);
+      margin-bottom:8px;
+    }
+    #cc-embed .cam-label__title{ font-family:var(--cc-display); font-weight:700; font-size:18px; line-height:1.22; color:var(--cc-ink); }
+    #cc-embed .cam-label__spec{ margin-top:6px; font-size:12.5px; line-height:1.55; color:var(--cc-ink-45); }
+    /* One wrapper per act around the rig(s). The rigs' geometry is all
+       fixed px (and the explode offsets are px constants in the JS), so on
+       small screens the whole rig is scaled as a unit here instead of
+       re-deriving every size. Desktop is scale(1) - no change. preserve-3d
+       keeps the act's perspective reaching the rotated rigs inside. */
+    #cc-embed .rig-scale{
+      position:absolute; inset:0; transform-style:preserve-3d;
+      transform:translateY(var(--cc-rig-lift, 0px)) scale(var(--cc-rig-scale, 1));
+      transform-origin:50% 50%;
+    }
+
+    @media (max-width: 900px){
+      #cc-embed{ --cc-rig-scale:.62; --cc-rig-lift:-8vh; }
+      #cc-embed .cc-eyebrow-wrap{ padding:32px 20px 0; }
+      #cc-embed .cine__brand, #cc-embed .cc-rail{ display:none; }
+      /* the vertical side rail becomes a horizontal row under the site nav */
+      #cc-embed .sidenav{
+        left:16px; right:16px; top:88px; transform:none;
+        flex-direction:row; justify-content:space-between; gap:6px;
+      }
+      #cc-embed .sidenav__item{ flex:1 1 0; align-items:center; gap:6px; min-width:0; }
+      #cc-embed .sidenav__label{ font-size:11px; letter-spacing:.01em; white-space:nowrap; }
+      #cc-embed .sidenav__tick{ width:100%; height:2px; }
+      #cc-embed .act__copy{ bottom:28px; width:calc(100% - 40px); }
+      #cc-embed .act__title{ font-size:clamp(22px, 6.4vw, 30px); }
+      #cc-embed .act__desc{ font-size:13px; margin-top:10px; }
+      #cc-embed .design-copy{ height:200px; }
+      #cc-embed .chipline{ margin-top:12px; gap:6px; }
+      #cc-embed .chipline span{ padding:5px 9px; font-size:9px; }
+      #cc-embed .perf-chip-copy{ bottom:20px; width:calc(100% - 40px); }
+      #cc-embed .perf-chip-copy .act__title{ font-size:20px; }
+      #cc-embed .cam-label, #cc-embed .cam-pin{ display:none; }
+      #cc-embed .stagegrid{ background-size:40px 40px; }
+      #cc-embed .cue{ bottom:10px; }
+    }
+    @media (max-width: 480px){
+      #cc-embed{ --cc-rig-scale:.5; --cc-rig-lift:-9vh; }
+    }
+
+    /* ============================================================ ACT 4 - OS */
+    #cc-embed .act--os .device-halo{ background: radial-gradient(circle, rgba(40,170,140,.11), transparent 66%); }
+
+    #cc-embed .stagegrid{
+      position:absolute; inset:0; z-index:1; pointer-events:none;
+      background-image:
+        linear-gradient(rgba(10,10,10,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(10,10,10,.045) 1px, transparent 1px);
+      background-size:64px 64px;
+      -webkit-mask-image: radial-gradient(ellipse 75% 70% at 50% 40%, #000 25%, transparent 78%);
+              mask-image: radial-gradient(ellipse 75% 70% at 50% 40%, #000 25%, transparent 78%);
+    }
+
+    #cc-embed .cue{
+      position:absolute; left:50%; bottom:24px; transform:translateX(-50%); z-index:10;
+      font-family:var(--cc-mono); font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--cc-ink-25);
+      display:flex; align-items:center; gap:10px; transition:opacity .5s var(--cc-ease);
+    }
+    #cc-embed .cue span{ width:26px; height:1px; background:var(--cc-line); display:block; }
+
+    @media (prefers-reduced-motion: reduce){
+      #cc-embed .act, #cc-embed .perf-phase, #cc-embed .chip-macro,
+      #cc-embed .sidenav__label, #cc-embed .sidenav__tick, #cc-embed .cue{ transition:none !important; }
+    }
+  

@@ -1,0 +1,433 @@
+.ticker__label { color: var(--accent) !important; }
+
+/* ===========================================================================
+   CERTIFICATION JOURNEY — scroll-driven horizontal storytelling
+
+   The section owns a tall runway; a 100vh stage sticks inside it; the card
+   track translates left as the page scrolls down, so vertical scroll IS the
+   horizontal movement. certs.js measures the track and writes the runway's
+   height so one pixel of scroll equals one pixel of travel - the cards move
+   with the finger rather than at some invented multiple of it.
+
+   Only the transform and opacity of the track and the six cards are animated,
+   so every frame stays on the compositor. All geometry is cached in JS and
+   re-measured on resize, never in the frame loop.
+
+   Namespaced .cx* - the old .certs/.cert-card rules in the shared stylesheets
+   are still used by index.html, index-light.html and index-hero.html.
+   =========================================================================== */
+
+.cx {
+  --cx-ease: cubic-bezier(.22, .7, .26, 1);
+  --cx-rule: rgba(10, 10, 10, .10);
+  /* Sized in vw so the number of cards across the viewport stays constant -
+     roughly 2.8 - instead of growing with the screen. At a 460px cap a 1900px
+     display fitted 3.8 cards, which left no dominant card and made the row
+     read as a crowd starting wherever the eye landed. */
+  --cx-card-w: clamp(340px, 33vw, 680px);
+  --cx-gap: clamp(18px, 2.2vw, 34px);
+  position: relative;
+  background: var(--bg-alt);
+}
+/* No overflow on .cx or the runway: a non-visible overflow ancestor takes
+   over as the sticky scrollport and the pin silently stops working. The
+   clipping happens on .cx__viewport instead, which also stops the track
+   from ever widening the page. */
+.cx__runway { position: relative; }
+
+/* --- the backdrop --------------------------------------------------------
+   bg-cert2.avif is a pale blueprint: median luma 244, nothing darker than
+   165. Veiling it, which is the usual move for a photographic backdrop, took
+   it to a median of 245 and it disappeared. What it needs is the opposite -
+   the brightness pulls the ground toward white while the contrast drives the
+   traces down to ~147, so the plate actually reads as a technical drawing
+   and the white cards still sit clearly on top of it. */
+.cx__stage::before {
+  content: ""; position: absolute; inset: 0; z-index: 0;
+  background: url('../img/bg-cert2.avif') center 42% / cover no-repeat;
+  filter: brightness(.88) contrast(1.6);
+}
+/* only the edges are faded, so the band joins the sections either side */
+.cx__stage::after {
+  content: ""; position: absolute; inset: 0; z-index: 0;
+  /* a light wash across the whole plate, not just the edges: the header copy
+     sits directly on the backdrop with no card behind it, so the traces have
+     to sit back far enough for 15px body text to stay comfortable */
+  background: linear-gradient(180deg,
+    var(--bg-alt) 0%,
+    rgba(244, 246, 249, .46) 13%,
+    rgba(244, 246, 249, .38) 50%,
+    rgba(244, 246, 249, .46) 84%,
+    var(--bg-alt) 100%);
+}
+/* the content sits above both layers */
+.cx__head, .cx__viewport { position: relative; z-index: 1; }
+
+.cx__stage {
+  position: sticky; top: 0;
+  height: 100vh;
+  display: flex; flex-direction: column;
+  padding: clamp(74px, 9vh, 104px) 0 clamp(40px, 6vh, 64px);
+  overflow: hidden;
+
+  /* The backdrop rides the sticky stage rather than the section, so it holds
+     still for the whole journey without the cost of background-attachment:
+     fixed - the pin is already doing that work. It lives on ::before so the
+     filter cannot touch the content. */
+  background-color: var(--bg-alt);
+}
+
+/* ================================================================= header
+   Stays put for the whole journey, so it frames the cards rather than
+   competing with them: quiet mono eyebrow, one display line, and the
+   progress read-out on the opposite side. */
+.cx__head {
+  flex: none;
+  display: grid;
+  grid-template-columns: minmax(0, auto) minmax(0, 1fr) auto;
+  align-items: end;
+  gap: clamp(18px, 3vw, 52px);
+  max-width: 1240px; width: 100%;
+  margin: 0 auto clamp(26px, 4vh, 48px);
+  padding: 0 var(--pad);
+}
+
+/* the supporting line, set beside the heading rather than under it so the
+   header stays one band and leaves the stage to the cards */
+.cx__side {
+  margin: 0 0 4px;
+  font-family: var(--body);
+  font-size: clamp(14px, 1.02vw, 17px);
+  line-height: 1.6; letter-spacing: -.004em;
+  color: var(--fg-55);
+  max-width: 46ch;
+}
+.cx__eyebrow {
+  display: flex; align-items: center; gap: 12px;
+  margin: 0 0 16px;
+  font-family: var(--mono);
+  font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--accent);
+}
+.cx__tick {
+  width: 26px; height: 1px; flex: none;
+  background: linear-gradient(90deg, var(--accent), rgba(30, 111, 217, .15));
+}
+.cx__title {
+  margin: 0;
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(28px, 3.6vw, 52px);
+  line-height: 1.04; letter-spacing: -.03em;
+  color: var(--fg);
+}
+.cx__title span { color: var(--accent); }
+
+.cx__progress { flex: none; width: clamp(140px, 16vw, 210px); text-align: right; }
+.cx__count {
+  margin: 0 0 12px;
+  font-family: var(--mono); font-size: 12px; letter-spacing: .12em;
+  color: var(--fg-40);
+  display: flex; align-items: baseline; justify-content: flex-end; gap: 5px;
+}
+.cx__count b {
+  font-size: 26px; font-weight: 700; letter-spacing: -.01em;
+  color: var(--fg);
+}
+.cx__count i { font-style: normal; }
+.cx__bar {
+  display: block; height: 2px; border-radius: 2px;
+  background: var(--cx-rule); overflow: hidden;
+}
+.cx__bar i {
+  display: block; height: 100%; width: 100%;
+  background: var(--accent);
+  transform: scaleX(0); transform-origin: left;
+}
+.cx__hint {
+  margin: 10px 0 0;
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--fg-30);
+}
+
+/* ============================================================== the track */
+.cx__viewport {
+  flex: 1 1 auto; min-height: 0;
+  overflow: hidden;
+  display: flex; align-items: center;
+}
+.cx__track {
+  list-style: none; margin: 0;
+  /* certs.js overwrites this with the exact half-leftover gutter that centres
+     the first and last card; this is only what shows before it measures, and
+     what the reduced-motion fallback keeps */
+  padding: 0 var(--pad);
+  display: flex; align-items: stretch;
+  gap: var(--cx-gap);
+  width: max-content;
+  will-change: transform;
+}
+
+/* ================================================================= a card
+   --f is written per frame by certs.js: 1 when the card is centred in the
+   viewport, 0 when it is a screen away. Everything that marks the active
+   card hangs off it, so the depth hierarchy is one number. */
+.cx__card {
+  --f: 0;
+  position: relative;
+  flex: 0 0 var(--cx-card-w);
+  width: var(--cx-card-w);
+  display: flex; flex-direction: column;
+  padding: clamp(28px, 2.5vw, 46px);
+  background: #fff;
+  border: 1px solid rgba(10, 10, 10, .08);
+  border-radius: 22px;
+  box-shadow:
+    0 1px 2px rgba(10, 10, 10, .04),
+    0 calc(8px + var(--f) * 26px) calc(20px + var(--f) * 46px)
+      rgba(10, 10, 10, calc(.04 + var(--f) * .07));
+  overflow: hidden;
+  will-change: transform, opacity;
+}
+/* the accent edge only resolves on the active card */
+.cx__card::after {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px;
+  background: linear-gradient(90deg, var(--accent), rgba(30, 111, 217, 0));
+  opacity: var(--f);
+}
+
+.cx__cardhead {
+  flex: none;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; margin-bottom: clamp(20px, 2vw, 30px);
+}
+.cx__num {
+  font-family: var(--mono); font-size: 13px; letter-spacing: .1em;
+  color: rgba(10, 10, 10, calc(.28 + var(--f) * .3));
+}
+.cx__status {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 6px 12px 6px 10px;
+  border: 1px solid var(--cx-rule); border-radius: 999px;
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--fg-50);
+  white-space: nowrap;
+}
+.cx__status i {
+  width: 6px; height: 6px; border-radius: 50%; flex: none;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px rgba(30, 111, 217, calc(.10 + var(--f) * .10));
+}
+[data-kind="tech"] .cx__status i { background: var(--ok); box-shadow: 0 0 0 3px rgba(14, 124, 88, .12); }
+[data-kind="programme"] .cx__status i { background: var(--fg-30); box-shadow: none; }
+
+/* --- the mark ------------------------------------------------------------
+   A fixed optical slot, not a fixed image height: the cutouts run from 0.71
+   to 1.53 in aspect, so one shared height would make NEC 500 shout and the
+   tall marks disappear. Sharpness and colour resolve as a card centres. */
+.cx__logo {
+  flex: none;
+  height: clamp(64px, 6.4vw, 88px);
+  display: flex; align-items: center;
+  margin-bottom: clamp(22px, 2.2vw, 32px);
+}
+.cx__logo img {
+  width: auto; max-width: 100%;
+  object-fit: contain; object-position: left center;
+  filter: contrast(calc(1 + var(--f) * .06)) saturate(calc(.86 + var(--f) * .2));
+  opacity: calc(.78 + var(--f) * .22);
+}
+/* the marks do not share a bounding box, so each gets its own share */
+.cx__card .cx__logo img { height: 74%; }
+.cx__card:nth-child(3) .cx__logo img { height: 56%; }   /* NEC 500, wide */
+.cx__card:nth-child(4) .cx__logo img,
+.cx__card:nth-child(5) .cx__logo img { height: 88%; }   /* stacked lockups */
+
+/* card 06 has no mark of its own: the eight approval codes become one */
+.cx__logo--grid {
+  height: auto;
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+}
+.cx__logo--grid span {
+  padding: 10px 5px;
+  border: 1px solid var(--cx-rule); border-radius: 8px;
+  background: rgba(10, 10, 10, .015);
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: .02em; text-align: center;
+  color: var(--fg-45);
+}
+
+.cx__body { flex: 1 1 auto; }
+.cx__name {
+  margin: 0 0 5px;
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(26px, 2.05vw, 38px);
+  line-height: 1.12; letter-spacing: -.024em; color: var(--fg);
+}
+.cx__role {
+  margin: 0 0 18px;
+  font-family: var(--body);
+  font-size: clamp(14px, 1vw, 17px); font-weight: 500; letter-spacing: -.005em;
+  color: var(--accent);
+}
+.cx__desc {
+  margin: 0;
+  font-family: var(--body);
+  font-size: clamp(15px, 1.05vw, 18.5px); line-height: 1.62;
+  letter-spacing: -.004em;
+  color: var(--fg-55);
+}
+
+.cx__foot {
+  flex: none;
+  display: flex; align-items: center; flex-wrap: wrap; gap: 8px;
+  margin-top: clamp(22px, 2.2vw, 32px);
+}
+.cx__tag {
+  padding: 7px 12px; border-radius: 8px;
+  background: rgba(30, 111, 217, .08);
+  font-family: var(--mono); font-size: 11px; font-weight: 700;
+  letter-spacing: .11em; text-transform: uppercase;
+  color: var(--accent-deep);
+}
+.cx__code {
+  padding: 7px 12px; border-radius: 8px;
+  border: 1px solid var(--cx-rule);
+  font-family: var(--mono); font-size: 11.5px;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--fg-50);
+}
+.cx__meta {
+  margin-left: auto;
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: .09em; text-transform: uppercase;
+  color: var(--fg-30);
+}
+.cx__scope {
+  flex: none;
+  margin: 16px 0 0; padding-top: 14px;
+  border-top: 1px solid var(--cx-rule);
+  font-family: var(--mono); font-size: 11.5px;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--fg-40);
+}
+
+/* --- the decoration ------------------------------------------------------
+   One quiet geometric detail per kind, so the six cards are a system rather
+   than six copies. It sits behind the content and never moves. */
+.cx__deco { position: absolute; pointer-events: none; }
+[data-kind="cert"] .cx__deco {
+  right: -54px; top: -54px; width: 168px; height: 168px;
+  border: 1px solid rgba(30, 111, 217, .14); border-radius: 50%;
+}
+[data-kind="cert"]:nth-child(even) .cx__deco { right: -78px; top: -40px; }
+[data-kind="tech"] .cx__deco {
+  right: 0; bottom: 0; width: 132px; height: 132px;
+  background:
+    repeating-linear-gradient(90deg, rgba(10,10,10,.05) 0 1px, transparent 1px 11px),
+    repeating-linear-gradient(0deg,  rgba(10,10,10,.05) 0 1px, transparent 1px 11px);
+  -webkit-mask-image: radial-gradient(120% 120% at 100% 100%, #000, transparent 72%);
+          mask-image: radial-gradient(120% 120% at 100% 100%, #000, transparent 72%);
+}
+[data-kind="programme"] .cx__deco {
+  left: 0; right: 0; bottom: 0; height: 3px;
+  background: linear-gradient(90deg, var(--accent), rgba(30, 111, 217, .05));
+  opacity: .5;
+}
+
+/* ===========================================================================
+   Responsive
+   =========================================================================== */
+
+@media (max-width: 1240px) {
+  /* the side copy drops under the heading and shares the row with the
+     progress, rather than squeezing three columns into one line */
+  .cx__head {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    row-gap: 16px;
+  }
+  .cx__headline { grid-column: 1 / -1; }
+  .cx__side { max-width: 62ch; }
+}
+
+@media (max-width: 1080px) {
+  .cx { --cx-card-w: clamp(300px, 46vw, 440px); }
+}
+
+/* --- short viewports -----------------------------------------------------
+   The cards were sized off viewport WIDTH, but what runs out on a laptop is
+   height: at 1440x820 the tallest card cleared the stage by 8px, and any
+   shorter window would have clipped it. This trims the type and the spacing
+   against height so the big sizes only apply where there is room for them. */
+@media (min-width: 761px) and (max-height: 880px) {
+  .cx__card { padding: clamp(24px, 2vw, 34px); }
+  .cx__logo { height: clamp(52px, 5vw, 66px); margin-bottom: 18px; }
+  .cx__name { font-size: clamp(24px, 1.8vw, 31px); }
+  .cx__role { margin-bottom: 14px; font-size: clamp(13.5px, .95vw, 15px); }
+  .cx__desc { font-size: clamp(14.5px, .98vw, 16px); line-height: 1.55; }
+  .cx__cardhead { margin-bottom: 18px; }
+  .cx__foot { margin-top: 20px; }
+  .cx__scope { margin-top: 12px; padding-top: 11px; }
+}
+
+/* one card dominates, the next one peeks - not a shrunken desktop row */
+@media (max-width: 760px) {
+  .cx { --cx-card-w: 84vw; --cx-gap: 14px; }
+  /* The side copy costs the header about 100px on a phone, which came
+     straight out of the card's height and clipped it. Both ends give a
+     little: tighter stage padding and heading above, tighter logo slot and
+     leading inside the card. */
+  .cx__stage { padding: 54px 0 30px; }
+  .cx__head {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .cx__side { font-size: 13.5px; line-height: 1.5; max-width: none; margin-bottom: 0; }
+  .cx__title { font-size: clamp(24px, 7vw, 30px); }
+  .cx__progress { width: 100%; text-align: left; }
+  .cx__count { justify-content: flex-start; }
+  .cx__count b { font-size: 22px; }
+  .cx__hint { display: none; }
+  .cx__track { padding: 0 8vw; }   /* JS replaces this; fallback only */
+  .cx__card { padding: 22px 20px; border-radius: 18px; }
+  .cx__cardhead { margin-bottom: 16px; }
+  .cx__logo { height: 50px; margin-bottom: 16px; }
+  .cx__role { margin-bottom: 12px; }
+  .cx__foot { margin-top: 18px; }
+  .cx__scope { margin-top: 12px; padding-top: 11px; }
+  .cx__logo--grid { gap: 5px; }
+  .cx__name { font-size: 24px; }
+  .cx__desc { font-size: 14.5px; line-height: 1.5; }
+  .cx__meta { margin-left: 0; width: 100%; }
+}
+
+/* ===========================================================================
+   Reduced motion / no JS
+
+   The pin and the scrub ARE the animation, so both go. The same track
+   becomes a normal horizontally scrollable, snapping list that a keyboard or
+   a screen reader walks through in order - the content is never reachable
+   only through the animation.
+   =========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .cx__runway { height: auto !important; }
+  .cx__stage { position: static; height: auto; padding: 84px 0; overflow: visible; }
+  .cx__viewport { overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; }
+  .cx__track { transform: none !important; padding-bottom: 8px; }
+  .cx__card {
+    --f: 1;
+    transform: none !important; opacity: 1 !important;
+    scroll-snap-align: center;
+  }
+  .cx__hint { display: none; }
+}
+
+html:not(.js) .cx__runway { height: auto !important; }
+html:not(.js) .cx__stage { position: static; height: auto; overflow: visible; }
+html:not(.js) .cx__viewport { overflow-x: auto; }
+html:not(.js) .cx__card { --f: 1; opacity: 1; }

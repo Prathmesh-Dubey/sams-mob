@@ -1,0 +1,213 @@
+/* ===========================================================================
+   REFERENCE BUILD — structure, rhythm and type ladder modelled on the
+   iPhone 18 Pro page. Loaded last, so it wins over v3.css, theme-light.css,
+   smooth.css and hero-rotator.css.
+
+   Nothing is removed. Every section, card, image, link and form from the
+   original page is still present — only spacing, scale and banding change.
+   =========================================================================== */
+
+/* ---------------------------------------------------------------- palette
+   Dark tonal system: pure black base, near-black alternating band, two ink
+   levels. The accent stays SAMS steel blue rather than the reference's blue
+   so the brand survives the redesign. */
+:root {
+  --bg:        #000000;
+  --bg-alt:    #1d1d1f;
+  --bg-panel:  #2a2a2d;
+  --panel-a:   rgba(42, 42, 45, .70);
+  --panel-b:   rgba(29, 29, 31, .90);
+
+  --fg:        #f5f5f7;
+  --fg-70:     #c7c7cc;
+  --fg-55:     #a1a1a6;
+  --fg-50:     #86868b;
+  --fg-45:     #86868b;
+  --fg-40:     #6e6e73;
+  --fg-35:     #6e6e73;
+  --fg-30:     #57575b;
+
+  --line:      rgba(255, 255, 255, .12);
+  --line-soft: rgba(255, 255, 255, .07);
+
+  --accent:      #4A9EE8;
+  --accent-deep: #3B82C6;
+  --accent-15: rgba(74, 158, 232, .15);
+  --accent-25: rgba(74, 158, 232, .25);
+  --accent-30: rgba(74, 158, 232, .32);
+  --accent-70: rgba(74, 158, 232, .70);
+  --ok: #34d399;
+
+  /* one rhythm value, used everywhere */
+  --rhythm: 144px;
+  --wrap:   1247px;
+  --wrap-text: 1050px;
+  --pad: 40px;
+
+  /* motion: the reference runs 0.24-0.32s on a symmetric curve */
+  --ease: cubic-bezier(.4, 0, .6, 1);
+  --t-fast: .24s;
+  --t-base: .32s;
+}
+
+html, body { background: var(--bg); color: var(--fg); }
+
+/* ------------------------------------------------------------ type ladder
+   12 14 17 19 21 24 28 32 40 48 56 64 80 96 — replacing 22 ad-hoc sizes.
+   Display type gets negative tracking; body sits at weight 500 because 400
+   goes thin on black. */
+body, p, li { font-size: 17px; line-height: 1.47; font-weight: 400; }
+.hero__copy p, .certs__intro p, .distributor__lede { font-size: 19px; line-height: 1.47; }
+
+h1, .hero__copy h1 {
+  font-size: clamp(48px, 5.4vw, 80px); line-height: 1.05;
+  letter-spacing: -.015em; font-weight: 700;
+}
+h2 { font-size: clamp(40px, 4.2vw, 56px); line-height: 1.08; letter-spacing: -.012em; }
+h3 { font-size: clamp(21px, 2vw, 28px);  line-height: 1.2;  letter-spacing: -.008em; }
+
+.eyebrow, .hero__meta, .hud-t, .chip, .tag,
+.hero__progress span, .ticker { font-size: 12px; letter-spacing: .16em; }
+small, .fine, footer .legal, .sosumi { font-size: 14px; color: var(--fg-50); }
+
+/* ------------------------------------------------------------ the rhythm
+   Every section opens on 144px. Sections that continue a thought close on 0
+   so they read as one block; sections that end a thought close on 144. */
+.certs, .product, .anatomy, .industries, .reach, .distributor, .roadmap {
+  padding-top: var(--rhythm) !important;
+  padding-bottom: var(--rhythm) !important;
+  padding-left: var(--pad); padding-right: var(--pad);
+}
+.certs, .anatomy      { padding-bottom: 0 !important; }   /* continues */
+.roadmap              { padding-bottom: 176px !important; }
+
+/* alternating bands instead of borders */
+.certs, .anatomy, .reach { background: var(--bg-alt) !important; }
+.product, .industries, .distributor, .roadmap { background: var(--bg) !important; }
+.certs, .anatomy, .industries, .reach, .distributor, .roadmap { border-top: 0 !important; }
+
+/* ------------------------------------------------------------- containers */
+.certs__inner, .anatomy__head, .industries__inner,
+.reach__inner, .distributor__inner, .roadmap__grid, .product__stage > * {
+  max-width: var(--wrap); margin-left: auto; margin-right: auto;
+}
+.certs__intro p, .distributor__lede, .rb-lede, .roadmap__lede {
+  max-width: 680px;
+}
+
+/* --------------------------------------------------------------- surfaces */
+.cert-card, .spec, .view, .country, .form, .hud-stage, .hud-panel {
+  background: var(--bg-panel) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 18px;
+  box-shadow: none !important;
+}
+.cert-card { border-radius: 22px; }
+.nav { background: rgba(0, 0, 0, .72) !important; backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--line-soft); }
+footer { background: var(--bg-alt); border-top: 1px solid var(--line-soft); }
+
+/* ---------------------------------------------------------------- buttons
+   Pill CTAs, the reference's most recognisable control. */
+.btn, .rb-cta {
+  border-radius: 980px !important; padding: 13px 24px !important;
+  font-size: 15px !important; letter-spacing: 0 !important; text-transform: none !important;
+  transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease),
+              border-color var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
+}
+.btn--solid { background: var(--accent) !important; border-color: var(--accent) !important; color: #fff !important; }
+.btn--solid:hover { background: var(--accent-deep) !important; }
+.btn:not(.btn--solid), .rb-cta {
+  background: transparent !important; color: var(--accent) !important;
+  border: 1px solid var(--accent-70) !important;
+}
+.btn:not(.btn--solid):hover, .rb-cta:hover { background: var(--accent-15) !important; }
+
+/* --------------------------------------------------------------- the hero
+   One screen. The giant EX-04 wordmark was already in the theme; it just
+   needed the device composed over it instead of a 240vh scroll animation. */
+.hero, .hero__stage { height: 100vh !important; }
+.hero__bg    { opacity: .30 !important; filter: none !important; }
+.hero__word  { -webkit-text-stroke: 1px rgba(255,255,255,.10) !important; font-size: 30vw !important; }
+.hero__copy h1 { margin-bottom: 18px; }
+.hero__meta  { color: var(--fg-50) !important; }
+
+/* the rotator, restyled to the reference's product-viewer look */
+.hx__device { filter: drop-shadow(0 40px 70px rgba(0,0,0,.75)) !important; }
+.hx__device img { filter: none !important; }
+.hx__label  { font-size: 24px; letter-spacing: -.008em; }
+.hx__desc   { font-size: 15px; color: var(--fg-50); }
+.hx__index  { color: var(--accent); }
+.hx__dot    { border-radius: 980px; }
+
+/* ------------------------------------------------------------ list rhythm */
+.certs__stack { gap: 20px; }
+.views { gap: 16px; }
+
+/* ------------------------------------------------- type ladder, enforced
+   v3.css carries eight separate h2 rules with clamps maxing at 68, 76, 60
+   and 120px. That spread is why the page had 22 distinct sizes. Each is
+   pulled onto the ladder here — same hierarchy, far fewer steps. */
+.hero__copy h1                 { font-size: clamp(48px, 5.4vw, 80px) !important; line-height: 1.04 !important; }
+.hero__copy h2                 { font-size: clamp(40px, 4.2vw, 56px) !important; line-height: 1.08 !important; }
+.certs__intro h2,
+.industries__intro h2,
+.reach h2,
+.distributor h2                { font-size: clamp(40px, 4.2vw, 56px) !important; line-height: 1.08 !important; }
+.anatomy__head h2              { font-size: clamp(36px, 3.6vw, 48px) !important; line-height: 1.1 !important; }
+.rail__intro h2                { font-size: clamp(48px, 5vw, 64px) !important; line-height: 1.05 !important; }
+.roadmap__title                { font-size: clamp(36px, 3.6vw, 48px) !important; }
+.zone h3                       { font-size: 24px !important; }
+.milestone h3, .roadmap h3     { font-size: 21px !important; }
+.footer__col h2                { font-size: 12px !important; letter-spacing: .16em !important; }
+
+/* margins re-based on the ladder rather than ad-hoc values */
+.certs__intro h2, .industries__intro h2,
+.reach h2, .distributor h2     { margin: 16px 0 24px !important; }
+.anatomy__head h2              { margin: 0 0 20px !important; }
+
+/* ------------------------------------------------- small end of the ladder
+   Measured from the rendered page rather than guessed from the stylesheet.
+   Everything off the ladder is pulled onto 12 / 14 / 17 / 21 / 24 / 28 /
+   32 / 48 / 64. Nothing is hidden — only resized. */
+
+/* 9, 10, 11  ->  12px : mono labels, units, ids, tags, captions */
+h4,
+.hud-stage__foot, .ticker__label, .spec__head, .spec__cap, .view__label,
+.spec__unit, .footer__n, .cert-card__tag, .nav__badge, .hud-t,
+label.field, .zone__tag, .stat__label, .milestone__when, .cert-card__id,
+.cert-card__scope, .sector__n, .reach__markets-label {
+  font-size: 12px !important;
+  letter-spacing: .14em !important;
+}
+
+/* 13  ->  14px : supporting copy */
+.drawer__mail, .spec__desc, .view__desc, .hx__desc, .langsw__globe {
+  font-size: 14px !important; letter-spacing: 0 !important; line-height: 1.5 !important;
+}
+
+/* 15, 16  ->  17px : body-weight copy, nav and country links */
+.country, .footer__col a, .perk, .cert-card__full, .approval__full,
+.lede, .rb-lede, .roadmap__lede, select, option {
+  font-size: 17px !important; letter-spacing: 0 !important;
+}
+.btn, .rb-cta, button.btn, a.btn { font-size: 17px !important; }
+
+/* mid steps */
+.sector__arrow            { font-size: 21px !important; }
+b.sm                      { font-size: 21px !important; }
+.hud-panel__big           { font-size: 24px !important; }
+.sector__name             { font-size: 28px !important; letter-spacing: -.008em !important; }
+.spec__value              { font-size: 32px !important; letter-spacing: -.01em !important; }
+.cert-card__name          { font-size: 48px !important; letter-spacing: -.012em !important; }
+.spec__big                { font-size: 64px !important; letter-spacing: -.015em !important; }
+
+/* --- stragglers, measured from the rendered page ---------------------- */
+.ticker__track span, .ticker__track b, .ticker__track i,
+.hud-panel__rows div, .hud-panel__rows span, .hud-panel__rows b,
+.hud-stage__rows div, .hud-stage__rows span, .hud-stage__rows b,
+.chips .chip, .langsw a, .nav__badge i, .nav a i {
+  font-size: 12px !important;
+}
+.rail__cta p, .reach__markets-all { font-size: 14px !important; letter-spacing: 0 !important; }
+.footer__cols .footer__col, .nav__links a { font-size: 17px !important; letter-spacing: 0 !important; }
+.hud-stage__figure b, .hud-stage__title b { font-size: 24px !important; }

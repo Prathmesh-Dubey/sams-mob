@@ -1,0 +1,99 @@
+/* ===========================================================================
+   PHONE 360
+
+   The hero device is a real 3D object instead of a crossfade between six
+   photographs. The six orthographic renders are mapped onto the six faces of
+   a box whose proportions come from the renders themselves — 722 x 1356 body,
+   250 deep — so every angle *between* the six shot angles is a genuine view
+   rather than a frame nobody photographed.
+
+   hero-cinema.js writes --rx / --ry onto .hc__model once per frame and a
+   per-face brightness that follows a fixed light; nothing here reads layout.
+
+   This file is loaded last on purpose: .hc__device is declared four separate
+   times across hero-cinema.css and light-redesign.css, the later ones with
+   !important, so winning the cascade from a new file is far less invasive
+   than unpicking those four declarations.
+   =========================================================================== */
+
+.hc__device {
+  /* --pw / --ph are declared on .hc by hero-grid.css, because the spec grid's
+     well has to reserve exactly this footprint; the depth is derived here.
+     The body measures 703 x 1324 x 232 in render pixels - the alpha bounding
+     box of all six renders agrees on those three numbers to within 2px, which
+     is what makes an exact box possible rather than an approximate one. */
+  --pd: calc(var(--pw) * 0.33001);         /* 232 / 703 */
+
+  width:  var(--pw) !important;
+  height: var(--ph) !important;
+
+  /* perspective as a property, so it applies to the model's faces. The
+     transform keeps light-redesign's scale but drops its rotateY — the turn
+     now happens inside, in 3D. */
+  perspective: 1700px;
+  perspective-origin: 50% 45%;
+}
+
+.hc__model {
+  position: absolute; inset: 0;
+  /* Simple crossfade, not a rotating 3D box: every face is a flat, full-size
+     plane stacked in the same spot, and hero-cinema.js just fades between
+     them. No rotateX/rotateY, no per-face lighting. */
+  transform: none !important;
+
+  /* Half-extents of the box. The textures in assets/img/m360 are the source
+     renders trimmed to their alpha bounding box, so each one fills its face
+     edge to edge; the planes therefore sit on the true half-dimensions and
+     every pair of faces meets exactly on a shared edge. (The untrimmed
+     renders each carry 5-21px of transparent margin, unevenly, which is
+     enough to leave a visible gap between the front and a side at
+     three-quarter angles.) */
+  --sx: calc(var(--pw) / 2);
+  --sy: calc(var(--ph) / 2);
+  --sz: calc(var(--pd) / 2);
+}
+
+.hc__f {
+  position: absolute; inset: 0;
+  opacity: 0;
+  will-change: opacity;
+}
+
+/* --- the core ------------------------------------------------------------
+   Three solid planes through the centre of the box, one per axis, in the
+   phone's own dark grey. A box has square corners; the renders' silhouettes
+   are rounded, so at three-quarter angles the corners and the seams between
+   two faces leave slivers the textures do not cover. These sit behind those
+   slivers so what shows through is body, not background. They are never seen
+   head-on - a face always covers them - so they need no detail, only the
+   right colour and a corner radius close to the real one. */
+.hc__core { display: none; }
+
+/* the crossfade rules in hero-cinema.css stacked every render on top of each
+   other at opacity 0; a face image is a plain, fully opaque child */
+.hc__model img {
+  position: static !important;
+  inset: auto !important;
+  width: 100% !important;
+  height: 100% !important;
+  opacity: 1 !important;
+  object-fit: contain;
+  transition: none !important;
+  display: block;
+}
+
+/* --- the six faces: every one the full box footprint, flat, crossfaded -- */
+.hc__f--front, .hc__f--back, .hc__f--left, .hc__f--right, .hc__f--top, .hc__f--bottom {
+  width: 100%; height: 100%;
+}
+
+/* ------------------------------------------------------------ responsive */
+@media (max-width: 900px) {
+  .hc__device { perspective: 1200px; }
+}
+
+/* -------------------------------------------------------- reduced motion
+   No scrub, so no turn: the model sits square on the front face. */
+@media (prefers-reduced-motion: reduce) {
+  .hc__f { transition: none !important; }
+}

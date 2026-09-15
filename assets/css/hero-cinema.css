@@ -1,0 +1,242 @@
+/* ===========================================================================
+   HERO CINEMA
+   A scroll-scrubbed sequence in three acts:
+
+     ACT 1  0.00 - 0.38   full-bleed frame, split headline, device face 1
+     ACT 2  0.38 - 0.72   the aperture closes to a rounded square, the scene
+                          darkens, the device scrubs through six faces
+     ACT 3  0.72 - 1.00   the frame lands as the centre tile of a spec grid;
+                          the eight HUD blocks fly in around it
+
+   Everything is driven by one custom property, --hp (0 to 1), written by
+   hero-cinema.js on rAF. No layout is read during the scroll.
+   =========================================================================== */
+
+.hero { height: 340vh !important; position: relative; }
+.hero__stage {
+  position: sticky !important; top: 0;
+  height: 100vh !important;
+  display: block !important;
+  overflow: hidden;
+  background: #0d0d0d;
+}
+.hero__layer, .hs, .turntable, .hero__progress,
+.hero__vignette, .hero__grid, .hero__glow, .hero__ring { display: none !important; }
+.hero__bg { display: none !important; }
+
+/* ------------------------------------------------------------- the frame */
+.hc {
+  position: absolute; inset: 0;
+  --hp: 0;
+  /* act 1 -> act 3 aperture. inset grows, radius grows, so the full-bleed
+     rectangle becomes a rounded square sitting in the middle of the stage. */
+  --ins-y: calc(var(--hp) * 31%);
+  --ins-x: calc(var(--hp) * 35%);
+  --rad:   calc(18px + var(--hp) * 150px);
+  clip-path: inset(var(--ins-y) var(--ins-x) var(--ins-y) var(--ins-x) round var(--rad));
+  will-change: clip-path;
+}
+.hc__media {
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  background:
+    radial-gradient(120% 90% at 50% 62%, #16232f 0%, #0a1219 45%, #05080d 100%);
+  /* the scene scales down with the aperture and loses light as it closes */
+  transform: scale(calc(1 - var(--hp) * 0.14));
+  filter: brightness(calc(1 - var(--hp) * 0.55));
+  transition: none;
+  will-change: transform, filter;
+}
+.hc__plate {
+  position: absolute; inset: 0;
+  /* background-image is set by hero-cinema.js so the URL resolves
+     against the document rather than this stylesheet */
+  background-size: cover; background-position: center 65%;
+  opacity: calc(.62 - var(--hp) * .5);
+}
+
+/* ------------------------------------------------------------ the device */
+.hc__device {
+  position: relative;
+  width: clamp(150px, 20vh, 236px);
+  height: clamp(282px, 37.6vh, 444px);
+  /* leans as the sequence runs, then squares up for the finish */
+  transform:
+    perspective(1500px)
+    translateY(calc(var(--hp) * -2vh))
+    rotateY(calc((0.5 - var(--hp)) * 16deg))
+    scale(calc(1 + var(--hp) * 0.06));
+  filter: drop-shadow(0 40px 68px rgba(0,0,0,.8));
+  will-change: transform;
+}
+.hc__device img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: contain; opacity: 0;
+  transition: opacity .42s cubic-bezier(.4,0,.6,1);
+}
+.hc__device img.is-on { opacity: 1; }
+
+/* ------------------------------------------------------- act 1 headline */
+.hc__band {
+  position: absolute; inset: 0; z-index: 4;
+  display: grid; grid-template-columns: 1fr auto 1fr;
+  align-items: center; gap: clamp(16px, 3vw, 54px);
+  padding: 0 clamp(24px, 5vw, 90px);
+  pointer-events: none;
+  /* holds through act 1, clears before the aperture closes */
+  opacity: calc(1 - var(--hp) * 3.1);
+}
+.hc__half {
+  font-family: var(--display); font-weight: 800;
+  font-size: clamp(26px, 3.4vw, 50px); line-height: 1.03;
+  letter-spacing: -.028em; color: #fff; margin: 0;
+}
+.hc__half--l { text-align: right;  transform: translateX(calc(var(--hp) * -70px)); }
+.hc__half--r { text-align: left;   transform: translateX(calc(var(--hp) *  70px)); }
+.hc__spacer { width: clamp(150px, 20vh, 236px); }
+
+.hc__meta {
+  position: absolute; left: 50%; top: clamp(84px, 12vh, 128px);
+  transform: translateX(-50%);
+  z-index: 4; display: flex; align-items: center; gap: 14px;
+  font-family: var(--mono); font-size: 12px; letter-spacing: .2em;
+  text-transform: uppercase; color: rgba(255,255,255,.55);
+  opacity: calc(1 - var(--hp) * 3.4); pointer-events: none; white-space: nowrap;
+}
+.hc__meta em { width: 34px; height: 1px; background: rgba(255,255,255,.25); display: block; }
+
+/* --------------------------------------------------------- act 2 caption */
+.hc__scrub {
+  position: absolute; left: 50%; bottom: clamp(72px, 11vh, 122px);
+  transform: translateX(-50%);
+  z-index: 5; text-align: center; width: min(560px, 84vw);
+  /* fades up after the headline has gone, out before the grid lands */
+  opacity: calc((var(--hp) - 0.33) * 5.2 - max(0, (var(--hp) - 0.70)) * 18);
+  pointer-events: none;
+}
+.hc__face {
+  font-family: var(--mono); font-size: 12px; letter-spacing: .22em;
+  text-transform: uppercase; color: rgba(255,255,255,.62);
+}
+.hc__desc { margin: 8px 0 0; font-size: 15px; line-height: 1.5; color: rgba(255,255,255,.88); }
+
+/* ------------------------------------------------------------ act 3 grid */
+.hc__grid {
+  position: absolute; inset: 0; z-index: 6;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10px;
+  padding: clamp(78px, 11vh, 118px) clamp(20px, 4vw, 64px) clamp(26px, 5vh, 58px);
+  pointer-events: none;
+  opacity: calc((var(--hp) - 0.70) * 4.2);
+}
+.hc__grid.is-live { pointer-events: auto; }
+
+/* the centre well the frame lands in */
+.hc__well {
+  grid-column: 2 / 4; grid-row: 1 / 3;
+  border-radius: clamp(40px, 6vw, 84px);
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.02);
+}
+.hc__title {
+  position: absolute; left: 50%; top: clamp(104px, 15.5vh, 166px);
+  transform: translateX(-50%);
+  z-index: 7; text-align: center; width: min(520px, 80vw);
+  font-family: var(--display); font-weight: 800;
+  font-size: clamp(22px, 2.4vw, 34px); line-height: 1.12; letter-spacing: -.024em;
+  color: #fff; margin: 0;
+  opacity: calc((var(--hp) - 0.78) * 5.4); pointer-events: none;
+}
+
+/* the eight HUD blocks, flown in from the edge they end on */
+.hc__tile {
+  display: block !important; position: relative !important;
+  opacity: 1 !important; width: auto !important; min-width: 0 !important;
+  padding: 14px 16px !important;
+  background: rgba(255,255,255,.045) !important;
+  border: 1px solid rgba(255,255,255,.13) !important;
+  border-radius: 16px;
+  overflow: hidden;
+  animation: none !important;
+  transform: translate3d(calc(var(--dx) * (1 - min(1, max(0, (var(--hp) - 0.70) * 4.2)))),
+                         calc(var(--dy) * (1 - min(1, max(0, (var(--hp) - 0.70) * 4.2)))), 0);
+  transition: border-color .3s cubic-bezier(.4,0,.6,1), background-color .3s cubic-bezier(.4,0,.6,1);
+}
+.hc__grid.is-live .hc__tile:hover { border-color: rgba(255,255,255,.4) !important; background: rgba(255,255,255,.07) !important; }
+.hc__tile * { font-size: 12px !important; color: rgba(255,255,255,.72) !important; }
+.hc__tile h4, .hc__tile .hud-t {
+  font-family: var(--mono) !important; font-size: 11px !important;
+  letter-spacing: .16em !important; color: rgba(255,255,255,.5) !important;
+  margin: 0 0 8px !important;
+}
+.hc__tile .hud-stage__figure b, .hc__tile .hud-stage__title b, .hc__tile .hud-panel__big {
+  font-family: var(--display) !important; font-size: 19px !important;
+  font-weight: 700 !important; color: #fff !important; letter-spacing: -.01em !important;
+}
+.hc__tile .hud-stage__segs, .hc__tile .hud-stage__bar, .hc__tile .hud-stage__lead { display: none !important; }
+
+/* placement: four down the left column pair, four down the right */
+.hc__tile--1 { grid-column: 1; grid-row: 1; --dx: -70px; --dy: -30px; }
+.hc__tile--2 { grid-column: 1; grid-row: 2; --dx: -70px; --dy:   0px; }
+.hc__tile--3 { grid-column: 1; grid-row: 3; --dx: -70px; --dy:  30px; }
+.hc__tile--4 { grid-column: 2; grid-row: 3; --dx: -20px; --dy:  50px; }
+.hc__tile--5 { grid-column: 3; grid-row: 3; --dx:  20px; --dy:  50px; }
+.hc__tile--6 { grid-column: 4; grid-row: 3; --dx:  70px; --dy:  30px; }
+.hc__tile--7 { grid-column: 4; grid-row: 2; --dx:  70px; --dy:   0px; }
+.hc__tile--8 { grid-column: 4; grid-row: 1; --dx:  70px; --dy: -30px; }
+
+/* ------------------------------------------------------- lede + CTA tail */
+.hc__tail {
+  position: absolute; left: 50%; bottom: calc(36px + clamp(18px, 3.4vh, 40px));
+  transform: translateX(-50%);
+  z-index: 8; width: min(680px, 88vw); text-align: center;
+  display: grid; gap: 14px; justify-items: center;
+  opacity: calc((var(--hp) - 0.84) * 6.4);
+}
+.hc__lede { margin: 0; font-size: 15px; line-height: 1.5; color: rgba(255,255,255,.74); }
+.hc__cta  { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+.hc__tail .btn { pointer-events: auto; }
+
+/* --------------------------------------------------------------- scroll cue */
+.hc__cue {
+  position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%);
+  z-index: 9; font-family: var(--mono); font-size: 11px; letter-spacing: .24em;
+  text-transform: uppercase; color: rgba(255,255,255,.4);
+  opacity: calc(1 - var(--hp) * 6); pointer-events: none;
+  display: flex; align-items: center; gap: 10px;
+}
+.hc__cue span { width: 30px; height: 1px; background: rgba(255,255,255,.3); display: block;
+  animation: hcCue 2.2s cubic-bezier(.4,0,.6,1) infinite; transform-origin: left; }
+@keyframes hcCue { 0%,100% { transform: scaleX(.3); } 50% { transform: scaleX(1); } }
+
+/* ------------------------------------------------------------ responsive */
+@media (max-width: 900px) {
+  .hero { height: 300vh !important; }
+  .hc { --ins-x: calc(var(--hp) * 12%); }
+  .hc__band { grid-template-columns: 1fr; text-align: center; align-content: start;
+              padding-top: clamp(96px, 16vh, 150px); gap: 10px; }
+  .hc__half--l, .hc__half--r { text-align: center; transform: none; }
+  .hc__spacer { display: none; }
+  .hc__grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(5, auto);
+              gap: 8px; padding: 76px 16px 20px; align-content: start; }
+  .hc__well { display: none; }
+  .hc__tile { grid-column: auto !important; grid-row: auto !important; --dx: 0px; --dy: 24px; }
+  .hc__title { top: 84px; }
+  .hc__tail, .hc__scrub { display: none; }
+}
+
+/* -------------------------------------------------------- reduced motion
+   No scrubbing: the frame opens, the grid is simply present, everything is
+   legible without a single scroll event. */
+@media (prefers-reduced-motion: reduce) {
+  .hero { height: auto !important; }
+  .hero__stage { position: relative !important; height: auto !important; padding: 110px 0 60px; }
+  .hc { clip-path: none !important; position: relative; }
+  .hc__media { position: relative; transform: none !important; filter: none !important; min-height: 60vh; }
+  .hc__band, .hc__meta, .hc__scrub, .hc__grid, .hc__title, .hc__tail { opacity: 1 !important; position: relative; }
+  .hc__tile { transform: none !important; }
+  .hc__device { transform: none !important; }
+  .hc__cue { display: none; }
+}

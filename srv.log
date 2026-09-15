@@ -1,0 +1,1909 @@
+[Fri Sep 11 21:29:32 2026] PHP 8.1.25 Development Server (http://127.0.0.1:8911) started
+[Fri Sep 11 21:29:34 2026] 127.0.0.1:63495 Accepted
+[Fri Sep 11 21:29:34 2026] 127.0.0.1:63495 [200]: GET /index.html
+[Fri Sep 11 21:29:34 2026] 127.0.0.1:63495 Closing
+[Fri Sep 11 21:29:34 2026] 127.0.0.1:63496 Accepted
+[Fri Sep 11 21:29:34 2026] 127.0.0.1:63496 [200]: GET /index-light.html
+[Fri Sep 11 21:29:34 2026] 127.0.0.1:63496 Closing
+[Fri Sep 11 21:29:34 2026] 127.0.0.1:63497 Accepted
+[Fri Sep 11 21:29:34 2026] 127.0.0.1:63497 [200]: GET /index-hero.html
+[Fri Sep 11 21:29:34 2026] 127.0.0.1:63497 Closing
+[Fri Sep 11 21:29:34 2026] 127.0.0.1:63498 Accepted
+[Fri Sep 11 21:29:34 2026] 127.0.0.1:63498 [200]: GET /index-ref.html
+[Fri Sep 11 21:29:34 2026] 127.0.0.1:63498 Closing
+[Fri Sep 11 21:29:34 2026] 127.0.0.1:63499 Accepted
+[Fri Sep 11 21:29:34 2026] 127.0.0.1:63499 [200]: GET /assets/css/apple-ref.css
+[Fri Sep 11 21:29:34 2026] 127.0.0.1:63499 Closing
+[Fri Sep 11 21:29:34 2026] 127.0.0.1:63500 Accepted
+[Fri Sep 11 21:29:34 2026] 127.0.0.1:63500 [200]: GET /assets/css/ref-motion.css
+[Fri Sep 11 21:29:34 2026] 127.0.0.1:63500 Closing
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:49759 Accepted
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:49759 [200]: GET /index-ref.html
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:49759 Closing
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:50869 Accepted
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:57781 Accepted
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:62433 Accepted
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:56998 Accepted
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:49683 Accepted
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:50603 Accepted
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:50869 [200]: GET /assets/css/v3.css
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:57781 [200]: GET /assets/css/theme-light.css
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:62433 [200]: GET /assets/css/smooth.css
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:50869 Closing
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:56998 [200]: GET /assets/css/hero-rotator.css
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:49683 [200]: GET /assets/css/apple-ref.css
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:50603 [200]: GET /assets/css/ref-motion.css
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:55041 Accepted
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:57781 Closing
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:62433 Closing
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:56998 Closing
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:49683 Closing
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:50603 Closing
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:55041 [200]: GET /assets/img/phone-front.webp
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:55041 Closing
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:56327 Accepted
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:56327 [200]: GET /assets/js/v3-smooth.js
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:56327 Closing
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:57297 Accepted
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:60178 Accepted
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:57297 [200]: GET /assets/img/logo-blue.png
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:60178 [200]: GET /assets/img/bg-main.webp
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:57297 Closing
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:60178 Closing
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:58037 Accepted
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:58037 [200]: GET /assets/js/hero-rotator.js
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:58037 Closing
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:55187 Accepted
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:63242 Accepted
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:64733 Accepted
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:50592 Accepted
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:58029 Accepted
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:55187 [200]: GET /assets/img/phone-right.webp
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:63242 [200]: GET /assets/img/phone-left.webp
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:64733 [200]: GET /assets/img/phone-bottom.webp
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:50592 [200]: GET /assets/img/phone-top.webp
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:58029 [200]: GET /assets/img/phone-back-clean.webp
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:55187 Closing
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:63242 Closing
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:64733 Closing
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:50592 Closing
+[Fri Sep 11 21:30:01 2026] 127.0.0.1:58029 Closing
+[Fri Sep 11 21:30:02 2026] 127.0.0.1:59716 Accepted
+[Fri Sep 11 21:30:02 2026] 127.0.0.1:59716 [200]: GET /assets/img/favicon.png
+[Fri Sep 11 21:30:02 2026] 127.0.0.1:59716 Closing
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:64358 Accepted
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:64358 [200]: GET /index-ref.html
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:64358 Closing
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:49538 Accepted
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:52304 Accepted
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:49538 [200]: GET /assets/css/v3.css
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:64407 Accepted
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:49538 Closing
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:52304 [200]: GET /assets/css/theme-light.css
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:64407 [200]: GET /assets/css/smooth.css
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:52304 Closing
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:64407 Closing
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:56344 Accepted
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:56344 [200]: GET /assets/css/hero-rotator.css
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:56344 Closing
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:59111 Accepted
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:55460 Accepted
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:59111 [200]: GET /assets/css/apple-ref.css
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:55460 [200]: GET /assets/css/ref-motion.css
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:59111 Closing
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:55460 Closing
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:49376 Accepted
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:49376 [200]: GET /assets/img/phone-front.webp
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:49376 Closing
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:55424 Accepted
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:58908 Accepted
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:55424 [200]: GET /assets/js/v3-smooth.js
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:58908 [200]: GET /assets/img/logo-blue.png
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:55424 Closing
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:58908 Closing
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:59539 Accepted
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:59539 [200]: GET /assets/img/bg-main.webp
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:59539 Closing
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:62531 Accepted
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:62531 [200]: GET /assets/js/hero-rotator.js
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:62531 Closing
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:49489 Accepted
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:49489 [200]: GET /assets/img/phone-back-clean.webp
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:49489 Closing
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:64211 Accepted
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:64211 [200]: GET /assets/img/phone-left.webp
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:64211 Closing
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:62840 Accepted
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:62840 [200]: GET /assets/img/phone-right.webp
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:62840 Closing
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:59215 Accepted
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:61420 Accepted
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:59215 [200]: GET /assets/img/phone-top.webp
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:61420 [200]: GET /assets/img/phone-bottom.webp
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:59215 Closing
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:61420 Closing
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:51000 Accepted
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:51000 [404]: GET /favicon.ico - No such file or directory
+[Fri Sep 11 21:33:11 2026] 127.0.0.1:51000 Closing
+[Fri Sep 11 21:33:12 2026] 127.0.0.1:59582 Accepted
+[Fri Sep 11 21:33:12 2026] 127.0.0.1:59582 [200]: GET /assets/img/bg-cert.webp
+[Fri Sep 11 21:33:12 2026] 127.0.0.1:53024 Accepted
+[Fri Sep 11 21:33:12 2026] 127.0.0.1:59582 Closing
+[Fri Sep 11 21:33:12 2026] 127.0.0.1:53024 [200]: GET /assets/img/phone-hero.webp
+[Fri Sep 11 21:33:12 2026] 127.0.0.1:53024 Closing
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:61804 Accepted
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:61804 [200]: GET /index-ref.html
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:61804 Closing
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:61338 Accepted
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:63102 Accepted
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:61338 [200]: GET /assets/css/v3.css
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:56738 Accepted
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:61338 Closing
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:63102 [200]: GET /assets/css/theme-light.css
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:56738 [200]: GET /assets/css/smooth.css
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:63102 Closing
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:56738 Closing
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:51714 Accepted
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:51714 [200]: GET /assets/css/hero-rotator.css
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:51714 Closing
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:50892 Accepted
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:50892 [200]: GET /assets/css/apple-ref.css
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:50892 Closing
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:52705 Accepted
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:52705 [200]: GET /assets/css/ref-motion.css
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:52705 Closing
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:54444 Accepted
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:54444 [200]: GET /assets/img/phone-front.webp
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:54444 Closing
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:52291 Accepted
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:52291 [200]: GET /assets/js/v3-smooth.js
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:52291 Closing
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:64435 Accepted
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:64435 [200]: GET /assets/img/logo-blue.png
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:64435 Closing
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:59448 Accepted
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:59448 [200]: GET /assets/img/bg-main.webp
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:59448 Closing
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:64233 Accepted
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:64233 [200]: GET /assets/js/hero-rotator.js
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:64233 Closing
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:63864 Accepted
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:63864 [200]: GET /assets/img/phone-back-clean.webp
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:52597 Accepted
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:63864 Closing
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:63777 Accepted
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:52597 [200]: GET /assets/img/phone-left.webp
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:63777 [200]: GET /assets/img/phone-right.webp
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:52597 Closing
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:63777 Closing
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:55304 Accepted
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:55304 [200]: GET /assets/img/phone-top.webp
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:55304 Closing
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:63490 Accepted
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:63490 [200]: GET /assets/img/phone-bottom.webp
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:63490 Closing
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:49253 Accepted
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:49253 [404]: GET /favicon.ico - No such file or directory
+[Fri Sep 11 21:35:57 2026] 127.0.0.1:49253 Closing
+[Fri Sep 11 21:35:59 2026] 127.0.0.1:57339 Accepted
+[Fri Sep 11 21:35:59 2026] 127.0.0.1:57339 [200]: GET /assets/img/bg-cert.webp
+[Fri Sep 11 21:35:59 2026] 127.0.0.1:60718 Accepted
+[Fri Sep 11 21:35:59 2026] 127.0.0.1:57339 Closing
+[Fri Sep 11 21:35:59 2026] 127.0.0.1:60718 [200]: GET /assets/img/phone-hero.webp
+[Fri Sep 11 21:35:59 2026] 127.0.0.1:60718 Closing
+[Fri Sep 11 21:38:31 2026] 127.0.0.1:49548 Accepted
+[Fri Sep 11 21:38:31 2026] 127.0.0.1:49548 [200]: GET /assets/css/apple-ref.css
+[Fri Sep 11 21:38:31 2026] 127.0.0.1:49548 Closing
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:55354 Accepted
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:55354 [200]: GET /index-ref.html
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:55354 Closing
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:50245 Accepted
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:50245 [200]: GET /assets/css/v3.css
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:50245 Closing
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:58253 Accepted
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:58253 [200]: GET /assets/css/theme-light.css
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:58253 Closing
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:59507 Accepted
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:59507 [200]: GET /assets/css/smooth.css
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:59507 Closing
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:52944 Accepted
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:52944 [200]: GET /assets/css/hero-rotator.css
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:52944 Closing
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:60630 Accepted
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:60630 [200]: GET /assets/css/apple-ref.css
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:60630 Closing
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:64949 Accepted
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:64949 [200]: GET /assets/css/ref-motion.css
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:64949 Closing
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:52977 Accepted
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:52977 [200]: GET /assets/img/phone-front.webp
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:52977 Closing
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:60728 Accepted
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:60728 [200]: GET /assets/js/v3-smooth.js
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:60728 Closing
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:57283 Accepted
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:57283 [200]: GET /assets/img/logo-blue.png
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:57283 Closing
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:62518 Accepted
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:62518 [200]: GET /assets/img/bg-main.webp
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:62518 Closing
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:64218 Accepted
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:64218 [200]: GET /assets/js/hero-rotator.js
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:64218 Closing
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:49297 Accepted
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:49297 [200]: GET /assets/img/phone-back-clean.webp
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:49297 Closing
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:51828 Accepted
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:51828 [200]: GET /assets/img/phone-left.webp
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:51828 Closing
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:59919 Accepted
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:59919 [200]: GET /assets/img/phone-right.webp
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:59919 Closing
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:54023 Accepted
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:54023 [200]: GET /assets/img/phone-top.webp
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:54023 Closing
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:63385 Accepted
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:63385 [200]: GET /assets/img/phone-bottom.webp
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:63385 Closing
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:61714 Accepted
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:61714 [404]: GET /favicon.ico - No such file or directory
+[Fri Sep 11 21:39:09 2026] 127.0.0.1:61714 Closing
+[Fri Sep 11 21:39:10 2026] 127.0.0.1:65407 Accepted
+[Fri Sep 11 21:39:10 2026] 127.0.0.1:65407 [200]: GET /assets/img/bg-cert.webp
+[Fri Sep 11 21:39:10 2026] 127.0.0.1:65085 Accepted
+[Fri Sep 11 21:39:10 2026] 127.0.0.1:65407 Closing
+[Fri Sep 11 21:39:10 2026] 127.0.0.1:65085 [200]: GET /assets/img/phone-hero.webp
+[Fri Sep 11 21:39:10 2026] 127.0.0.1:65085 Closing
+[Fri Sep 11 21:40:48 2026] 127.0.0.1:53954 Accepted
+[Fri Sep 11 21:40:48 2026] 127.0.0.1:53954 [200]: GET /assets/css/apple-ref.css
+[Fri Sep 11 21:40:48 2026] 127.0.0.1:53954 Closing
+[Fri Sep 11 21:41:52 2026] 127.0.0.1:50421 Accepted
+[Fri Sep 11 21:41:52 2026] 127.0.0.1:50421 [200]: GET /index-ref.html
+[Fri Sep 11 21:41:52 2026] 127.0.0.1:50421 Closing
+[Fri Sep 11 21:41:52 2026] 127.0.0.1:61626 Accepted
+[Fri Sep 11 21:41:52 2026] 127.0.0.1:52231 Accepted
+[Fri Sep 11 21:41:52 2026] 127.0.0.1:61626 [200]: GET /assets/css/v3.css
+[Fri Sep 11 21:41:52 2026] 127.0.0.1:50559 Accepted
+[Fri Sep 11 21:41:52 2026] 127.0.0.1:52231 [200]: GET /assets/css/theme-light.css
+[Fri Sep 11 21:41:52 2026] 127.0.0.1:61626 Closing
+[Fri Sep 11 21:41:52 2026] 127.0.0.1:50559 [200]: GET /assets/css/smooth.css
+[Fri Sep 11 21:41:52 2026] 127.0.0.1:52231 Closing
+[Fri Sep 11 21:41:52 2026] 127.0.0.1:50559 Closing
+[Fri Sep 11 21:41:52 2026] 127.0.0.1:55674 Accepted
+[Fri Sep 11 21:41:52 2026] 127.0.0.1:55674 [200]: GET /assets/css/hero-rotator.css
+[Fri Sep 11 21:41:52 2026] 127.0.0.1:55674 Closing
+[Fri Sep 11 21:41:52 2026] 127.0.0.1:55036 Accepted
+[Fri Sep 11 21:41:52 2026] 127.0.0.1:55036 [200]: GET /assets/css/apple-ref.css
+[Fri Sep 11 21:41:52 2026] 127.0.0.1:60588 Accepted
+[Fri Sep 11 21:41:52 2026] 127.0.0.1:55036 Closing
+[Fri Sep 11 21:41:52 2026] 127.0.0.1:60588 [200]: GET /assets/css/ref-motion.css
+[Fri Sep 11 21:41:52 2026] 127.0.0.1:60588 Closing
+[Fri Sep 11 21:41:52 2026] 127.0.0.1:55482 Accepted
+[Fri Sep 11 21:41:52 2026] 127.0.0.1:55482 [200]: GET /assets/img/phone-front.webp
+[Fri Sep 11 21:41:52 2026] 127.0.0.1:54303 Accepted
+[Fri Sep 11 21:41:52 2026] 127.0.0.1:55482 Closing
+[Fri Sep 11 21:41:52 2026] 127.0.0.1:53795 Accepted
+[Fri Sep 11 21:41:52 2026] 127.0.0.1:54303 [200]: GET /assets/js/v3-smooth.js
+[Fri Sep 11 21:41:53 2026] 127.0.0.1:53795 [200]: GET /assets/img/logo-blue.png
+[Fri Sep 11 21:41:53 2026] 127.0.0.1:54303 Closing
+[Fri Sep 11 21:41:53 2026] 127.0.0.1:53795 Closing
+[Fri Sep 11 21:41:53 2026] 127.0.0.1:59098 Accepted
+[Fri Sep 11 21:41:53 2026] 127.0.0.1:59098 [200]: GET /assets/img/bg-main.webp
+[Fri Sep 11 21:41:53 2026] 127.0.0.1:59098 Closing
+[Fri Sep 11 21:41:53 2026] 127.0.0.1:60926 Accepted
+[Fri Sep 11 21:41:53 2026] 127.0.0.1:60926 [200]: GET /assets/js/hero-rotator.js
+[Fri Sep 11 21:41:53 2026] 127.0.0.1:60926 Closing
+[Fri Sep 11 21:41:53 2026] 127.0.0.1:57406 Accepted
+[Fri Sep 11 21:41:53 2026] 127.0.0.1:57406 [200]: GET /assets/img/phone-back-clean.webp
+[Fri Sep 11 21:41:53 2026] 127.0.0.1:61969 Accepted
+[Fri Sep 11 21:41:53 2026] 127.0.0.1:57406 Closing
+[Fri Sep 11 21:41:53 2026] 127.0.0.1:63679 Accepted
+[Fri Sep 11 21:41:53 2026] 127.0.0.1:61969 [200]: GET /assets/img/phone-left.webp
+[Fri Sep 11 21:41:53 2026] 127.0.0.1:63679 [200]: GET /assets/img/phone-right.webp
+[Fri Sep 11 21:41:53 2026] 127.0.0.1:61969 Closing
+[Fri Sep 11 21:41:53 2026] 127.0.0.1:63679 Closing
+[Fri Sep 11 21:41:53 2026] 127.0.0.1:53526 Accepted
+[Fri Sep 11 21:41:53 2026] 127.0.0.1:59590 Accepted
+[Fri Sep 11 21:41:53 2026] 127.0.0.1:53526 [200]: GET /assets/img/phone-top.webp
+[Fri Sep 11 21:41:53 2026] 127.0.0.1:59590 [200]: GET /assets/img/phone-bottom.webp
+[Fri Sep 11 21:41:53 2026] 127.0.0.1:53526 Closing
+[Fri Sep 11 21:41:53 2026] 127.0.0.1:59590 Closing
+[Fri Sep 11 21:41:53 2026] 127.0.0.1:56004 Accepted
+[Fri Sep 11 21:41:53 2026] 127.0.0.1:56004 [404]: GET /favicon.ico - No such file or directory
+[Fri Sep 11 21:41:53 2026] 127.0.0.1:56004 Closing
+[Fri Sep 11 21:44:13 2026] 127.0.0.1:53716 Accepted
+[Fri Sep 11 21:44:13 2026] 127.0.0.1:55621 Accepted
+[Fri Sep 11 21:44:13 2026] 127.0.0.1:53716 [200]: GET /assets/img/bg-cert.webp
+[Fri Sep 11 21:44:13 2026] 127.0.0.1:55621 [200]: GET /assets/img/phone-hero.webp
+[Fri Sep 11 21:44:13 2026] 127.0.0.1:53716 Closing
+[Fri Sep 11 21:44:13 2026] 127.0.0.1:55621 Closing
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:62025 Accepted
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:62025 [200]: GET /index-ref.html
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:62025 Closing
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:53808 Accepted
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:55142 Accepted
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:53808 [200]: GET /assets/css/v3.css
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:58840 Accepted
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:55142 [200]: GET /assets/css/hero-rotator.css
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:53808 Closing
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:58840 [200]: GET /assets/css/apple-ref.css
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:55142 Closing
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:58840 Closing
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:55689 Accepted
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:55689 [200]: GET /assets/css/ref-motion.css
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:55689 Closing
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:51541 Accepted
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:50417 Accepted
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:51541 [200]: GET /assets/img/phone-front.webp
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:50417 [200]: GET /assets/js/v3-smooth.js
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:51541 Closing
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:50417 Closing
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:60172 Accepted
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:60172 [200]: GET /assets/img/logo-blue.png
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:60172 Closing
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:59713 Accepted
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:59713 [200]: GET /assets/img/bg-main.webp
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:59713 Closing
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:58375 Accepted
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:58375 [200]: GET /assets/js/hero-rotator.js
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:58375 Closing
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:61388 Accepted
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:61388 [200]: GET /assets/img/phone-back-clean.webp
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:57848 Accepted
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:61388 Closing
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:51193 Accepted
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:57848 [200]: GET /assets/img/phone-left.webp
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:51193 [200]: GET /assets/img/phone-right.webp
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:57848 Closing
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:51193 Closing
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:62639 Accepted
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:62639 [200]: GET /assets/img/phone-top.webp
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:62639 Closing
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:52674 Accepted
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:52674 [200]: GET /assets/img/phone-bottom.webp
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:52674 Closing
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:52102 Accepted
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:52102 [404]: GET /favicon.ico - No such file or directory
+[Fri Sep 11 21:51:12 2026] 127.0.0.1:52102 Closing
+[Fri Sep 11 21:51:13 2026] 127.0.0.1:59278 Accepted
+[Fri Sep 11 21:51:13 2026] 127.0.0.1:62185 Accepted
+[Fri Sep 11 21:51:13 2026] 127.0.0.1:59278 [200]: GET /assets/img/bg-cert.webp
+[Fri Sep 11 21:51:13 2026] 127.0.0.1:62185 [200]: GET /assets/img/phone-hero.webp
+[Fri Sep 11 21:51:13 2026] 127.0.0.1:59278 Closing
+[Fri Sep 11 21:51:13 2026] 127.0.0.1:62185 Closing
+[Fri Sep 11 22:13:06 2026] 127.0.0.1:49737 Accepted
+[Fri Sep 11 22:13:06 2026] 127.0.0.1:49737 [200]: GET /index-ref.html
+[Fri Sep 11 22:13:06 2026] 127.0.0.1:49737 Closing
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:57031 Accepted
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:57031 [200]: GET /assets/css/v3.css
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:62324 Accepted
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:49288 Accepted
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:62324 [200]: GET /assets/css/hero-rotator.css
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:55275 Accepted
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:49288 [200]: GET /assets/css/apple-ref.css
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:57031 Closing
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:63119 Accepted
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:55275 [200]: GET /assets/css/ref-motion.css
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:58815 Accepted
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:63119 [200]: GET /assets/css/mono-theme.css
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:62324 Closing
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:59935 Accepted
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:58815 [200]: GET /assets/css/hero-split.css
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:49288 Closing
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:59304 Accepted
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:59935 [200]: GET /assets/img/phone-front.webp
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:55275 Closing
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:59304 [200]: GET /assets/js/v3-smooth.js
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:63119 Closing
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:58815 Closing
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:59935 Closing
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:59304 Closing
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:63194 Accepted
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:54377 Accepted
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:63194 [200]: GET /assets/img/logo-blue.png
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:54377 [200]: GET /assets/img/bg-main.webp
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:63194 Closing
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:54377 Closing
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:50810 Accepted
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:50810 [200]: GET /assets/js/hero-split.js
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:50810 Closing
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:63814 Accepted
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:63814 [200]: GET /assets/img/phone-back-clean.webp
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:54133 Accepted
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:53762 Accepted
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:54133 [200]: GET /assets/img/phone-left.webp
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:61479 Accepted
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:53762 [200]: GET /assets/img/phone-right.webp
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:63814 Closing
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:50174 Accepted
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:61479 [200]: GET /assets/img/phone-top.webp
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:50174 [200]: GET /assets/img/phone-bottom.webp
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:54133 Closing
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:53762 Closing
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:61479 Closing
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:50174 Closing
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:55859 Accepted
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:55859 [404]: GET /favicon.ico - No such file or directory
+[Fri Sep 11 22:13:07 2026] 127.0.0.1:55859 Closing
+[Fri Sep 11 22:14:24 2026] 127.0.0.1:54205 Accepted
+[Fri Sep 11 22:14:24 2026] 127.0.0.1:54205 [200]: GET /assets/css/mono-theme.css
+[Fri Sep 11 22:14:24 2026] 127.0.0.1:54205 Closing
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:57726 Accepted
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:57726 [200]: GET /index-ref.html
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:57726 Closing
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:51474 Accepted
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:60541 Accepted
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:51474 [200]: GET /assets/css/v3.css
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:57075 Accepted
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:51474 Closing
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:60541 [200]: GET /assets/css/hero-rotator.css
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:57075 [200]: GET /assets/css/apple-ref.css
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:60541 Closing
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:57075 Closing
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:63647 Accepted
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:63647 [200]: GET /assets/css/ref-motion.css
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:63647 Closing
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:53867 Accepted
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:53867 [200]: GET /assets/css/mono-theme.css
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:53867 Closing
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:63247 Accepted
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:63247 [200]: GET /assets/css/hero-split.css
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:63247 Closing
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:51316 Accepted
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:51316 [200]: GET /assets/img/phone-front.webp
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:51316 Closing
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:62172 Accepted
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:53827 Accepted
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:62172 [200]: GET /assets/js/v3-smooth.js
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:53827 [200]: GET /assets/img/logo-blue.png
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:62172 Closing
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:53827 Closing
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:64115 Accepted
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:64115 [200]: GET /assets/img/bg-main.webp
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:64115 Closing
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:53365 Accepted
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:53365 [200]: GET /assets/js/hero-split.js
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:53365 Closing
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:64706 Accepted
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:64706 [200]: GET /assets/img/phone-back-clean.webp
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:64706 Closing
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:58937 Accepted
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:56213 Accepted
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:58937 [200]: GET /assets/img/phone-left.webp
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:58937 Closing
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:56213 [200]: GET /assets/img/phone-right.webp
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:56213 Closing
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:57271 Accepted
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:62257 Accepted
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:57271 [200]: GET /assets/img/phone-top.webp
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:62257 [200]: GET /assets/img/phone-bottom.webp
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:57271 Closing
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:62257 Closing
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:64666 Accepted
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:64666 [404]: GET /favicon.ico - No such file or directory
+[Fri Sep 11 22:15:17 2026] 127.0.0.1:64666 Closing
+[Fri Sep 11 22:15:19 2026] 127.0.0.1:64940 Accepted
+[Fri Sep 11 22:15:19 2026] 127.0.0.1:64940 [200]: GET /assets/img/bg-cert.webp
+[Fri Sep 11 22:15:19 2026] 127.0.0.1:60384 Accepted
+[Fri Sep 11 22:15:19 2026] 127.0.0.1:60384 [200]: GET /assets/img/phone-hero.webp
+[Fri Sep 11 22:15:19 2026] 127.0.0.1:64940 Closing
+[Fri Sep 11 22:15:19 2026] 127.0.0.1:60384 Closing
+[Fri Sep 11 22:18:58 2026] 127.0.0.1:65023 Accepted
+[Fri Sep 11 22:18:58 2026] 127.0.0.1:65023 [200]: GET /assets/css/hero-split.css
+[Fri Sep 11 22:18:58 2026] 127.0.0.1:65023 Closing
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:56596 Accepted
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:56596 [200]: GET /index-ref.html
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:56596 Closing
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:65486 Accepted
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:65486 [200]: GET /assets/css/v3.css
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:56845 Accepted
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:65486 Closing
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:56845 [200]: GET /assets/css/hero-rotator.css
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:63874 Accepted
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:63874 [200]: GET /assets/css/apple-ref.css
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:56845 Closing
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:63874 Closing
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:62004 Accepted
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:62004 [200]: GET /assets/css/ref-motion.css
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:62004 Closing
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:63980 Accepted
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:63980 [200]: GET /assets/css/mono-theme.css
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:63980 Closing
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:64917 Accepted
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:64917 [200]: GET /assets/css/hero-split.css
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:64917 Closing
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:55554 Accepted
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:60169 Accepted
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:57051 Accepted
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:55554 [200]: GET /assets/img/phone-front.webp
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:60169 [200]: GET /assets/js/v3-smooth.js
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:57051 [200]: GET /assets/img/logo-blue.png
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:55554 Closing
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:60169 Closing
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:57051 Closing
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:53148 Accepted
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:53148 [200]: GET /assets/img/bg-main.webp
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:53148 Closing
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:54140 Accepted
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:54140 [200]: GET /assets/js/hero-split.js
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:54140 Closing
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:64812 Accepted
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:64812 [200]: GET /assets/img/phone-back-clean.webp
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:64812 Closing
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:59005 Accepted
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:53159 Accepted
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:59005 [200]: GET /assets/img/phone-left.webp
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:53159 [200]: GET /assets/img/phone-right.webp
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:59005 Closing
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:53159 Closing
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:60051 Accepted
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:60051 [200]: GET /assets/img/phone-top.webp
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:52182 Accepted
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:60051 Closing
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:52182 [200]: GET /assets/img/phone-bottom.webp
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:52182 Closing
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:52986 Accepted
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:52986 [404]: GET /favicon.ico - No such file or directory
+[Fri Sep 11 22:20:52 2026] 127.0.0.1:52986 Closing
+[Fri Sep 11 22:20:53 2026] 127.0.0.1:64052 Accepted
+[Fri Sep 11 22:20:53 2026] 127.0.0.1:53551 Accepted
+[Fri Sep 11 22:20:53 2026] 127.0.0.1:64052 [200]: GET /assets/img/bg-cert.webp
+[Fri Sep 11 22:20:53 2026] 127.0.0.1:53551 [200]: GET /assets/img/phone-hero.webp
+[Fri Sep 11 22:20:53 2026] 127.0.0.1:64052 Closing
+[Fri Sep 11 22:20:53 2026] 127.0.0.1:53551 Closing
+[Fri Sep 11 22:22:42 2026] 127.0.0.1:59129 Accepted
+[Fri Sep 11 22:22:42 2026] 127.0.0.1:59129 [200]: GET /assets/css/hero-split.css
+[Fri Sep 11 22:22:42 2026] 127.0.0.1:59129 Closing
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:59583 Accepted
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:59583 [200]: GET /index-ref.html
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:59583 Closing
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:58075 Accepted
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:58075 [200]: GET /assets/css/v3.css
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:58075 Closing
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:65473 Accepted
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:57194 Accepted
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:65473 [200]: GET /assets/css/hero-rotator.css
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:57194 [200]: GET /assets/css/apple-ref.css
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:65473 Closing
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:57194 Closing
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:63698 Accepted
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:63698 [200]: GET /assets/css/ref-motion.css
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:63698 Closing
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:57604 Accepted
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:57604 [200]: GET /assets/css/mono-theme.css
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:57604 Closing
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:65162 Accepted
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:65162 [200]: GET /assets/css/hero-split.css
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:65162 Closing
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:53927 Accepted
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:53927 [200]: GET /assets/img/phone-front.webp
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:53927 Closing
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:57834 Accepted
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:57834 [200]: GET /assets/js/v3-smooth.js
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:57834 Closing
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:61084 Accepted
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:61084 [200]: GET /assets/img/logo-blue.png
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:61084 Closing
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:65131 Accepted
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:65131 [200]: GET /assets/img/bg-main.webp
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:65131 Closing
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:59796 Accepted
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:59796 [200]: GET /assets/js/hero-split.js
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:59796 Closing
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:55790 Accepted
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:55790 [200]: GET /assets/img/phone-back-clean.webp
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:55790 Closing
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:62633 Accepted
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:62633 [200]: GET /assets/img/phone-left.webp
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:62633 Closing
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:64547 Accepted
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:64547 [200]: GET /assets/img/phone-right.webp
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:64547 Closing
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:57009 Accepted
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:50966 Accepted
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:57009 [200]: GET /assets/img/phone-top.webp
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:50966 [200]: GET /assets/img/phone-bottom.webp
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:57009 Closing
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:50966 Closing
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:49178 Accepted
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:49178 [404]: GET /favicon.ico - No such file or directory
+[Fri Sep 11 22:23:57 2026] 127.0.0.1:49178 Closing
+[Fri Sep 11 22:23:59 2026] 127.0.0.1:63217 Accepted
+[Fri Sep 11 22:23:59 2026] 127.0.0.1:61410 Accepted
+[Fri Sep 11 22:23:59 2026] 127.0.0.1:63217 [200]: GET /assets/img/bg-cert.webp
+[Fri Sep 11 22:23:59 2026] 127.0.0.1:61410 [200]: GET /assets/img/phone-hero.webp
+[Fri Sep 11 22:23:59 2026] 127.0.0.1:63217 Closing
+[Fri Sep 11 22:23:59 2026] 127.0.0.1:61410 Closing
+[Fri Sep 11 22:32:42 2026] 127.0.0.1:63225 Accepted
+[Fri Sep 11 22:32:42 2026] 127.0.0.1:63225 [200]: GET /assets/css/hero-split.css
+[Fri Sep 11 22:32:42 2026] 127.0.0.1:63225 Closing
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:61792 Accepted
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:61792 [200]: GET /index-ref.html
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:61792 Closing
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:52210 Accepted
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:59195 Accepted
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:52210 [200]: GET /assets/css/v3.css
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:53939 Accepted
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:59195 [200]: GET /assets/css/hero-rotator.css
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:52210 Closing
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:53939 [200]: GET /assets/css/apple-ref.css
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:59195 Closing
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:53939 Closing
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:64994 Accepted
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:64994 [200]: GET /assets/css/ref-motion.css
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:64994 Closing
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:53668 Accepted
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:53668 [200]: GET /assets/css/mono-theme.css
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:53668 Closing
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:54848 Accepted
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:54848 [200]: GET /assets/css/hero-split.css
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:54848 Closing
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:63618 Accepted
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:63618 [200]: GET /assets/img/phone-front.webp
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:63618 Closing
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:55405 Accepted
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:59746 Accepted
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:55405 [200]: GET /assets/js/v3-smooth.js
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:59746 [200]: GET /assets/img/logo-blue.png
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:55405 Closing
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:59746 Closing
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:61224 Accepted
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:61224 [200]: GET /assets/img/bg-main.webp
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:61224 Closing
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:64649 Accepted
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:64649 [200]: GET /assets/js/hero-split.js
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:64649 Closing
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:61071 Accepted
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:61071 [200]: GET /assets/img/phone-back-clean.webp
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:58301 Accepted
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:61071 Closing
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:57771 Accepted
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:58301 [200]: GET /assets/img/phone-left.webp
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:58301 Closing
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:57771 [200]: GET /assets/img/phone-right.webp
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:57771 Closing
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:63112 Accepted
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:63112 [200]: GET /assets/img/phone-top.webp
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:65486 Accepted
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:63112 Closing
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:65486 [200]: GET /assets/img/phone-bottom.webp
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:65486 Closing
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:61258 Accepted
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:61258 [404]: GET /favicon.ico - No such file or directory
+[Fri Sep 11 22:33:57 2026] 127.0.0.1:61258 Closing
+[Fri Sep 11 22:33:59 2026] 127.0.0.1:56233 Accepted
+[Fri Sep 11 22:33:59 2026] 127.0.0.1:56233 [200]: GET /assets/img/bg-cert.webp
+[Fri Sep 11 22:33:59 2026] 127.0.0.1:64631 Accepted
+[Fri Sep 11 22:33:59 2026] 127.0.0.1:56233 Closing
+[Fri Sep 11 22:33:59 2026] 127.0.0.1:64631 [200]: GET /assets/img/phone-hero.webp
+[Fri Sep 11 22:33:59 2026] 127.0.0.1:64631 Closing
+[Fri Sep 11 23:06:46 2026] 127.0.0.1:59334 Accepted
+[Fri Sep 11 23:06:46 2026] 127.0.0.1:59334 [200]: GET /assets/css/mono-theme.css
+[Fri Sep 11 23:06:46 2026] 127.0.0.1:59334 Closing
+[Fri Sep 11 23:08:08 2026] 127.0.0.1:56307 Accepted
+[Fri Sep 11 23:08:08 2026] 127.0.0.1:56307 [200]: GET /index-ref.html
+[Fri Sep 11 23:08:08 2026] 127.0.0.1:56307 Closing
+[Fri Sep 11 23:08:08 2026] 127.0.0.1:51477 Accepted
+[Fri Sep 11 23:08:08 2026] 127.0.0.1:49652 Accepted
+[Fri Sep 11 23:08:08 2026] 127.0.0.1:51477 [200]: GET /assets/css/v3.css
+[Fri Sep 11 23:08:08 2026] 127.0.0.1:49652 [200]: GET /assets/css/hero-rotator.css
+[Fri Sep 11 23:08:08 2026] 127.0.0.1:51477 Closing
+[Fri Sep 11 23:08:08 2026] 127.0.0.1:49652 Closing
+[Fri Sep 11 23:08:08 2026] 127.0.0.1:61262 Accepted
+[Fri Sep 11 23:08:08 2026] 127.0.0.1:61262 [200]: GET /assets/css/apple-ref.css
+[Fri Sep 11 23:08:08 2026] 127.0.0.1:61262 Closing
+[Fri Sep 11 23:08:08 2026] 127.0.0.1:49598 Accepted
+[Fri Sep 11 23:08:08 2026] 127.0.0.1:49598 [200]: GET /assets/css/ref-motion.css
+[Fri Sep 11 23:08:08 2026] 127.0.0.1:59679 Accepted
+[Fri Sep 11 23:08:08 2026] 127.0.0.1:49598 Closing
+[Fri Sep 11 23:08:08 2026] 127.0.0.1:59679 [200]: GET /assets/css/mono-theme.css
+[Fri Sep 11 23:08:08 2026] 127.0.0.1:59679 Closing
+[Fri Sep 11 23:08:08 2026] 127.0.0.1:56904 Accepted
+[Fri Sep 11 23:08:08 2026] 127.0.0.1:56904 [200]: GET /assets/css/hero-split.css
+[Fri Sep 11 23:08:08 2026] 127.0.0.1:56904 Closing
+[Fri Sep 11 23:08:08 2026] 127.0.0.1:57839 Accepted
+[Fri Sep 11 23:08:08 2026] 127.0.0.1:57839 [200]: GET /assets/img/phone-front.webp
+[Fri Sep 11 23:08:08 2026] 127.0.0.1:57839 Closing
+[Fri Sep 11 23:08:08 2026] 127.0.0.1:64834 Accepted
+[Fri Sep 11 23:08:08 2026] 127.0.0.1:64834 [200]: GET /assets/js/v3-smooth.js
+[Fri Sep 11 23:08:08 2026] 127.0.0.1:64834 Closing
+[Fri Sep 11 23:08:08 2026] 127.0.0.1:57320 Accepted
+[Fri Sep 11 23:08:08 2026] 127.0.0.1:57320 [200]: GET /assets/img/logo-blue.png
+[Fri Sep 11 23:08:08 2026] 127.0.0.1:57320 Closing
+[Fri Sep 11 23:08:08 2026] 127.0.0.1:56269 Accepted
+[Fri Sep 11 23:08:08 2026] 127.0.0.1:56269 [200]: GET /assets/img/bg-main.webp
+[Fri Sep 11 23:08:08 2026] 127.0.0.1:56269 Closing
+[Fri Sep 11 23:08:09 2026] 127.0.0.1:56844 Accepted
+[Fri Sep 11 23:08:09 2026] 127.0.0.1:56844 [200]: GET /assets/js/hero-split.js
+[Fri Sep 11 23:08:09 2026] 127.0.0.1:56844 Closing
+[Fri Sep 11 23:08:09 2026] 127.0.0.1:53694 Accepted
+[Fri Sep 11 23:08:09 2026] 127.0.0.1:53694 [200]: GET /assets/img/phone-back-clean.webp
+[Fri Sep 11 23:08:09 2026] 127.0.0.1:53694 Closing
+[Fri Sep 11 23:08:09 2026] 127.0.0.1:51110 Accepted
+[Fri Sep 11 23:08:09 2026] 127.0.0.1:51110 [200]: GET /assets/img/phone-left.webp
+[Fri Sep 11 23:08:09 2026] 127.0.0.1:51110 Closing
+[Fri Sep 11 23:08:09 2026] 127.0.0.1:63807 Accepted
+[Fri Sep 11 23:08:09 2026] 127.0.0.1:63807 [200]: GET /assets/img/phone-right.webp
+[Fri Sep 11 23:08:09 2026] 127.0.0.1:63807 Closing
+[Fri Sep 11 23:08:09 2026] 127.0.0.1:55032 Accepted
+[Fri Sep 11 23:08:09 2026] 127.0.0.1:55032 [200]: GET /assets/img/phone-top.webp
+[Fri Sep 11 23:08:09 2026] 127.0.0.1:55032 Closing
+[Fri Sep 11 23:08:09 2026] 127.0.0.1:60445 Accepted
+[Fri Sep 11 23:08:09 2026] 127.0.0.1:60445 [200]: GET /assets/img/phone-bottom.webp
+[Fri Sep 11 23:08:09 2026] 127.0.0.1:60445 Closing
+[Fri Sep 11 23:08:09 2026] 127.0.0.1:49701 Accepted
+[Fri Sep 11 23:08:09 2026] 127.0.0.1:49701 [200]: GET /assets/img/favicon.png
+[Fri Sep 11 23:08:09 2026] 127.0.0.1:49701 Closing
+[Fri Sep 11 23:08:54 2026] 127.0.0.1:59962 Accepted
+[Fri Sep 11 23:08:54 2026] 127.0.0.1:59962 [200]: GET /assets/img/phone-front.webp
+[Fri Sep 11 23:08:54 2026] 127.0.0.1:59962 Closing
+[Fri Sep 11 23:08:54 2026] 127.0.0.1:63288 Accepted
+[Fri Sep 11 23:08:54 2026] 127.0.0.1:54796 Accepted
+[Fri Sep 11 23:08:54 2026] 127.0.0.1:63288 [200]: GET /assets/img/phone-back-clean.webp
+[Fri Sep 11 23:08:54 2026] 127.0.0.1:55850 Accepted
+[Fri Sep 11 23:08:54 2026] 127.0.0.1:63288 Closing
+[Fri Sep 11 23:08:54 2026] 127.0.0.1:59479 Accepted
+[Fri Sep 11 23:08:54 2026] 127.0.0.1:62788 Accepted
+[Fri Sep 11 23:08:54 2026] 127.0.0.1:54796 [200]: GET /assets/img/phone-left.webp
+[Fri Sep 11 23:08:54 2026] 127.0.0.1:54796 Closing
+[Fri Sep 11 23:08:54 2026] 127.0.0.1:55850 [200]: GET /assets/img/phone-right.webp
+[Fri Sep 11 23:08:54 2026] 127.0.0.1:59479 [200]: GET /assets/img/bg-cert.webp
+[Fri Sep 11 23:08:54 2026] 127.0.0.1:55850 Closing
+[Fri Sep 11 23:08:54 2026] 127.0.0.1:62788 [200]: GET /assets/img/phone-hero.webp
+[Fri Sep 11 23:08:54 2026] 127.0.0.1:59479 Closing
+[Fri Sep 11 23:08:54 2026] 127.0.0.1:62788 Closing
+[Fri Sep 11 23:08:54 2026] 127.0.0.1:56323 Accepted
+[Fri Sep 11 23:08:54 2026] 127.0.0.1:54304 Accepted
+[Fri Sep 11 23:08:54 2026] 127.0.0.1:56323 [200]: GET /assets/img/phone-top.webp
+[Fri Sep 11 23:08:54 2026] 127.0.0.1:54304 [200]: GET /assets/img/phone-bottom.webp
+[Fri Sep 11 23:08:54 2026] 127.0.0.1:56323 Closing
+[Fri Sep 11 23:08:54 2026] 127.0.0.1:54304 Closing
+[Fri Sep 11 23:09:38 2026] 127.0.0.1:54316 Accepted
+[Fri Sep 11 23:09:38 2026] 127.0.0.1:54316 [200]: GET /assets/css/hero-split.css
+[Fri Sep 11 23:09:38 2026] 127.0.0.1:54316 Closing
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:51462 Accepted
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:51462 [200]: GET /index-ref.html
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:51462 Closing
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:49900 Accepted
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:52965 Accepted
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:49900 [200]: GET /assets/css/v3.css
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:52965 [200]: GET /assets/css/hero-rotator.css
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:49900 Closing
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:52965 Closing
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:57939 Accepted
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:57939 [200]: GET /assets/css/apple-ref.css
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:57939 Closing
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:61390 Accepted
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:61390 [200]: GET /assets/css/ref-motion.css
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:61390 Closing
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:61323 Accepted
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:61323 [200]: GET /assets/css/mono-theme.css
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:61323 Closing
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:64474 Accepted
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:64474 [200]: GET /assets/css/hero-split.css
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:64474 Closing
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:65451 Accepted
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:65451 [200]: GET /assets/img/phone-front.webp
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:65451 Closing
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:51043 Accepted
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:51043 [200]: GET /assets/js/v3-smooth.js
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:51043 Closing
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:54859 Accepted
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:54859 [200]: GET /assets/img/logo-blue.png
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:54859 Closing
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:56140 Accepted
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:56140 [200]: GET /assets/img/bg-main.webp
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:56140 Closing
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:63461 Accepted
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:63461 [200]: GET /assets/js/hero-split.js
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:63461 Closing
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:54069 Accepted
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:54069 [200]: GET /assets/img/phone-back-clean.webp
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:54069 Closing
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:55122 Accepted
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:55122 [200]: GET /assets/img/phone-left.webp
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:55122 Closing
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:54619 Accepted
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:54619 [200]: GET /assets/img/phone-right.webp
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:54619 Closing
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:52880 Accepted
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:52880 [200]: GET /assets/img/phone-top.webp
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:56905 Accepted
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:52880 Closing
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:56905 [200]: GET /assets/img/phone-bottom.webp
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:56905 Closing
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:57530 Accepted
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:57530 [404]: GET /favicon.ico - No such file or directory
+[Fri Sep 11 23:10:39 2026] 127.0.0.1:57530 Closing
+[Fri Sep 11 23:10:41 2026] 127.0.0.1:57039 Accepted
+[Fri Sep 11 23:10:41 2026] 127.0.0.1:60058 Accepted
+[Fri Sep 11 23:10:41 2026] 127.0.0.1:57039 [200]: GET /assets/img/bg-cert.webp
+[Fri Sep 11 23:10:41 2026] 127.0.0.1:60058 [200]: GET /assets/img/phone-hero.webp
+[Fri Sep 11 23:10:41 2026] 127.0.0.1:57039 Closing
+[Fri Sep 11 23:10:41 2026] 127.0.0.1:60058 Closing
+[Fri Sep 11 23:11:25 2026] 127.0.0.1:56884 Accepted
+[Fri Sep 11 23:11:25 2026] 127.0.0.1:56884 [200]: GET /assets/css/hero-split.css
+[Fri Sep 11 23:11:25 2026] 127.0.0.1:56884 Closing
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:65511 Accepted
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:65511 [200]: GET /index-ref.html
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:65511 Closing
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:63655 Accepted
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:53761 Accepted
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:63655 [200]: GET /assets/css/v3.css
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:53761 [200]: GET /assets/css/hero-rotator.css
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:63655 Closing
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:53761 Closing
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:61696 Accepted
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:61690 Accepted
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:49838 Accepted
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:52700 Accepted
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:53614 Accepted
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:61790 Accepted
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:61696 [200]: GET /assets/css/apple-ref.css
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:61690 [200]: GET /assets/css/ref-motion.css
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:49838 [200]: GET /assets/css/mono-theme.css
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:52700 [200]: GET /assets/css/hero-split.css
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:53614 [200]: GET /assets/img/phone-front.webp
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:61790 [200]: GET /assets/js/v3-smooth.js
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:61696 Closing
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:61690 Closing
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:49838 Closing
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:52700 Closing
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:53614 Closing
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:61790 Closing
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:52522 Accepted
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:52435 Accepted
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:52522 [200]: GET /assets/img/logo-blue.png
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:52435 [200]: GET /assets/img/bg-main.webp
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:52522 Closing
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:52435 Closing
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:57933 Accepted
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:57933 [200]: GET /assets/js/hero-split.js
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:57933 Closing
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:53277 Accepted
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:53277 [200]: GET /assets/img/phone-back-clean.webp
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:59810 Accepted
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:53277 Closing
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:51463 Accepted
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:51470 Accepted
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:50288 Accepted
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:59810 [200]: GET /assets/img/phone-left.webp
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:51463 [200]: GET /assets/img/phone-right.webp
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:59810 Closing
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:51470 [200]: GET /assets/img/phone-top.webp
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:51463 Closing
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:50288 [200]: GET /assets/img/phone-bottom.webp
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:51470 Closing
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:50288 Closing
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:51399 Accepted
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:51399 [404]: GET /favicon.ico - No such file or directory
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:51399 Closing
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:60815 Accepted
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:53031 Accepted
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:60815 [200]: GET /assets/img/bg-cert.webp
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:53031 [200]: GET /assets/img/phone-hero.webp
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:60815 Closing
+[Fri Sep 11 23:12:07 2026] 127.0.0.1:53031 Closing
+[Fri Sep 11 23:24:33 2026] 127.0.0.1:63381 Accepted
+[Fri Sep 11 23:24:33 2026] 127.0.0.1:63381 [200]: GET /index-ref.html
+[Fri Sep 11 23:24:33 2026] 127.0.0.1:63381 Closing
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:55648 Accepted
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:55648 [200]: GET /index-ref.html
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:55648 Closing
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:57310 Accepted
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:57310 [200]: GET /assets/css/v3.css
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:57310 Closing
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:60814 Accepted
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:60814 [200]: GET /assets/css/hero-rotator.css
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:60814 Closing
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:64385 Accepted
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:64385 [200]: GET /assets/css/apple-ref.css
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:64385 Closing
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:56586 Accepted
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:56586 [200]: GET /assets/css/ref-motion.css
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:56586 Closing
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:54187 Accepted
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:54187 [200]: GET /assets/css/mono-theme.css
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:54187 Closing
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:57728 Accepted
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:57728 [200]: GET /assets/css/hero-cinema.css
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:57728 Closing
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:55344 Accepted
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:55344 [200]: GET /assets/img/phone-front.webp
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:55344 Closing
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:59502 Accepted
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:59502 [200]: GET /assets/js/v3-smooth.js
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:54317 Accepted
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:59502 Closing
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:54317 [200]: GET /assets/img/logo-blue.png
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:54317 Closing
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:60665 Accepted
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:60665 [200]: GET /assets/img/bg-main.webp
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:60665 Closing
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:60796 Accepted
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:60796 [200]: GET /assets/js/hero-cinema.js
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:60796 Closing
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:56668 Accepted
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:56668 [200]: GET /assets/img/phone-left.webp
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:55557 Accepted
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:56668 Closing
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:55557 [200]: GET /assets/img/phone-back-clean.webp
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:59450 Accepted
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:55557 Closing
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:59450 [200]: GET /assets/img/phone-right.webp
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:59450 Closing
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:64301 Accepted
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:64301 [200]: GET /assets/img/phone-top.webp
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:50155 Accepted
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:64301 Closing
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:50155 [200]: GET /assets/img/phone-bottom.webp
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:52313 Accepted
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:50155 Closing
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:52313 [404]: GET /assets/css/assets/img/bg-main.webp - No such file or directory
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:52313 Closing
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:56993 Accepted
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:56993 [404]: GET /favicon.ico - No such file or directory
+[Fri Sep 11 23:25:01 2026] 127.0.0.1:56993 Closing
+[Fri Sep 11 23:25:03 2026] 127.0.0.1:55110 Accepted
+[Fri Sep 11 23:25:03 2026] 127.0.0.1:55110 [404]: GET /assets/css/assets/img/bg-main.webp - No such file or directory
+[Fri Sep 11 23:25:03 2026] 127.0.0.1:55110 Closing
+[Fri Sep 11 23:25:03 2026] 127.0.0.1:60309 Accepted
+[Fri Sep 11 23:25:03 2026] 127.0.0.1:49660 Accepted
+[Fri Sep 11 23:25:03 2026] 127.0.0.1:60309 [200]: GET /assets/img/bg-cert.webp
+[Fri Sep 11 23:25:03 2026] 127.0.0.1:49660 [200]: GET /assets/img/phone-hero.webp
+[Fri Sep 11 23:25:03 2026] 127.0.0.1:60309 Closing
+[Fri Sep 11 23:25:03 2026] 127.0.0.1:49660 Closing
+[Fri Sep 11 23:25:03 2026] 127.0.0.1:55129 Accepted
+[Fri Sep 11 23:25:03 2026] 127.0.0.1:55129 [404]: GET /assets/css/assets/img/bg-main.webp - No such file or directory
+[Fri Sep 11 23:25:03 2026] 127.0.0.1:55129 Closing
+[Fri Sep 11 23:25:03 2026] 127.0.0.1:62539 Accepted
+[Fri Sep 11 23:25:03 2026] 127.0.0.1:62539 [404]: GET /assets/css/assets/img/bg-main.webp - No such file or directory
+[Fri Sep 11 23:25:03 2026] 127.0.0.1:62539 Closing
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:50806 Accepted
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:50806 [200]: GET /index-ref.html
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:50806 Closing
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:64554 Accepted
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:64554 [200]: GET /assets/css/v3.css
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:56771 Accepted
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:64554 Closing
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:56771 [200]: GET /assets/css/hero-rotator.css
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:56771 Closing
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:53528 Accepted
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:53528 [200]: GET /assets/css/apple-ref.css
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:52307 Accepted
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:53528 Closing
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:52307 [200]: GET /assets/css/ref-motion.css
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:52307 Closing
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:55930 Accepted
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:55930 [200]: GET /assets/css/mono-theme.css
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:62062 Accepted
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:55930 Closing
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:62062 [200]: GET /assets/css/hero-cinema.css
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:53233 Accepted
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:62062 Closing
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:53233 [200]: GET /assets/img/phone-front.webp
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:53233 Closing
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:61235 Accepted
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:57534 Accepted
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:61235 [200]: GET /assets/js/v3-smooth.js
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:57534 [200]: GET /assets/img/logo-blue.png
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:61235 Closing
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:51765 Accepted
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:57534 Closing
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:51765 [200]: GET /assets/img/bg-main.webp
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:51765 Closing
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:63042 Accepted
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:63042 [200]: GET /assets/js/hero-cinema.js
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:63042 Closing
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:54100 Accepted
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:54114 Accepted
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:54100 [200]: GET /assets/img/phone-left.webp
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:54459 Accepted
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:54114 [200]: GET /assets/img/phone-back-clean.webp
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:54100 Closing
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:54459 [200]: GET /assets/img/phone-right.webp
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:54114 Closing
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:54459 Closing
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:62967 Accepted
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:62967 [200]: GET /assets/img/phone-top.webp
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:60770 Accepted
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:62967 Closing
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:63475 Accepted
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:60770 [200]: GET /assets/img/phone-bottom.webp
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:63475 [404]: GET /assets/css/assets/img/bg-main.webp - No such file or directory
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:63475 Closing
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:60770 Closing
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:51307 Accepted
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:51307 [404]: GET /favicon.ico - No such file or directory
+[Fri Sep 11 23:28:28 2026] 127.0.0.1:51307 Closing
+[Fri Sep 11 23:28:29 2026] 127.0.0.1:58378 Accepted
+[Fri Sep 11 23:28:29 2026] 127.0.0.1:58378 [404]: GET /assets/css/assets/img/bg-main.webp - No such file or directory
+[Fri Sep 11 23:28:29 2026] 127.0.0.1:58378 Closing
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:58432 Accepted
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:58432 [404]: GET /assets/css/assets/img/bg-main.webp - No such file or directory
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:58432 Closing
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:63746 Accepted
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:63746 [200]: GET /index-ref.html
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:63746 Closing
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:54967 Accepted
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:51161 Accepted
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:54967 [200]: GET /assets/css/v3.css
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:62419 Accepted
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:54967 Closing
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:51161 [200]: GET /assets/css/hero-rotator.css
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:51161 Closing
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:62419 [200]: GET /assets/css/apple-ref.css
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:62419 Closing
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:52894 Accepted
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:62598 Accepted
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:52894 [200]: GET /assets/css/ref-motion.css
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:52894 Closing
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:62631 Accepted
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:62598 [200]: GET /assets/css/mono-theme.css
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:62631 [200]: GET /assets/css/hero-cinema.css
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:62598 Closing
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:62631 Closing
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:54282 Accepted
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:56634 Accepted
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:54282 [200]: GET /assets/img/phone-front.webp
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:54282 Closing
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:56634 [200]: GET /assets/js/v3-smooth.js
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:56634 Closing
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:54705 Accepted
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:49763 Accepted
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:54705 [200]: GET /assets/img/logo-blue.png
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:49763 [200]: GET /assets/img/bg-main.webp
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:54705 Closing
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:49763 Closing
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:54779 Accepted
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:54779 [200]: GET /assets/js/hero-cinema.js
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:54779 Closing
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:51599 Accepted
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:51599 [200]: GET /assets/img/phone-left.webp
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:52745 Accepted
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:51599 Closing
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:52745 [200]: GET /assets/img/phone-back-clean.webp
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:53070 Accepted
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:53070 [200]: GET /assets/img/phone-right.webp
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:52745 Closing
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:59097 Accepted
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:53070 Closing
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:62259 Accepted
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:59097 [200]: GET /assets/img/phone-top.webp
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:62259 [200]: GET /assets/img/phone-bottom.webp
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:59097 Closing
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:62259 Closing
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:54937 Accepted
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:54937 [404]: GET /assets/css/assets/img/bg-main.webp - No such file or directory
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:54937 Closing
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:63071 Accepted
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:63071 [404]: GET /favicon.ico - No such file or directory
+[Fri Sep 11 23:30:21 2026] 127.0.0.1:63071 Closing
+[Fri Sep 11 23:30:22 2026] 127.0.0.1:53935 Accepted
+[Fri Sep 11 23:30:22 2026] 127.0.0.1:53935 [404]: GET /assets/css/assets/img/bg-main.webp - No such file or directory
+[Fri Sep 11 23:30:22 2026] 127.0.0.1:53935 Closing
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:57515 Accepted
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:57515 [200]: GET /index-ref.html
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:57515 Closing
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:61388 Accepted
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:61388 [200]: GET /assets/css/v3.css
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:62722 Accepted
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:61388 Closing
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:62722 [200]: GET /assets/css/hero-rotator.css
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:62722 Closing
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:64054 Accepted
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:64054 [200]: GET /assets/css/apple-ref.css
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:64054 Closing
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:59425 Accepted
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:59425 [200]: GET /assets/css/ref-motion.css
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:59425 Closing
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:53638 Accepted
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:53638 [200]: GET /assets/css/mono-theme.css
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:53638 Closing
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:65365 Accepted
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:65365 [200]: GET /assets/css/hero-cinema.css
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:65365 Closing
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:59675 Accepted
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:59675 [200]: GET /assets/img/phone-front.webp
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:59675 Closing
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:51440 Accepted
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:51440 [200]: GET /assets/js/v3-smooth.js
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:51440 Closing
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:59049 Accepted
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:59049 [200]: GET /assets/img/logo-blue.png
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:59049 Closing
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:50885 Accepted
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:50885 [200]: GET /assets/img/bg-main.webp
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:50885 Closing
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:59605 Accepted
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:59605 [200]: GET /assets/js/hero-cinema.js
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:59605 Closing
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:50544 Accepted
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:50544 [200]: GET /assets/img/phone-left.webp
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:50544 Closing
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:52999 Accepted
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:52999 [200]: GET /assets/img/phone-back-clean.webp
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:52999 Closing
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:56685 Accepted
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:56685 [200]: GET /assets/img/phone-right.webp
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:56685 Closing
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:52596 Accepted
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:52596 [404]: GET /assets/css/assets/img/bg-main.webp - No such file or directory
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:52596 Closing
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:62873 Accepted
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:62873 [200]: GET /assets/img/phone-top.webp
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:62873 Closing
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:50169 Accepted
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:50169 [200]: GET /assets/img/phone-bottom.webp
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:50169 Closing
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:53844 Accepted
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:53844 [404]: GET /favicon.ico - No such file or directory
+[Fri Sep 11 23:32:17 2026] 127.0.0.1:53844 Closing
+[Fri Sep 11 23:32:18 2026] 127.0.0.1:53922 Accepted
+[Fri Sep 11 23:32:18 2026] 127.0.0.1:53922 [404]: GET /assets/css/assets/img/bg-main.webp - No such file or directory
+[Fri Sep 11 23:32:18 2026] 127.0.0.1:53922 Closing
+[Fri Sep 11 23:32:18 2026] 127.0.0.1:64745 Accepted
+[Fri Sep 11 23:32:18 2026] 127.0.0.1:64745 [404]: GET /assets/css/assets/img/bg-main.webp - No such file or directory
+[Fri Sep 11 23:32:18 2026] 127.0.0.1:64745 Closing
+[Fri Sep 11 23:32:18 2026] 127.0.0.1:59960 Accepted
+[Fri Sep 11 23:32:18 2026] 127.0.0.1:59960 [404]: GET /assets/css/assets/img/bg-main.webp - No such file or directory
+[Fri Sep 11 23:32:18 2026] 127.0.0.1:59960 Closing
+[Fri Sep 11 23:32:18 2026] 127.0.0.1:55625 Accepted
+[Fri Sep 11 23:32:18 2026] 127.0.0.1:55625 [404]: GET /assets/css/assets/img/bg-main.webp - No such file or directory
+[Fri Sep 11 23:32:18 2026] 127.0.0.1:55625 Closing
+[Fri Sep 11 23:32:18 2026] 127.0.0.1:58328 Accepted
+[Fri Sep 11 23:32:18 2026] 127.0.0.1:58328 [404]: GET /assets/css/assets/img/bg-main.webp - No such file or directory
+[Fri Sep 11 23:32:18 2026] 127.0.0.1:58328 Closing
+[Fri Sep 11 23:32:18 2026] 127.0.0.1:54853 Accepted
+[Fri Sep 11 23:32:18 2026] 127.0.0.1:54853 [404]: GET /assets/css/assets/img/bg-main.webp - No such file or directory
+[Fri Sep 11 23:32:18 2026] 127.0.0.1:54853 Closing
+[Fri Sep 11 23:32:18 2026] 127.0.0.1:53220 Accepted
+[Fri Sep 11 23:32:18 2026] 127.0.0.1:53220 [404]: GET /assets/css/assets/img/bg-main.webp - No such file or directory
+[Fri Sep 11 23:32:18 2026] 127.0.0.1:53220 Closing
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:59005 Accepted
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:59005 [200]: GET /index-ref.html
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:59005 Closing
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:59482 Accepted
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:59482 [200]: GET /assets/css/v3.css
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:51601 Accepted
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:59482 Closing
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:51601 [200]: GET /assets/css/hero-rotator.css
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:51601 Closing
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:58234 Accepted
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:58234 [200]: GET /assets/css/apple-ref.css
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:58234 Closing
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:52784 Accepted
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:52784 [200]: GET /assets/css/ref-motion.css
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:52784 Closing
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:52271 Accepted
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:52271 [200]: GET /assets/css/mono-theme.css
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:52271 Closing
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:61671 Accepted
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:61671 [200]: GET /assets/css/hero-cinema.css
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:61671 Closing
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:63741 Accepted
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:63741 [200]: GET /assets/img/phone-front.webp
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:63741 Closing
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:64495 Accepted
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:64495 [200]: GET /assets/js/v3-smooth.js
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:64495 Closing
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:62682 Accepted
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:62682 [200]: GET /assets/img/logo-blue.png
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:62682 Closing
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:65180 Accepted
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:65180 [200]: GET /assets/img/bg-main.webp
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:65180 Closing
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:51425 Accepted
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:51425 [200]: GET /assets/js/hero-cinema.js
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:51425 Closing
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:61593 Accepted
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:61593 [200]: GET /assets/img/phone-left.webp
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:50894 Accepted
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:61593 Closing
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:50894 [200]: GET /assets/img/phone-back-clean.webp
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:50894 Closing
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:63575 Accepted
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:63575 [200]: GET /assets/img/phone-right.webp
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:63575 Closing
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:50979 Accepted
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:59263 Accepted
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:50979 [200]: GET /assets/img/phone-top.webp
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:59263 [200]: GET /assets/img/phone-bottom.webp
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:50979 Closing
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:59263 Closing
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:62509 Accepted
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:62509 [404]: GET /favicon.ico - No such file or directory
+[Fri Sep 11 23:33:40 2026] 127.0.0.1:62509 Closing
+[Fri Sep 11 23:58:14 2026] 127.0.0.1:58187 Accepted
+[Fri Sep 11 23:58:14 2026] 127.0.0.1:58187 [200]: GET /index-ref.html
+[Fri Sep 11 23:58:14 2026] 127.0.0.1:58187 Closing
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:58458 Accepted
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:58458 [200]: GET /index-ref.html
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:58458 Closing
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:51590 Accepted
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:51590 [200]: GET /assets/css/v3.css
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:49677 Accepted
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:51590 Closing
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:58518 Accepted
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:59274 Accepted
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:50730 Accepted
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:51237 Accepted
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:49677 [200]: GET /assets/css/hero-rotator.css
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:49677 Closing
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:60326 Accepted
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:58518 [200]: GET /assets/css/apple-ref.css
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:59274 [200]: GET /assets/css/ref-motion.css
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:50730 [200]: GET /assets/css/mono-theme.css
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:51237 [200]: GET /assets/css/light-redesign.css
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:60326 [200]: GET /assets/css/hero-cinema.css
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:58518 Closing
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:59274 Closing
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:50730 Closing
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:51237 Closing
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:60326 Closing
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:61595 Accepted
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:61595 [200]: GET /assets/img/logo-blue.png
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:54322 Accepted
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:61595 Closing
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:57539 Accepted
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:59423 Accepted
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:54322 [200]: GET /assets/img/bg-main.webp
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:54322 Closing
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:57539 [200]: GET /assets/img/phone-front.webp
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:59423 [200]: GET /assets/js/v3-smooth.js
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:57539 Closing
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:59423 Closing
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:54558 Accepted
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:54558 [200]: GET /assets/js/hero-cinema.js
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:54558 Closing
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:53083 Accepted
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:53083 [200]: GET /assets/img/phone-left.webp
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:54672 Accepted
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:53083 Closing
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:54497 Accepted
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:56789 Accepted
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:54672 [200]: GET /assets/img/phone-back-clean.webp
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:49855 Accepted
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:54497 [200]: GET /assets/img/phone-right.webp
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:54672 Closing
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:56789 [200]: GET /assets/img/phone-top.webp
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:49855 [200]: GET /assets/img/phone-bottom.webp
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:54497 Closing
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:56789 Closing
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:49855 Closing
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:61620 Accepted
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:61620 [404]: GET /favicon.ico - No such file or directory
+[Fri Sep 11 23:58:35 2026] 127.0.0.1:61620 Closing
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:49158 Accepted
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:49158 [200]: GET /index-ref.html
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:49158 Closing
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:54836 Accepted
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:54836 [200]: GET /assets/css/v3.css
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:51245 Accepted
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:54836 Closing
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:50580 Accepted
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:51245 [200]: GET /assets/css/hero-rotator.css
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:50580 [200]: GET /assets/css/apple-ref.css
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:51245 Closing
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:50580 Closing
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:58460 Accepted
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:58460 [200]: GET /assets/css/ref-motion.css
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:58460 Closing
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:49739 Accepted
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:49739 [200]: GET /assets/css/mono-theme.css
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:49739 Closing
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:58949 Accepted
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:58949 [200]: GET /assets/css/hero-cinema.css
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:58949 Closing
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:49839 Accepted
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:49839 [200]: GET /assets/css/light-redesign.css
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:49839 Closing
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:52440 Accepted
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:57941 Accepted
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:52440 [200]: GET /assets/img/phone-front.webp
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:57941 [200]: GET /assets/js/v3-smooth.js
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:52440 Closing
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:57941 Closing
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:61610 Accepted
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:61610 [200]: GET /assets/img/logo-blue.png
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:61610 Closing
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:62500 Accepted
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:62500 [200]: GET /assets/img/bg-main.webp
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:62500 Closing
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:50720 Accepted
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:50720 [200]: GET /assets/js/hero-cinema.js
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:50720 Closing
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:50553 Accepted
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:50553 [200]: GET /assets/img/phone-left.webp
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:54905 Accepted
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:50553 Closing
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:54905 [200]: GET /assets/img/phone-back-clean.webp
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:63250 Accepted
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:54905 Closing
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:63250 [200]: GET /assets/img/phone-right.webp
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:63250 Closing
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:49860 Accepted
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:54725 Accepted
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:49860 [200]: GET /assets/img/phone-top.webp
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:54725 [200]: GET /assets/img/phone-bottom.webp
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:49860 Closing
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:54725 Closing
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:60265 Accepted
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:60265 [404]: GET /favicon.ico - No such file or directory
+[Sat Sep 12 00:00:04 2026] 127.0.0.1:60265 Closing
+[Sat Sep 12 00:00:25 2026] 127.0.0.1:52178 Accepted
+[Sat Sep 12 00:00:25 2026] 127.0.0.1:52178 [200]: GET /assets/img/bg-cert.webp
+[Sat Sep 12 00:00:25 2026] 127.0.0.1:52178 Closing
+[Sat Sep 12 00:00:50 2026] 127.0.0.1:60778 Accepted
+[Sat Sep 12 00:00:50 2026] 127.0.0.1:60778 [200]: GET /assets/img/phone-hero.webp
+[Sat Sep 12 00:00:50 2026] 127.0.0.1:60778 Closing
+[Sat Sep 12 00:11:30 2026] 127.0.0.1:62602 Accepted
+[Sat Sep 12 00:11:30 2026] 127.0.0.1:62602 [200]: GET /assets/css/light-redesign.css
+[Sat Sep 12 00:11:30 2026] 127.0.0.1:62602 Closing
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:51951 Accepted
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:51951 [200]: GET /index-ref.html
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:51951 Closing
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:60860 Accepted
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:63770 Accepted
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:60860 [200]: GET /assets/css/v3.css
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:63770 [200]: GET /assets/css/hero-rotator.css
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:60860 Closing
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:63770 Closing
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:56202 Accepted
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:56202 [200]: GET /assets/css/apple-ref.css
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:56202 Closing
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:53365 Accepted
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:53365 [200]: GET /assets/css/ref-motion.css
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:53365 Closing
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:55850 Accepted
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:55850 [200]: GET /assets/css/mono-theme.css
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:55850 Closing
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:64426 Accepted
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:64426 [200]: GET /assets/css/hero-cinema.css
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:64426 Closing
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:60719 Accepted
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:60719 [200]: GET /assets/css/light-redesign.css
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:60719 Closing
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:52647 Accepted
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:52647 [200]: GET /assets/img/phone-front.webp
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:63497 Accepted
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:52647 Closing
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:63497 [200]: GET /assets/js/v3-smooth.js
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:63497 Closing
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:49393 Accepted
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:49393 [200]: GET /assets/img/logo-blue.png
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:49393 Closing
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:61210 Accepted
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:61210 [200]: GET /assets/img/bg-main.webp
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:61210 Closing
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:55243 Accepted
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:55243 [200]: GET /assets/js/hero-cinema.js
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:55243 Closing
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:56502 Accepted
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:65472 Accepted
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:56502 [200]: GET /assets/img/phone-left.webp
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:55522 Accepted
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:56502 Closing
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:65472 [200]: GET /assets/img/phone-back-clean.webp
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:55522 [200]: GET /assets/img/phone-right.webp
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:65472 Closing
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:55522 Closing
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:65020 Accepted
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:65020 [200]: GET /assets/img/phone-top.webp
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:57429 Accepted
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:57429 [200]: GET /assets/img/phone-bottom.webp
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:65020 Closing
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:57429 Closing
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:59912 Accepted
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:59912 [404]: GET /favicon.ico - No such file or directory
+[Sat Sep 12 00:11:59 2026] 127.0.0.1:59912 Closing
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:49820 Accepted
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:49820 [200]: GET /index-ref.html
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:49820 Closing
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:55620 Accepted
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:62699 Accepted
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:55620 [200]: GET /assets/css/v3.css
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:62699 [200]: GET /assets/css/hero-rotator.css
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:55620 Closing
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:61827 Accepted
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:62699 Closing
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:61827 [200]: GET /assets/css/apple-ref.css
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:61827 Closing
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:65310 Accepted
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:58891 Accepted
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:59983 Accepted
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:65310 [200]: GET /assets/css/ref-motion.css
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:65310 Closing
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:58891 [200]: GET /assets/css/mono-theme.css
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:59983 [200]: GET /assets/css/hero-cinema.css
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:58891 Closing
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:59983 Closing
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:62026 Accepted
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:50484 Accepted
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:62026 [200]: GET /assets/css/light-redesign.css
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:62026 Closing
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:56623 Accepted
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:50484 [200]: GET /assets/img/phone-front.webp
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:56623 [200]: GET /assets/js/v3-smooth.js
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:50484 Closing
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:56623 Closing
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:56313 Accepted
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:61960 Accepted
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:56313 [200]: GET /assets/img/logo-blue.png
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:61960 [200]: GET /assets/img/bg-main.webp
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:56313 Closing
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:61960 Closing
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:56766 Accepted
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:56766 [200]: GET /assets/js/hero-cinema.js
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:56766 Closing
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:51097 Accepted
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:55611 Accepted
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:51097 [200]: GET /assets/img/phone-left.webp
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:55611 [200]: GET /assets/img/phone-back-clean.webp
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:51097 Closing
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:55611 Closing
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:58247 Accepted
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:59443 Accepted
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:58247 [200]: GET /assets/img/phone-right.webp
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:58247 Closing
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:63364 Accepted
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:59443 [200]: GET /assets/img/phone-top.webp
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:59443 Closing
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:63364 [200]: GET /assets/img/phone-bottom.webp
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:63364 Closing
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:55023 Accepted
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:55023 [404]: GET /favicon.ico - No such file or directory
+[Sat Sep 12 00:12:31 2026] 127.0.0.1:55023 Closing
+[Sat Sep 12 00:12:59 2026] 127.0.0.1:64470 Accepted
+[Sat Sep 12 00:12:59 2026] 127.0.0.1:64470 [200]: GET /assets/img/bg-cert.webp
+[Sat Sep 12 00:12:59 2026] 127.0.0.1:64470 Closing
+[Sat Sep 12 00:12:59 2026] 127.0.0.1:62767 Accepted
+[Sat Sep 12 00:12:59 2026] 127.0.0.1:62767 [200]: GET /assets/img/phone-hero.webp
+[Sat Sep 12 00:12:59 2026] 127.0.0.1:62767 Closing
+[Sat Sep 12 00:13:34 2026] 127.0.0.1:51133 Accepted
+[Sat Sep 12 00:13:34 2026] 127.0.0.1:51133 [200]: GET /assets/css/light-redesign.css
+[Sat Sep 12 00:13:34 2026] 127.0.0.1:51133 Closing
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:57310 Accepted
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:57310 [200]: GET /index-ref.html
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:57310 Closing
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:55412 Accepted
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:55412 [200]: GET /assets/css/v3.css
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:56643 Accepted
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:55412 Closing
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:56643 [200]: GET /assets/css/hero-rotator.css
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:56643 Closing
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:51526 Accepted
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:51718 Accepted
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:61081 Accepted
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:57679 Accepted
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:61670 Accepted
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:61070 Accepted
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:51526 [200]: GET /assets/css/apple-ref.css
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:51718 [200]: GET /assets/css/ref-motion.css
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:61081 [200]: GET /assets/css/mono-theme.css
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:57679 [200]: GET /assets/css/hero-cinema.css
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:61670 [200]: GET /assets/css/light-redesign.css
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:51526 Closing
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:61070 [200]: GET /assets/img/phone-front.webp
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:51718 Closing
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:61081 Closing
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:57679 Closing
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:61670 Closing
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:49871 Accepted
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:61070 Closing
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:49871 [200]: GET /assets/js/v3-smooth.js
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:49871 Closing
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:60789 Accepted
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:62336 Accepted
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:60789 [200]: GET /assets/img/logo-blue.png
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:62336 [200]: GET /assets/img/bg-main.webp
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:60789 Closing
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:62336 Closing
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:59044 Accepted
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:59044 [200]: GET /assets/js/hero-cinema.js
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:59044 Closing
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:61294 Accepted
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:52536 Accepted
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:61294 [200]: GET /assets/img/phone-left.webp
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:52536 [200]: GET /assets/img/phone-back-clean.webp
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:58952 Accepted
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:61294 Closing
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:56840 Accepted
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:52536 Closing
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:61550 Accepted
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:58952 [200]: GET /assets/img/phone-right.webp
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:56840 [200]: GET /assets/img/phone-top.webp
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:61550 [200]: GET /assets/img/phone-bottom.webp
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:58952 Closing
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:56840 Closing
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:61550 Closing
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:62285 Accepted
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:62285 [404]: GET /favicon.ico - No such file or directory
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:62285 Closing
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:50781 Accepted
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:50781 [200]: GET /assets/img/bg-cert.webp
+[Sat Sep 12 00:13:54 2026] 127.0.0.1:50781 Closing
+[Sat Sep 12 00:13:55 2026] 127.0.0.1:54095 Accepted
+[Sat Sep 12 00:13:55 2026] 127.0.0.1:54095 [200]: GET /assets/img/phone-hero.webp
+[Sat Sep 12 00:13:55 2026] 127.0.0.1:54095 Closing
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:55016 Accepted
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:55016 [200]: GET /index-ref.html
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:55016 Closing
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:62898 Accepted
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:54602 Accepted
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:62898 [200]: GET /assets/css/hero-rotator.css
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:54602 [200]: GET /assets/css/apple-ref.css
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:49729 Accepted
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:62898 Closing
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:54602 Closing
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:53986 Accepted
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:49729 [200]: GET /assets/css/ref-motion.css
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:53986 [200]: GET /assets/css/v3.css
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:49729 Closing
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:53986 Closing
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:62544 Accepted
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:52337 Accepted
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:62544 [200]: GET /assets/css/mono-theme.css
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:52337 [200]: GET /assets/css/hero-cinema.css
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:62544 Closing
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:52337 Closing
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:50812 Accepted
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:62176 Accepted
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:50812 [200]: GET /assets/css/light-redesign.css
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:50812 Closing
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:64971 Accepted
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:62598 Accepted
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:57154 Accepted
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:62176 [200]: GET /assets/js/v3-smooth.js
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:64971 [200]: GET /assets/img/phone-front.webp
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:62598 [200]: GET /assets/img/bg-main.webp
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:57154 [200]: GET /assets/img/logo-blue.png
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:62176 Closing
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:64971 Closing
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:62598 Closing
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:57154 Closing
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:59037 Accepted
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:59037 [200]: GET /assets/js/hero-cinema.js
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:59037 Closing
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:63707 Accepted
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:50846 Accepted
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:57971 Accepted
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:56748 Accepted
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:63707 [200]: GET /assets/img/phone-back-clean.webp
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:50846 [200]: GET /assets/img/phone-right.webp
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:57971 [200]: GET /assets/img/phone-top.webp
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:56748 [200]: GET /assets/img/phone-left.webp
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:52682 Accepted
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:52682 [200]: GET /assets/img/phone-bottom.webp
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:63707 Closing
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:50846 Closing
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:57971 Closing
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:56748 Closing
+[Sat Sep 12 00:15:28 2026] 127.0.0.1:52682 Closing
+[Sat Sep 12 00:15:31 2026] 127.0.0.1:59429 Accepted
+[Sat Sep 12 00:15:31 2026] 127.0.0.1:59429 [200]: GET /assets/img/bg-cert.webp
+[Sat Sep 12 00:15:31 2026] 127.0.0.1:59429 Closing
+[Sat Sep 12 00:18:25 2026] 127.0.0.1:56955 Accepted
+[Sat Sep 12 00:18:25 2026] 127.0.0.1:56955 [200]: GET /assets/css/light-redesign.css
+[Sat Sep 12 00:18:25 2026] 127.0.0.1:56955 Closing
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:58701 Accepted
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:58701 [200]: GET /index-ref.html
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:58701 Closing
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:56488 Accepted
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:57940 Accepted
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:56488 [200]: GET /assets/css/v3.css
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:57940 [200]: GET /assets/css/hero-rotator.css
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:56488 Closing
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:57940 Closing
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:57710 Accepted
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:57710 [200]: GET /assets/css/apple-ref.css
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:57710 Closing
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:59883 Accepted
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:59883 [200]: GET /assets/css/ref-motion.css
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:59883 Closing
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:64291 Accepted
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:64291 [200]: GET /assets/css/mono-theme.css
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:64291 Closing
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:53788 Accepted
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:53788 [200]: GET /assets/css/hero-cinema.css
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:53788 Closing
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:52746 Accepted
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:52746 [200]: GET /assets/css/light-redesign.css
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:52746 Closing
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:56919 Accepted
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:56919 [200]: GET /assets/img/phone-front.webp
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:51303 Accepted
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:56919 Closing
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:51303 [200]: GET /assets/js/v3-smooth.js
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:50228 Accepted
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:51303 Closing
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:50228 [200]: GET /assets/img/logo-blue.png
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:50228 Closing
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:49512 Accepted
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:49512 [200]: GET /assets/img/bg-main.webp
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:49512 Closing
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:55905 Accepted
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:55905 [200]: GET /assets/js/hero-cinema.js
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:55905 Closing
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:57283 Accepted
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:57283 [200]: GET /assets/img/phone-left.webp
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:57283 Closing
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:64469 Accepted
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:64469 [200]: GET /assets/img/phone-back-clean.webp
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:64469 Closing
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:58702 Accepted
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:63048 Accepted
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:58702 [200]: GET /assets/img/phone-right.webp
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:63048 [200]: GET /assets/img/phone-top.webp
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:58702 Closing
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:63048 Closing
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:57220 Accepted
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:57220 [200]: GET /assets/img/phone-bottom.webp
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:57220 Closing
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:54624 Accepted
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:54624 [200]: GET /assets/img/favicon.png
+[Sat Sep 12 00:19:03 2026] 127.0.0.1:54624 Closing
+[Sat Sep 12 00:20:15 2026] 127.0.0.1:57342 Accepted
+[Sat Sep 12 00:20:15 2026] 127.0.0.1:57342 [200]: GET /assets/css/light-redesign.css
+[Sat Sep 12 00:20:15 2026] 127.0.0.1:57342 Closing
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:49486 Accepted
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:49486 [200]: GET /index-ref.html
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:49486 Closing
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:63395 Accepted
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:59737 Accepted
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:63395 [200]: GET /assets/css/v3.css
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:63395 Closing
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:59737 [200]: GET /assets/css/hero-rotator.css
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:59737 Closing
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:50574 Accepted
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:50574 [200]: GET /assets/css/apple-ref.css
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:50574 Closing
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:61583 Accepted
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:61583 [200]: GET /assets/css/ref-motion.css
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:61583 Closing
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:51095 Accepted
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:51095 [200]: GET /assets/css/mono-theme.css
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:51095 Closing
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:54079 Accepted
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:54079 [200]: GET /assets/css/hero-cinema.css
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:54079 Closing
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:52263 Accepted
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:52263 [200]: GET /assets/css/light-redesign.css
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:52263 Closing
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:52760 Accepted
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:52760 [200]: GET /assets/img/phone-front.webp
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:52760 Closing
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:50060 Accepted
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:50060 [200]: GET /assets/js/v3-smooth.js
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:50060 Closing
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:60782 Accepted
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:60782 [200]: GET /assets/img/logo-blue.png
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:60782 Closing
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:52341 Accepted
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:52341 [200]: GET /assets/img/bg-main.webp
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:52341 Closing
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:58371 Accepted
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:58371 [200]: GET /assets/js/hero-cinema.js
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:58371 Closing
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:63250 Accepted
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:57380 Accepted
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:63250 [200]: GET /assets/img/phone-left.webp
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:57380 [200]: GET /assets/img/phone-back-clean.webp
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:63250 Closing
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:57380 Closing
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:58053 Accepted
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:58893 Accepted
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:63721 Accepted
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:58053 [200]: GET /assets/img/phone-right.webp
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:58893 [200]: GET /assets/img/phone-top.webp
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:63721 [200]: GET /assets/img/phone-bottom.webp
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:58053 Closing
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:58893 Closing
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:63721 Closing
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:59286 Accepted
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:59286 [404]: GET /favicon.ico - No such file or directory
+[Sat Sep 12 00:20:37 2026] 127.0.0.1:59286 Closing
+[Sat Sep 12 00:21:12 2026] 127.0.0.1:63126 Accepted
+[Sat Sep 12 00:21:12 2026] 127.0.0.1:63126 [200]: GET /assets/css/light-redesign.css
+[Sat Sep 12 00:21:12 2026] 127.0.0.1:63126 Closing
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:58022 Accepted
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:58022 [200]: GET /index-ref.html
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:58022 Closing
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:65534 Accepted
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:65534 [200]: GET /assets/css/v3.css
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:65534 Closing
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:51600 Accepted
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:51600 [200]: GET /assets/css/hero-rotator.css
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:51600 Closing
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:55816 Accepted
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:55816 [200]: GET /assets/css/apple-ref.css
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:55816 Closing
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:59875 Accepted
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:59875 [200]: GET /assets/css/ref-motion.css
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:59875 Closing
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:50792 Accepted
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:50792 [200]: GET /assets/css/mono-theme.css
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:50792 Closing
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:58593 Accepted
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:58593 [200]: GET /assets/css/hero-cinema.css
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:58593 Closing
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:56612 Accepted
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:56612 [200]: GET /assets/css/light-redesign.css
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:56612 Closing
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:59430 Accepted
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:59430 [200]: GET /assets/img/phone-front.webp
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:59430 Closing
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:57649 Accepted
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:57649 [200]: GET /assets/js/v3-smooth.js
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:57649 Closing
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:60703 Accepted
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:60703 [200]: GET /assets/img/logo-blue.png
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:60703 Closing
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:58604 Accepted
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:58604 [200]: GET /assets/img/bg-main.webp
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:58604 Closing
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:52183 Accepted
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:52183 [200]: GET /assets/js/hero-cinema.js
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:52183 Closing
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:61579 Accepted
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:61579 [200]: GET /assets/img/phone-left.webp
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:61579 Closing
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:56940 Accepted
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:52702 Accepted
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:56940 [200]: GET /assets/img/phone-back-clean.webp
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:52702 [200]: GET /assets/img/phone-right.webp
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:56940 Closing
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:52702 Closing
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:57930 Accepted
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:64389 Accepted
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:57930 [200]: GET /assets/img/phone-top.webp
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:64389 [200]: GET /assets/img/phone-bottom.webp
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:57930 Closing
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:64389 Closing
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:58735 Accepted
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:58735 [404]: GET /favicon.ico - No such file or directory
+[Sat Sep 12 00:21:34 2026] 127.0.0.1:58735 Closing
+[Sat Sep 12 00:24:24 2026] 127.0.0.1:52257 Accepted
+[Sat Sep 12 00:24:24 2026] 127.0.0.1:50499 Accepted
+[Sat Sep 12 00:24:24 2026] 127.0.0.1:57170 Accepted
+[Sat Sep 12 00:24:24 2026] 127.0.0.1:51863 Accepted
+[Sat Sep 12 00:24:24 2026] 127.0.0.1:52257 [200]: GET /assets/css/v3.css
+[Sat Sep 12 00:24:24 2026] 127.0.0.1:50499 [200]: GET /assets/css/hero-rotator.css
+[Sat Sep 12 00:24:24 2026] 127.0.0.1:57170 [200]: GET /assets/css/apple-ref.css
+[Sat Sep 12 00:24:24 2026] 127.0.0.1:51863 [200]: GET /assets/css/ref-motion.css
+[Sat Sep 12 00:24:24 2026] 127.0.0.1:52285 Accepted
+[Sat Sep 12 00:24:24 2026] 127.0.0.1:52257 Closing
+[Sat Sep 12 00:24:24 2026] 127.0.0.1:52285 [200]: GET /assets/css/mono-theme.css
+[Sat Sep 12 00:24:24 2026] 127.0.0.1:50499 Closing
+[Sat Sep 12 00:24:24 2026] 127.0.0.1:57170 Closing
+[Sat Sep 12 00:24:24 2026] 127.0.0.1:51863 Closing
+[Sat Sep 12 00:24:24 2026] 127.0.0.1:49632 Accepted
+[Sat Sep 12 00:24:24 2026] 127.0.0.1:52285 Closing
+[Sat Sep 12 00:24:24 2026] 127.0.0.1:49674 Accepted
+[Sat Sep 12 00:24:24 2026] 127.0.0.1:49632 [200]: GET /assets/css/hero-cinema.css
+[Sat Sep 12 00:24:24 2026] 127.0.0.1:49674 [200]: GET /assets/css/light-redesign.css
+[Sat Sep 12 00:24:24 2026] 127.0.0.1:49632 Closing
+[Sat Sep 12 00:24:24 2026] 127.0.0.1:49674 Closing
+[Sat Sep 12 00:24:24 2026] 127.0.0.1:52178 Accepted
+[Sat Sep 12 00:24:24 2026] 127.0.0.1:52178 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
+[Sat Sep 12 00:24:24 2026] 127.0.0.1:52178 Closing
+[Sat Sep 12 00:27:05 2026] 127.0.0.1:63254 Accepted
+[Sat Sep 12 00:27:05 2026] 127.0.0.1:63254 [200]: GET /assets/css/light-redesign.css
+[Sat Sep 12 00:27:05 2026] 127.0.0.1:63254 Closing
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:59571 Accepted
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:59571 [200]: GET /index-ref.html
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:59571 Closing
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:52330 Accepted
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:55973 Accepted
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:52330 [200]: GET /assets/css/v3.css
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:55973 [200]: GET /assets/css/hero-rotator.css
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:52330 Closing
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:55973 Closing
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:50835 Accepted
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:50835 [200]: GET /assets/css/apple-ref.css
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:50835 Closing
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:58078 Accepted
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:58078 [200]: GET /assets/css/ref-motion.css
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:58078 Closing
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:61311 Accepted
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:61311 [200]: GET /assets/css/mono-theme.css
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:61311 Closing
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:63200 Accepted
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:63200 [200]: GET /assets/css/hero-cinema.css
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:63200 Closing
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:56298 Accepted
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:56298 [200]: GET /assets/css/light-redesign.css
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:56298 Closing
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:65093 Accepted
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:65093 [200]: GET /assets/img/phone-front.webp
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:65093 Closing
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:62493 Accepted
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:62493 [200]: GET /assets/js/v3-smooth.js
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:62493 Closing
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:64703 Accepted
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:64703 [200]: GET /assets/img/logo-blue.png
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:64703 Closing
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:49160 Accepted
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:49160 [200]: GET /assets/img/bg-main.webp
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:49160 Closing
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:58812 Accepted
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:58812 [200]: GET /assets/js/hero-cinema.js
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:58812 Closing
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:52765 Accepted
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:52765 [200]: GET /assets/img/phone-left.webp
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:53647 Accepted
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:52765 Closing
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:53647 [200]: GET /assets/img/phone-back-clean.webp
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:53647 Closing
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:60589 Accepted
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:60589 [200]: GET /assets/img/phone-right.webp
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:60589 Closing
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:64068 Accepted
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:64068 [200]: GET /assets/img/phone-top.webp
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:59823 Accepted
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:64068 Closing
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:59823 [200]: GET /assets/img/phone-bottom.webp
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:59823 Closing
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:55030 Accepted
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:55030 [404]: GET /favicon.ico - No such file or directory
+[Sat Sep 12 00:27:28 2026] 127.0.0.1:55030 Closing
+[Sat Sep 12 00:28:18 2026] 127.0.0.1:61257 Accepted
+[Sat Sep 12 00:28:18 2026] 127.0.0.1:61257 [200]: GET /assets/css/light-redesign.css
+[Sat Sep 12 00:28:18 2026] 127.0.0.1:61257 Closing
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:64614 Accepted
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:64614 [200]: GET /index-ref.html
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:64614 Closing
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:49863 Accepted
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:64160 Accepted
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:49863 [200]: GET /assets/css/v3.css
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:64160 [200]: GET /assets/css/hero-rotator.css
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:49863 Closing
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:64160 Closing
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:55974 Accepted
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:55974 [200]: GET /assets/css/apple-ref.css
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:55974 Closing
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:62468 Accepted
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:62468 [200]: GET /assets/css/ref-motion.css
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:62468 Closing
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:54483 Accepted
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:54483 [200]: GET /assets/css/mono-theme.css
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:54483 Closing
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:52457 Accepted
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:52457 [200]: GET /assets/css/hero-cinema.css
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:52457 Closing
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:56058 Accepted
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:56058 [200]: GET /assets/css/light-redesign.css
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:56058 Closing
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:60774 Accepted
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:60774 [200]: GET /assets/img/phone-front.webp
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:60774 Closing
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:61005 Accepted
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:61005 [200]: GET /assets/js/v3-smooth.js
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:61005 Closing
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:54848 Accepted
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:54848 [200]: GET /assets/img/logo-blue.png
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:54848 Closing
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:58879 Accepted
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:58879 [200]: GET /assets/img/bg-main.webp
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:58879 Closing
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:63677 Accepted
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:63677 [200]: GET /assets/js/hero-cinema.js
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:63677 Closing
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:64547 Accepted
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:64964 Accepted
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:64547 [200]: GET /assets/img/phone-left.webp
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:64964 [200]: GET /assets/img/phone-back-clean.webp
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:64547 Closing
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:64964 Closing
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:64546 Accepted
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:53899 Accepted
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:59223 Accepted
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:64546 [200]: GET /assets/img/phone-right.webp
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:53899 [200]: GET /assets/img/phone-top.webp
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:59223 [200]: GET /assets/img/phone-bottom.webp
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:64546 Closing
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:53899 Closing
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:59223 Closing
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:61202 Accepted
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:61202 [404]: GET /favicon.ico - No such file or directory
+[Sat Sep 12 00:28:41 2026] 127.0.0.1:61202 Closing

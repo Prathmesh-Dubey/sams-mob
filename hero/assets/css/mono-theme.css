@@ -1,0 +1,222 @@
+/* ===========================================================================
+   MONOCHROME THEME
+   70% matte black · 20% grey · white type · inverted white footer.
+   No blue anywhere. Loaded after apple-ref.css.
+   =========================================================================== */
+
+:root {
+  /* 70% — matte black, not pure #000: it holds shadow detail and stops
+     large areas reading as a hole on OLED. */
+  --bg:        #0d0d0d;
+  --bg-alt:    #151515;
+
+  /* 20% — grey surfaces */
+  --bg-panel:  #202020;
+  --panel-a:   rgba(38, 38, 38, .92);
+  --panel-b:   rgba(24, 24, 24, .96);
+
+  /* type — white, stepped by opacity only */
+  --fg:        #ffffff;
+  --fg-70:     rgba(255, 255, 255, .74);
+  --fg-55:     rgba(255, 255, 255, .60);
+  --fg-50:     rgba(255, 255, 255, .56);
+  --fg-45:     rgba(255, 255, 255, .52);
+  --fg-40:     rgba(255, 255, 255, .46);
+  --fg-35:     rgba(255, 255, 255, .42);
+  --fg-30:     rgba(255, 255, 255, .34);
+
+  --line:      rgba(255, 255, 255, .16);
+  --line-soft: rgba(255, 255, 255, .09);
+
+  /* accent is white — the emphasis comes from weight and scale, not hue */
+  --accent:      #ffffff;
+  --accent-deep: #e6e6e6;
+  --accent-15: rgba(255, 255, 255, .08);
+  --accent-25: rgba(255, 255, 255, .14);
+  --accent-30: rgba(255, 255, 255, .20);
+  --accent-70: rgba(255, 255, 255, .55);
+  --ok:        #ffffff;
+}
+
+html, body { background: var(--bg); color: var(--fg); }
+
+/* --- kill every remaining blue ---------------------------------------- */
+.accent, h1 .accent, h2 .accent, h3 .accent,
+.eyebrow, .hero__meta, .hero__meta i, .hx__index,
+.chip, .tag, .cert-card__tag, .spec__unit, .nav__badge span:not(.dot),
+.certs__intro .eyebrow, .milestone__when, .zone__tag,
+.footer__col h2, .hud-t, .ticker__label {
+  color: var(--fg) !important;
+}
+.hero__meta i, .hx__index, .eyebrow { color: var(--fg-50) !important; }
+.chip, .tag, .cert-card__tag {
+  background: rgba(255,255,255,.06) !important;
+  border-color: var(--line) !important;
+  color: var(--fg-70) !important;
+}
+.dot, .dot--ok, .dot--accent { background: var(--fg) !important; box-shadow: none !important; }
+.hero__word { -webkit-text-stroke: 1px rgba(255,255,255,.07) !important; }
+.hero__glow, .reach__glow, .hero__ring { background: none !important; opacity: 0 !important; }
+.hud-stage__segs span, .hud-stage__bar i { background: rgba(255,255,255,.55) !important; }
+.cert-card--alt { border-color: var(--line) !important; }
+.cert-card--alt .cert-card__rule { background: rgba(255,255,255,.14) !important; }
+::selection { background: rgba(255,255,255,.22); color: #fff; }
+
+/* --- bands ------------------------------------------------------------ */
+.certs, .anatomy, .reach { background: var(--bg-alt) !important; }
+.product, .industries, .distributor, .roadmap { background: var(--bg) !important; }
+.cert-card, .spec, .view, .country, .form, .hud-stage, .hud-panel {
+  background: var(--bg-panel) !important;
+  border: 1px solid var(--line) !important;
+}
+
+/* --- nav -------------------------------------------------------------- */
+.nav { background: rgba(13,13,13,.78) !important; backdrop-filter: saturate(160%) blur(20px); }
+.nav a { color: var(--fg-70) !important; }
+.nav a:hover, .nav a.is-on { color: var(--fg) !important; }
+
+/* --- buttons: white fill / white outline ------------------------------ */
+.btn--solid {
+  background: #fff !important; border-color: #fff !important; color: #0d0d0d !important;
+}
+.btn--solid:hover { background: #e0e0e0 !important; border-color: #e0e0e0 !important; }
+.btn:not(.btn--solid), .rb-cta {
+  background: transparent !important; color: var(--fg) !important;
+  border: 1px solid var(--line) !important;
+}
+.btn:not(.btn--solid):hover, .rb-cta:hover {
+  border-color: #fff !important; background: rgba(255,255,255,.06) !important;
+}
+:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+/* --- form fields ------------------------------------------------------ */
+.form input, .form select, .form textarea {
+  background: rgba(255,255,255,.04) !important;
+  border: 1px solid var(--line) !important; color: var(--fg) !important;
+}
+.form input::placeholder, .form textarea::placeholder { color: var(--fg-40) !important; }
+.form input:focus, .form select:focus, .form textarea:focus { border-color: #fff !important; }
+
+/* ===========================================================================
+   FOOTER — inverted: white ground, black type
+   =========================================================================== */
+footer {
+  background: #ffffff !important;
+  color: #0d0d0d !important;
+  border-top: 0 !important;
+}
+footer *, footer h2, footer p, footer span, footer b, footer i, footer div {
+  color: #0d0d0d !important;
+}
+footer a { color: rgba(13,13,13,.72) !important; }
+footer a:hover { color: #0d0d0d !important; }
+footer .footer__col h2, footer nav[aria-label] { color: rgba(13,13,13,.55) !important; }
+footer hr, footer .footer__rule, footer .footer__bottom {
+  border-color: rgba(13,13,13,.14) !important;
+  background: rgba(13,13,13,.14);
+}
+footer .footer__n, footer .legal, footer small { color: rgba(13,13,13,.55) !important; }
+footer img, footer .nav__logo img { filter: invert(1) brightness(.15); }
+footer .btn--solid { background: #0d0d0d !important; color: #fff !important; border-color: #0d0d0d !important; }
+footer .btn:not(.btn--solid) { border-color: rgba(13,13,13,.25) !important; color: #0d0d0d !important; }
+
+/* --- last of the blue, measured from the rendered page ---------------- */
+.nav__badge            { border-color: var(--line) !important; }
+.nav__badge b,
+.langsw__globe,
+.rail__cta p           { color: var(--fg-70) !important; }
+.hero__ring            { border-color: var(--line-soft) !important; }
+.ticker                { border-top-color: var(--line-soft) !important; }
+.rail__cta             { background: rgba(255,255,255,.05) !important; border-color: var(--line) !important; }
+.zone                  { background: rgba(255,255,255,.04) !important; border-color: var(--line) !important; }
+.region                { background: rgba(255,255,255,.07) !important; border-color: var(--line) !important; color: var(--fg) !important; }
+.region.is-on,
+.region[aria-selected="true"] { background: #fff !important; color: #0d0d0d !important; border-color: #fff !important; }
+.sector:hover          { border-top-color: rgba(255,255,255,.5) !important; }
+.spec:hover, .view:hover, .country:hover, .cert-card:hover { border-color: rgba(255,255,255,.45) !important; }
+
+/* --- the last two, inside the relocated spec strip -------------------- */
+.hs__hud-item .dot, .hs__hud-item .chip,
+.hs__hud-item b, .hs__hud-item span, .hs__hud-item i {
+  color: var(--fg) !important;
+  background-color: transparent !important;
+  border-color: var(--line) !important;
+}
+.hs__hud-item .chip { background: rgba(255,255,255,.06) !important; }
+.hs__hud-item .dot  { background: #fff !important; }
+
+/* ===========================================================================
+   TYPEFACE — Inter
+   Space Grotesk has personality but reads as a design-studio font. Inter is
+   the neutral corporate workhorse: wide weight range, tight metrics, and it
+   holds at 12px where the spec labels live. JetBrains Mono stays for the
+   technical strings, which is where a mono earns its place.
+   =========================================================================== */
+:root {
+  --display: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --body:    'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --mono:    'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+}
+body, p, li, a, span, div, input, select, textarea, button {
+  font-family: var(--body);
+  font-feature-settings: "cv02" 1, "cv03" 1, "cv04" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4, .hs__half {
+  font-family: var(--display) !important;
+  font-weight: 700;
+  letter-spacing: -.021em;   /* Inter needs tighter tracking at display sizes */
+}
+.hs__half { font-weight: 800; letter-spacing: -.028em; }
+.eyebrow, .hero__meta, .hs__meta, .hs__face, .ticker,
+.chip, .tag, .hud-t, .cert-card__id, .cert-card__tag,
+.spec__head, .spec__cap, .view__label, .milestone__when {
+  font-family: var(--mono) !important;
+  font-weight: 500;
+}
+
+/* ===========================================================================
+   NAVBAR — white ground, black type, black logo
+   =========================================================================== */
+.nav {
+  background: #ffffff !important;
+  backdrop-filter: none !important;
+  border-bottom: 1px solid rgba(13,13,13,.12) !important;
+}
+.nav a, .nav button, .nav span, .nav b, .nav i, .nav__links a {
+  color: #0d0d0d !important;
+}
+.nav a { opacity: .78; }
+.nav a:hover, .nav a.is-on, .nav a[aria-current] { opacity: 1; color: #000 !important; }
+
+/* the logo ships as a blue PNG — brightness(0) flattens any hue to pure black */
+.nav__logo img, .nav img { filter: brightness(0) !important; }
+
+/* status pill and language switcher on white */
+.nav__badge {
+  border-color: rgba(13,13,13,.22) !important;
+  background: rgba(13,13,13,.04) !important;
+}
+.nav__badge span, .nav__badge b { color: #0d0d0d !important; }
+.nav__badge .dot { background: #0d0d0d !important; }
+.langsw a, .langsw__globe { color: rgba(13,13,13,.72) !important; }
+.langsw a:hover, .langsw a.is-on { color: #0d0d0d !important; }
+.langsw__menu, .nav__drawer, .mobile-menu {
+  background: #ffffff !important;
+  border-color: rgba(13,13,13,.12) !important;
+}
+.langsw__menu a, .nav__drawer a, .mobile-menu a { color: #0d0d0d !important; }
+
+/* nav CTA inverts: black pill on white */
+.nav .btn, .nav .btn--solid, .nav a.btn {
+  background: #0d0d0d !important;
+  border-color: #0d0d0d !important;
+  color: #ffffff !important;
+}
+.nav .btn:hover, .nav .btn--solid:hover { background: #333 !important; border-color: #333 !important; }
+
+/* burger lines */
+.nav__burger span, .burger span, .nav__toggle span { background: #0d0d0d !important; }
+
+/* the hero sits directly under a solid white bar now — give it clearance */
+.hero__stage { padding-top: 64px; }

@@ -1,0 +1,87 @@
+/* ===========================================================================
+   CERTIFICATION + PLATFORM MARKS
+
+   Five of the six cutouts from logospngs.jpeg, placed on the hero content
+   that already names them: the three primary Ex systems on the Certification
+   Status tile, and the platform + Ex marks running in the certifications
+   ticker. PESO is cut out but not placed - it is a country approval rather
+   than one of the systems this hero claims.
+
+   Every mark is sized individually rather than to one shared height. Their
+   aspect ratios run from 0.71 (Android Enterprise, tall) to 1.53 (NEC 500,
+   wide), so a single height makes the wide ones shout and the tall ones
+   disappear; these numbers are set so they read as the same optical weight.
+
+   Loaded last, after light-redesign.css and phone-360.css.
+   =========================================================================== */
+
+/* --- shared ------------------------------------------------------------- */
+.cert-mark {
+  display: block;
+  width: auto;
+  object-fit: contain;
+  /* the cutouts come from a JPEG, so they carry a little of its softness;
+     a touch of contrast keeps the small ones from going muddy */
+  filter: contrast(1.06) saturate(1.04);
+}
+
+/* --- the ticker --------------------------------------------------------- */
+/* 36px left no room for a mark that reads, so the strip gets taller. It is
+   absolutely positioned on the bottom of the stage, so this costs the scene
+   16px and nothing else moves. */
+.hero .ticker { height: 52px !important; }
+
+.ticker__track span {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 0 26px;
+}
+.ticker .cert-mark { flex: 0 0 auto; }
+.ticker .cert-mark--atex      { height: 26px; }
+.ticker .cert-mark--iecex     { height: 25px; }
+.ticker .cert-mark--nec       { height: 21px; }
+.ticker .cert-mark--snapdragon{ height: 28px; }
+.ticker .cert-mark--android   { height: 28px; }
+
+/* --- the Certification Status tile -------------------------------------- */
+/* Replaces three rows that each ended in a placeholder "·". All three marks
+   are wordmarks, so dropping the text loses nothing. It keeps the rule the
+   rows had above them, so the tile still reads heading / status / detail.
+   Alignment is left to the cascade on purpose: light-redesign.css sets
+   `.hc__tile--7 * { justify-content: flex-end !important }` because that tile
+   is on the mirrored flank, and the marks should follow its text. */
+.cert-marks {
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: 8px 16px;
+  margin-top: 10px; padding-top: 11px;
+  border-top: 1px solid var(--line);
+}
+.cert-marks .cert-mark--atex  { height: 30px; }
+.cert-marks .cert-mark--iecex { height: 29px; }
+.cert-marks .cert-mark--nec   { height: 24px; }
+
+/* Snapdragon and Android Enterprise are NOT placed on the Processor and
+   Platform tiles. Both are stacked lockups - a symbol over two lines of
+   wordmark - and a tile row gives them about 30px, at which the wordmark is
+   an illegible smudge and reads worse than the text it would replace. They
+   run in the ticker instead, where they get 28px beside their own name. */
+
+/* --- responsive --------------------------------------------------------- */
+@media (max-width: 900px) {
+  .hero .ticker { height: 44px !important; }
+  .ticker__track span { gap: 8px; padding: 0 18px; }
+  .ticker .cert-mark--atex      { height: 22px; }
+  .ticker .cert-mark--iecex     { height: 21px; }
+  .ticker .cert-mark--nec       { height: 17px; }
+  .ticker .cert-mark--snapdragon{ height: 24px; }
+  .ticker .cert-mark--android   { height: 24px; }
+
+  /* the stacked mobile tiles drop their detail rows, but the cert marks are
+     the tile's whole point, so they stay - just smaller */
+  .hc__tile .cert-marks {
+    display: flex !important;
+    gap: 6px 11px; margin-top: 7px; padding-top: 8px;
+  }
+  .cert-marks .cert-mark--atex  { height: 22px; }
+  .cert-marks .cert-mark--iecex { height: 21px; }
+  .cert-marks .cert-mark--nec   { height: 17px; }
+}

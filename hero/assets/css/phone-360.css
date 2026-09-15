@@ -1,0 +1,122 @@
+/* ===========================================================================
+   PHONE 360
+
+   The hero device is a real 3D object instead of a crossfade between six
+   photographs. The six orthographic renders are mapped onto the six faces of
+   a box whose proportions come from the renders themselves — 722 x 1356 body,
+   250 deep — so every angle *between* the six shot angles is a genuine view
+   rather than a frame nobody photographed.
+
+   hero-cinema.js writes --rx / --ry onto .hc__model once per frame and a
+   per-face brightness that follows a fixed light; nothing here reads layout.
+
+   This file is loaded last on purpose: .hc__device is declared four separate
+   times across hero-cinema.css and light-redesign.css, the later ones with
+   !important, so winning the cascade from a new file is far less invasive
+   than unpicking those four declarations.
+   =========================================================================== */
+
+.hc__device {
+  /* --pw / --ph are declared on .hc by hero-grid.css, because the spec grid's
+     well has to reserve exactly this footprint; the depth is derived here.
+     The body measures 703 x 1324 x 232 in render pixels - the alpha bounding
+     box of all six renders agrees on those three numbers to within 2px, which
+     is what makes an exact box possible rather than an approximate one. */
+  --pd: calc(var(--pw) * 0.33001);         /* 232 / 703 */
+
+  width:  var(--pw) !important;
+  height: var(--ph) !important;
+
+  /* perspective as a property, so it applies to the model's faces. The
+     transform keeps light-redesign's scale but drops its rotateY — the turn
+     now happens inside, in 3D. */
+  perspective: 1700px;
+  perspective-origin: 50% 45%;
+}
+
+.hc__model {
+  position: absolute; inset: 0;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  will-change: transform;
+
+  /* Half-extents of the box. The textures in assets/img/m360 are the source
+     renders trimmed to their alpha bounding box, so each one fills its face
+     edge to edge; the planes therefore sit on the true half-dimensions and
+     every pair of faces meets exactly on a shared edge. (The untrimmed
+     renders each carry 5-21px of transparent margin, unevenly, which is
+     enough to leave a visible gap between the front and a side at
+     three-quarter angles.) */
+  --sx: calc(var(--pw) / 2);
+  --sy: calc(var(--ph) / 2);
+  --sz: calc(var(--pd) / 2);
+}
+
+.hc__f {
+  position: absolute; left: 50%; top: 50%;
+  backface-visibility: hidden;
+  will-change: filter;
+}
+
+/* --- the core ------------------------------------------------------------
+   Three solid planes through the centre of the box, one per axis, in the
+   phone's own dark grey. A box has square corners; the renders' silhouettes
+   are rounded, so at three-quarter angles the corners and the seams between
+   two faces leave slivers the textures do not cover. These sit behind those
+   slivers so what shows through is body, not background. They are never seen
+   head-on - a face always covers them - so they need no detail, only the
+   right colour and a corner radius close to the real one. */
+.hc__core {
+  position: absolute; left: 50%; top: 50%;
+  background: #23272c;
+  border-radius: 8% / 4.5%;
+}
+.hc__core--z { width: 100%; height: 100%;
+  transform: translate(-50%, -50%); }
+.hc__core--x { width: var(--pd); height: 100%; border-radius: 24% / 4.5%;
+  transform: translate(-50%, -50%) rotateY(90deg); }
+.hc__core--y { width: 100%; height: var(--pd); border-radius: 8% / 24%;
+  transform: translate(-50%, -50%) rotateX(90deg); }
+
+/* the crossfade rules in hero-cinema.css stacked every render on top of each
+   other at opacity 0; a face image is a plain, fully opaque child */
+.hc__model img {
+  position: static !important;
+  inset: auto !important;
+  width: 100% !important;
+  height: 100% !important;
+  opacity: 1 !important;
+  object-fit: fill;
+  transition: none !important;
+  display: block;
+}
+
+/* --- the six faces ------------------------------------------------------
+   translate(-50%,-50%) centres the plane on the box, then the rotation aims
+   it and the translateZ pushes it out along its own normal. */
+
+/* front + back: the full body render */
+.hc__f--front, .hc__f--back { width: 100%; height: 100%; }
+.hc__f--front { transform: translate(-50%, -50%) translateZ(var(--sz)); }
+.hc__f--back  { transform: translate(-50%, -50%) rotateY(180deg) translateZ(var(--sz)); }
+
+/* left + right: one body depth wide, full height */
+.hc__f--left, .hc__f--right { width: var(--pd); height: 100%; }
+.hc__f--left  { transform: translate(-50%, -50%) rotateY(-90deg) translateZ(var(--sx)); }
+.hc__f--right { transform: translate(-50%, -50%) rotateY( 90deg) translateZ(var(--sx)); }
+
+/* top + bottom: full width, one body depth tall */
+.hc__f--top, .hc__f--bottom { width: 100%; height: var(--pd); }
+.hc__f--top    { transform: translate(-50%, -50%) rotateX( 90deg) translateZ(var(--sy)); }
+.hc__f--bottom { transform: translate(-50%, -50%) rotateX(-90deg) translateZ(var(--sy)); }
+
+/* ------------------------------------------------------------ responsive */
+@media (max-width: 900px) {
+  .hc__device { perspective: 1200px; }
+}
+
+/* -------------------------------------------------------- reduced motion
+   No scrub, so no turn: the model sits square on the front face. */
+@media (prefers-reduced-motion: reduce) {
+  .hc__model { transform: none !important; }
+}

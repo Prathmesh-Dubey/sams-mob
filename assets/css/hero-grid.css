@@ -1,0 +1,300 @@
+/* ===========================================================================
+   HERO GRID — the act 3 spec layout
+
+   Replaces the overlay layout that light-redesign.css built out of three
+   absolutely positioned layers (the tile grid, the title, the lede/CTA tail),
+   each pinned with its own `bottom` and its own clamp. Those clamps agree at
+   some viewport sizes and collide at others, which is why the lede ended up
+   sitting on top of the status tiles - and why the previous fix was to hide
+   the lede entirely below 1000px tall.
+
+   Here every act 3 element is a child of one grid, in flow:
+
+        +-------------------------------------------+
+        |                  title                    |
+        |  col--l     |   well    |     col--r      |
+        |                  pair                     |
+        |                  tail                     |
+        +-------------------------------------------+
+
+   Nothing is positioned, so nothing can overlap, at any width or height. The
+   composition - specs flanking the device, device dead centre - is the same
+   at 360px as at 1600px; only the scale changes.
+
+   The device is NOT in this grid. It is a separate full-stage layer so that
+   acts 1 and 2 can keep it centred on the stage; hero-cinema.js measures the
+   well and writes --dev-y, and the device eases into it as the grid lands.
+
+   Loaded last.
+   =========================================================================== */
+
+/* the device's box, shared so the well can reserve exactly its footprint */
+.hc {
+  --pw: clamp(140px, 24vh, 275px);
+  --ph: calc(var(--pw) * 1.8781);          /* 1356 / 722, the new renders' aspect */
+  --dev-grow: 0.12;                        /* how much bigger it opens */
+}
+
+/* ------------------------------------------------------------- the layers */
+.hc__devbox {
+  position: absolute; inset: 0; z-index: 3;
+  display: grid; place-items: center;
+  pointer-events: none;
+}
+.hc__media { z-index: 2 !important; }
+.hc__grid  { z-index: 6; }
+
+.hc__device {
+  /* --dev-y is the gap between the stage centre and the well centre, written
+     by hero-cinema.js once per layout. Multiplying by --hp means the device
+     is centred while the headline is up and has slid into the well by the
+     time the grid is solid. */
+  transform:
+    translateY(calc(var(--dev-y, 0px) * var(--hp)))
+    scale(calc(1 + (1 - var(--hp)) * var(--dev-grow)))
+    rotate(calc(var(--hp) * 18deg)) !important;
+}
+
+/* ---------------------------------------------------------------- the grid */
+.hc__grid {
+  position: absolute !important; inset: 0 !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) !important;
+  grid-template-rows: auto auto auto auto !important;
+  align-content: center !important;
+  justify-content: center !important;
+  column-gap: clamp(12px, 2.6vw, 48px) !important;
+  row-gap: clamp(10px, 2vh, 24px) !important;
+  padding: clamp(58px, 9vh, 96px) clamp(14px, 3vw, 44px) clamp(16px, 3vh, 34px) !important;
+  justify-items: stretch !important;
+}
+
+.hc__title {
+  position: static !important;
+  grid-column: 1 / -1; grid-row: 1;
+  transform: none !important;
+  width: auto !important; max-width: min(620px, 100%);
+  margin: 0 auto !important;
+  top: auto !important; left: auto !important;
+}
+
+.hc__col {
+  grid-row: 2;
+  display: flex; flex-direction: column;
+  justify-content: center;
+  gap: clamp(10px, 2.2vh, 26px);
+  min-width: 0;
+}
+.hc__col--l { grid-column: 1; align-items: flex-end; }
+.hc__col--r { grid-column: 3; align-items: flex-start; }
+/* light-redesign.css sets `.hc__tile { width: auto !important }`, which makes
+   a tile size to its max-content and spill out of a narrow column - the tiles
+   have to be told to fit the track they are in. */
+.hc__col > .hc__tile { width: 100% !important; max-width: 280px; }
+
+/* The well is layout only - it reserves the device's footprint so the two
+   columns can never be pushed under it. light-redesign.css hides it. */
+.hc__well {
+  display: block !important;
+  grid-column: 2; grid-row: 2;
+  width: var(--pw); height: var(--ph);
+  border: 0 !important; background: none !important;
+  border-radius: 0 !important;
+}
+
+/* The pair repeats the parent's three tracks - flank, device, flank - so the
+   two status tiles land on exactly the same two edges as the six tiles above
+   them, and the whole block reads as one composition rather than two. */
+.hc__pair {
+  grid-column: 1 / -1; grid-row: 3;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--pw) minmax(0, 1fr);
+  column-gap: clamp(12px, 2.6vw, 48px);
+  width: 100%;
+  padding-top: clamp(6px, 1.4vh, 14px);
+}
+.hc__pair > .hc__tile { width: 100% !important; max-width: 280px; }
+.hc__pair > .hc__tile:first-child { grid-column: 1; justify-self: end; }
+.hc__pair > .hc__tile:last-child  { grid-column: 3; justify-self: start; }
+.hc__pair > .hc__tile:first-child { padding-right: clamp(8px, 1.4vw, 22px) !important; }
+.hc__pair > .hc__tile:last-child  { padding-left:  clamp(8px, 1.4vw, 22px) !important; }
+
+.hc__tail {
+  position: static !important;
+  grid-column: 1 / -1; grid-row: 4;
+  bottom: auto !important; left: auto !important;
+  transform: none !important;
+  width: 100% !important; max-width: min(680px, 100%);
+  margin: 0 auto !important;
+  padding-top: clamp(4px, 1.2vh, 12px);
+}
+/* It flows now, so it cannot reach the tiles and does not need hiding. */
+.hc__lede { display: block !important; }
+
+/* ------------------------------------------------------------- the tiles */
+/* The modifier is .hc__t--N, not .hc__tile--N, so none of the old absolute
+   placement applies. Alignment is by column, which is what makes it hold at
+   every width: a tile always reads toward the device. */
+.hc__t { --dx: 0px; --dy: 0px; }
+.hc__col--l .hc__t { --dx: -54px; }
+.hc__col--r .hc__t { --dx:  54px; }
+.hc__col .hc__t--1, .hc__col .hc__t--4 { --dy: -18px; }
+.hc__col .hc__t--3, .hc__col .hc__t--6 { --dy:  18px; }
+.hc__pair .hc__t { --dy: 34px; }
+.hc__pair .hc__t--7 { --dx: -18px; }
+.hc__pair .hc__t--8 { --dx:  18px; }
+
+.hc__col--l .hc__tile,
+.hc__col--l .hc__tile * { text-align: right !important; }
+.hc__col--r .hc__tile,
+.hc__col--r .hc__tile * { text-align: left !important; }
+
+.hc__col--l .hc__tile :is(.hud-stage__foot, .hud-stage__state, .hud-stage__figure,
+                          .hud-stage__title, .chips, .hud-stage__rows > div,
+                          .hud-panel__state, .cert-marks) {
+  justify-content: flex-end !important;
+}
+.hc__col--r .hc__tile :is(.hud-stage__foot, .hud-stage__state, .hud-stage__figure,
+                          .hud-stage__title, .chips, .hud-stage__rows > div,
+                          .hud-panel__state, .cert-marks) {
+  justify-content: flex-start !important;
+}
+.hc__pair > .hc__tile:first-child :is(.hud-panel__state, .cert-marks, .hud-panel__rows) {
+  justify-content: flex-end !important;
+}
+.hc__pair > .hc__tile:last-child :is(.hud-panel__state, .cert-marks, .hud-panel__rows) {
+  justify-content: flex-start !important;
+}
+.hc__pair > .hc__tile:first-child * { text-align: right !important; }
+.hc__pair > .hc__tile:last-child  * { text-align: left  !important; }
+
+/* the connector rule, always pointing at the device */
+.hc__col .hc__tile { padding-inline: 0 !important; position: relative !important; }
+.hc__col--l .hc__tile { padding-right: clamp(20px, 3.2vw, 54px) !important; }
+.hc__col--r .hc__tile { padding-left:  clamp(20px, 3.2vw, 54px) !important; }
+.hc__col .hc__tile::after {
+  content: ""; position: absolute; top: 13px; height: 1px;
+  width: clamp(14px, 2.6vw, 44px);
+  left: auto; right: auto; transform: none;
+}
+.hc__col--l .hc__tile::after {
+  right: 0; background: linear-gradient(90deg, var(--accent-70), rgba(30,111,217,.12));
+}
+.hc__col--r .hc__tile::after {
+  left: 0;  background: linear-gradient(270deg, var(--accent-70), rgba(30,111,217,.12));
+}
+/* the pair sits under the device, so their rules point up at it */
+.hc__pair .hc__tile { position: relative !important; }
+.hc__pair .hc__tile::after {
+  content: ""; position: absolute; top: -11px; height: 9px; width: 1px;
+  left: auto; right: auto; transform: none;
+  background: linear-gradient(180deg, rgba(30,111,217,.12), var(--accent-70));
+}
+.hc__pair > .hc__tile:first-child::after { right: 0; }
+.hc__pair > .hc__tile:last-child::after  { left: 0; }
+
+/* ===========================================================================
+   Responsive. The composition never changes - specs flank the device, the
+   device stays centred - only the scale does, so the hero reads the same on a
+   phone as on a desktop.
+   =========================================================================== */
+
+/* --- laptops and small desktops ---------------------------------------- */
+@media (max-width: 1100px) {
+  .hc { --pw: clamp(150px, 19.5vh, 220px); }
+  .hc__col > .hc__tile { max-width: 232px; }
+}
+
+/* --- tablet ------------------------------------------------------------- */
+@media (max-width: 860px) {
+  .hc { --pw: clamp(130px, 17.5vh, 187px); --dev-grow: 0.26; }
+  .hc__grid {
+    column-gap: clamp(10px, 2.2vw, 22px) !important;
+    padding: clamp(50px, 8vh, 78px) clamp(12px, 2.6vw, 24px) clamp(14px, 2.4vh, 26px) !important;
+  }
+  .hc__col > .hc__tile { max-width: 200px; }
+  .hc__col--l .hc__tile,
+  .hc__pair > .hc__tile:first-child { padding-right: clamp(14px, 2.6vw, 28px) !important; }
+  .hc__col--r .hc__tile,
+  .hc__pair > .hc__tile:last-child  { padding-left:  clamp(14px, 2.6vw, 28px) !important; }
+  .hc__col .hc__tile::after { width: clamp(10px, 2vw, 20px); }
+  .hc__pair > .hc__tile { max-width: 210px; }
+}
+
+/* --- phone --------------------------------------------------------------
+   The columns stay either side of the device rather than stacking under it.
+   That only works because the tiles drop to their headline value here - the
+   detail rows go, the label and the number stay - so each side needs about
+   100px, which a 360px screen has once the device is sized to fit between
+   them. */
+@media (max-width: 620px) {
+  .hc { --pw: clamp(110px, 34vw, 160px); --dev-grow: 0.52; }
+  .hc__grid {
+    column-gap: 8px !important;
+    row-gap: 10px !important;
+    padding: clamp(44px, 7vh, 64px) 10px 14px !important;
+  }
+  .hc__col { gap: clamp(8px, 1.8vh, 16px); }
+  .hc__col > .hc__tile, .hc__pair > .hc__tile { max-width: 100%; }
+  .hc__col--l .hc__tile { padding-right: 10px !important; }
+  .hc__col--r .hc__tile { padding-left:  10px !important; }
+  .hc__col .hc__tile::after { width: 7px; top: 11px; }
+
+  .hc__tile * { font-size: 11px !important; line-height: 1.3 !important; }
+  .hc__tile h4, .hc__tile .hud-t {
+    font-size: 9px !important; letter-spacing: .1em !important;
+    margin: 0 0 3px !important;
+  }
+  .hc__tile .hud-stage__figure b,
+  .hc__tile .hud-stage__title b,
+  .hc__tile .hud-panel__big,
+  .hc__tile b { font-size: 14px !important; }
+
+  /* The secondary detail rows are what will not fit beside a phone-sized
+     device; each tile keeps its headline value. The chips stay - they ARE
+     Connectivity's value, and hiding them left that tile with a heading and
+     nothing under it. */
+  .hc__col .hc__tile :is(.hud-stage__rows, .hud-stage__foot) {
+    display: none !important;
+  }
+  .hc__col .hc__tile .chips { gap: 4px !important; }
+  .hc__col .hc__tile .chip { font-size: 9px !important; padding: 2px 5px !important; }
+
+  /* hero-cinema.css hides the tail entirely below 900px, from when the tiles
+     stacked under the device and there was nothing left to give it. The grid
+     leaves room now, and these two buttons are the hero's only call to
+     action - the lede is the part that does not belong beside a phone-sized
+     layout, and it is repeated in full further down the page. */
+  .hc__tail { display: grid !important; }
+  .hc__lede { display: none !important; }
+
+  .hc__pair { column-gap: 8px; padding-top: 4px; }
+  .hc__pair > .hc__tile:first-child { padding-right: 10px !important; }
+  .hc__pair > .hc__tile:last-child  { padding-left:  10px !important; }
+  .hc__pair .hc__tile::after { display: none; }
+  .hc__title { font-size: clamp(15px, 4.4vw, 20px) !important; }
+  .hc__tail { padding-top: 6px; }
+  .hc__cta { gap: 8px !important; }
+  .hc__cta .btn { font-size: 12px !important; padding: 9px 16px !important; }
+}
+
+/* --- short viewports -----------------------------------------------------
+   Height, not width, is what actually runs out first on a laptop. The lede is
+   the one piece that is pure prose and repeated further down the page, so it
+   is the first thing to go - and now it is the ONLY thing, because everything
+   else is in flow and simply tightens. */
+@media (max-height: 760px) {
+  .hc__lede { display: none !important; }
+}
+@media (max-height: 620px) {
+  .hc__grid { padding-top: clamp(40px, 7vh, 58px) !important; row-gap: 8px !important; }
+  .hc__title { display: none !important; }
+}
+
+
+/* hide all hero spec tiles - phone + heading only */
+.hc__col, .hc__pair { display: none !important; }
+
+.hero__copy[data-hero-copy="1"], .hero__copy[data-hero-copy="2"] { display: none !important; }
+
+.hc__band { display: none !important; }
