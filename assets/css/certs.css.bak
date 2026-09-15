@@ -245,10 +245,7 @@
 .cx__card:nth-child(5) .cx__logo img { height: 88%; }   /* stacked lockups */
 
 /* card 06 has no mark of its own: the eight approval codes become one */
-.cx__logo.cx__logo--grid {
-  /* content-sized, not the fixed single-logo height: this one holds two rows
-     of pills. The doubled class keeps it winning over the fixed `.cx__logo`
-     heights set in the short-viewport and phone breakpoints below. */
+.cx__logo--grid {
   height: auto;
   display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 6px;
@@ -403,7 +400,7 @@
   .cx__role { margin-bottom: 12px; }
   .cx__foot { margin-top: 18px; }
   .cx__scope { margin-top: 12px; padding-top: 11px; }
-  .cx__logo.cx__logo--grid { gap: 5px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .cx__logo--grid { gap: 5px; }
   .cx__name { font-size: 24px; }
   .cx__desc { font-size: 14.5px; line-height: 1.5; }
   .cx__meta { margin-left: 0; width: 100%; }

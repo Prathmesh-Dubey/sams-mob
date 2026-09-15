@@ -155,12 +155,8 @@ footer .btn--solid { background: var(--accent) !important; color: #fff !importan
 .hc__device img { filter: contrast(1.10) saturate(1.12); }
 .hc__half  { color: var(--fg) !important; }
 .hc__half--r { color: var(--accent) !important; }
-/* The hero eyebrow sits on the dark plate for the whole time it is visible
-   (it has faded out by ~29% of the hero scroll, long before the backdrop
-   turns white), so accent blue on near-black read as dim and low contrast.
-   White is legible against the plate and matches the headline above it. */
-.hc__meta  { color: rgba(255,255,255,.92) !important; }
-.hc__meta em { background: rgba(255,255,255,.34) !important; }
+.hc__meta  { color: var(--accent) !important; }
+.hc__meta em { background: rgba(30,111,217,.35) !important; }
 .hc__face  { color: var(--accent) !important; }
 .hc__desc  { color: var(--fg-70) !important; }
 .hc__title { color: var(--fg) !important; }
