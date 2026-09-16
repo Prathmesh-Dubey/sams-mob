@@ -422,14 +422,23 @@ window.__tovModel.catch(function(){ /* surfaced by the tech-overview consumer */
         </div>
 
         <p class="cx__side">Powered by a Qualcomm Snapdragon octa-core platform &mdash; flagship-class performance, engineered intrinsically safe for hazardous areas where standard smartphones can&rsquo;t go.</p>
-        <div class="cx__progress">
-          <p class="cx__count"><b data-cx-now>01</b><span>/</span><i>06</i></p>
-          <span class="cx__bar" aria-hidden="true"><i data-cx-bar></i></span>
-          <p class="cx__hint">Swipe or use arrow keys</p>
-        </div>
       </header>
 
-      <div class="cx__viewport" data-cx-viewport tabindex="0" role="region" aria-label="Certifications and technology, swipe or use arrow keys to browse">
+      <div class="cx__dots" data-cx-dots role="tablist" aria-label="Card navigation">
+        <button type="button" class="cx__dot" data-cx-dot aria-label="Go to card 1" aria-selected="true"></button>
+        <button type="button" class="cx__dot" data-cx-dot aria-label="Go to card 2"></button>
+        <button type="button" class="cx__dot" data-cx-dot aria-label="Go to card 3"></button>
+        <button type="button" class="cx__dot" data-cx-dot aria-label="Go to card 4"></button>
+        <button type="button" class="cx__dot" data-cx-dot aria-label="Go to card 5"></button>
+        <button type="button" class="cx__dot" data-cx-dot aria-label="Go to card 6"></button>
+      </div>
+
+      <div class="cx__row" data-cx-row>
+        <button type="button" class="cx__arrow cx__arrow--prev" data-cx-prev aria-label="Previous card">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+        <div class="cx__viewport" data-cx-viewport tabindex="0" role="region" aria-label="Certifications and technology, swipe or use arrow keys to browse">
         <ol class="cx__track" data-cx-track>
         <li class="cx__card" data-cx-card data-kind="cert">
           <div class="cx__cardhead">
@@ -551,20 +560,6 @@ window.__tovModel.catch(function(){ /* surfaced by the tech-overview consumer */
           <span class="cx__deco" aria-hidden="true"></span>
         </li>
         </ol>
-      </div>
-
-      <div class="cx__nav">
-        <button type="button" class="cx__arrow cx__arrow--prev" data-cx-prev aria-label="Previous card">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-
-        <div class="cx__dots" data-cx-dots role="tablist" aria-label="Card navigation">
-          <button type="button" class="cx__dot" data-cx-dot aria-label="Go to card 1" aria-selected="true"></button>
-          <button type="button" class="cx__dot" data-cx-dot aria-label="Go to card 2"></button>
-          <button type="button" class="cx__dot" data-cx-dot aria-label="Go to card 3"></button>
-          <button type="button" class="cx__dot" data-cx-dot aria-label="Go to card 4"></button>
-          <button type="button" class="cx__dot" data-cx-dot aria-label="Go to card 5"></button>
-          <button type="button" class="cx__dot" data-cx-dot aria-label="Go to card 6"></button>
         </div>
 
         <button type="button" class="cx__arrow cx__arrow--next" data-cx-next aria-label="Next card">

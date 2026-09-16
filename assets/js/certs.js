@@ -11,8 +11,8 @@
      - centre the first and last card on their own end of the row, the same
        way the middle cards sit centred once reached (measured, not fixed,
        since it depends on how many cards fit at the current width);
-     - keep the dot indicators, the "01 / 06" readout and the arrow buttons'
-       disabled state in sync with the active card;
+     - keep the dot indicators and the arrow buttons' disabled state in sync
+       with the active card;
      - drive that active card from a click/key/dot target immediately, never
        waiting on the scroll animation to settle - a second arrow click
        before the first has finished gliding must still land one card
@@ -26,8 +26,6 @@
 
   var viewport = section.querySelector('[data-cx-viewport]');
   var track    = section.querySelector('[data-cx-track]');
-  var bar      = section.querySelector('[data-cx-bar]');
-  var readout  = section.querySelector('[data-cx-now]');
   var dotsWrap = section.querySelector('[data-cx-dots]');
   var dots     = dotsWrap ? [].slice.call(dotsWrap.querySelectorAll('[data-cx-dot]')) : [];
   var prevBtn  = section.querySelector('[data-cx-prev]');
@@ -54,8 +52,6 @@
     if (current !== -1) { cards[current].style.setProperty('--f', '0'); }
     current = i;
     cards[current].style.setProperty('--f', '1');
-    if (readout) { readout.textContent = ('0' + (i + 1)).slice(-2); }
-    if (bar) { bar.style.transform = 'scaleX(' + ((i + 1) / cards.length).toFixed(4) + ')'; }
     dots.forEach(function (d, di) {
       var isActive = di === i;
       d.classList.toggle('is-active', isActive);

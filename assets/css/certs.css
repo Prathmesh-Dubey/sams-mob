@@ -53,7 +53,7 @@
     var(--bg-alt) 100%);
 }
 /* the content sits above both layers */
-.cx__head, .cx__viewport, .cx__nav { position: relative; z-index: 1; }
+.cx__head, .cx__dots, .cx__row { position: relative; z-index: 1; }
 
 .cx__stage {
   position: static;
@@ -71,7 +71,7 @@
 .cx__head {
   flex: none;
   display: grid;
-  grid-template-columns: minmax(0, auto) minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, auto) minmax(0, 1fr);
   align-items: end;
   gap: clamp(18px, 3vw, 52px);
   max-width: 1240px; width: 100%;
@@ -108,34 +108,6 @@
   color: var(--fg);
 }
 .cx__title span { color: var(--accent); }
-
-.cx__progress { flex: none; width: clamp(140px, 16vw, 210px); text-align: right; }
-.cx__count {
-  margin: 0 0 12px;
-  font-family: var(--mono); font-size: 12px; letter-spacing: .12em;
-  color: var(--fg-40);
-  display: flex; align-items: baseline; justify-content: flex-end; gap: 5px;
-}
-.cx__count b {
-  font-size: 26px; font-weight: 700; letter-spacing: -.01em;
-  color: var(--fg);
-}
-.cx__count i { font-style: normal; }
-.cx__bar {
-  display: block; height: 2px; border-radius: 2px;
-  background: var(--cx-rule); overflow: hidden;
-}
-.cx__bar i {
-  display: block; height: 100%; width: 100%;
-  background: var(--accent);
-  transform: scaleX(0); transform-origin: left;
-}
-.cx__hint {
-  margin: 10px 0 0;
-  font-family: var(--mono); font-size: 10px;
-  letter-spacing: .18em; text-transform: uppercase;
-  color: var(--fg-30);
-}
 
 /* ============================================================== the track
    A native horizontally-scrollable, snapping row: swipe, drag, trackpad or
@@ -387,10 +359,6 @@
   }
   .cx__side { font-size: 13.5px; line-height: 1.5; max-width: none; margin-bottom: 0; }
   .cx__title { font-size: clamp(24px, 7vw, 30px); }
-  .cx__progress { width: 100%; text-align: left; }
-  .cx__count { justify-content: flex-start; }
-  .cx__count b { font-size: 22px; }
-  .cx__hint { display: none; }
   .cx__track { padding: 0 8vw; }
   .cx__card { padding: 22px 20px; border-radius: 18px; }
   .cx__cardhead { margin-bottom: 16px; }
@@ -404,43 +372,15 @@
   .cx__meta { margin-left: 0; width: 100%; }
 }
 
-/* ======================================================= nav: arrows + dots
-   Previous/next sit either side of the dot row, so the whole control reads
-   as one unit centred under the cards - the arrows are the obvious, clickable
-   affordance; the dots are the at-a-glance position readout. */
-.cx__nav {
-  flex: none;
-  display: flex; align-items: center; justify-content: center;
-  gap: clamp(16px, 2vw, 28px);
-  margin: clamp(20px, 2.6vh, 32px) auto 0;
-}
-
-.cx__arrow {
-  flex: none;
-  width: 44px; height: 44px;
-  display: flex; align-items: center; justify-content: center;
-  padding: 0;
-  border: 1px solid var(--cx-rule); border-radius: 50%;
-  background: #fff;
-  color: var(--fg-55);
-  cursor: pointer;
-  box-shadow: 0 1px 2px rgba(10, 10, 10, .04);
-  transition: background .18s ease, border-color .18s ease, color .18s ease,
-    transform .18s ease, box-shadow .18s ease;
-}
-.cx__arrow svg { width: 19px; height: 19px; }
-.cx__arrow:hover:not(:disabled) {
-  border-color: var(--accent); color: var(--accent);
-  box-shadow: 0 4px 14px rgba(30, 111, 217, .16);
-}
-.cx__arrow:active:not(:disabled) { transform: scale(.94); }
-.cx__arrow:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.cx__arrow:disabled { opacity: .32; cursor: default; box-shadow: none; }
-
+/* ============================================================= the dots
+   Above the row, centred under the header - the at-a-glance position
+   readout, tracking whichever card is nearest the middle of the viewport.
+   Click or tap a dot to jump straight to that card. */
 .cx__dots {
   flex: none;
   display: flex; align-items: center; justify-content: center;
   gap: 10px;
+  margin: 0 0 clamp(18px, 2.4vh, 28px);
 }
 .cx__dot {
   width: 8px; height: 8px; padding: 0;
@@ -453,8 +393,44 @@
 .cx__dot.is-active { background: var(--accent); transform: scale(1.3); }
 .cx__dot:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
+/* ================================================================= the row
+   Prev/next float directly over the card row's left and right edges,
+   vertically centred on it, rather than sitting in a control strip below -
+   the standard "beside the cards" carousel arrangement. They stay fixed in
+   place while the cards scroll underneath. */
+.cx__row {
+  flex: 1 1 auto; min-height: 0;
+  display: flex; align-items: center;
+}
+
+.cx__arrow {
+  flex: none;
+  position: absolute; top: 50%; transform: translateY(-50%);
+  z-index: 2;
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0;
+  border: 1px solid var(--accent); border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(30, 111, 217, .28);
+  transition: background .18s ease, border-color .18s ease, color .18s ease,
+    transform .18s ease, box-shadow .18s ease;
+}
+.cx__arrow--prev { left: clamp(6px, 1.6vw, 22px); }
+.cx__arrow--next { right: clamp(6px, 1.6vw, 22px); }
+.cx__arrow svg { width: 19px; height: 19px; }
+.cx__arrow:hover:not(:disabled),
+.cx__arrow:active:not(:disabled) {
+  background: #fff; border-color: var(--accent); color: var(--accent);
+  box-shadow: 0 6px 20px rgba(30, 111, 217, .22);
+}
+.cx__arrow:active:not(:disabled) { transform: translateY(-50%) scale(.94); }
+.cx__arrow:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.cx__arrow:disabled { opacity: 0; pointer-events: none; }
+
 @media (max-width: 760px) {
-  .cx__nav { gap: 14px; }
   .cx__arrow { width: 38px; height: 38px; }
   .cx__arrow svg { width: 17px; height: 17px; }
 }
