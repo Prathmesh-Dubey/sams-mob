@@ -1,17 +1,13 @@
 .ticker__label { color: var(--accent) !important; }
 
 /* ===========================================================================
-   CERTIFICATION JOURNEY — scroll-driven horizontal storytelling
+   CERTIFICATION CARDS — swipeable carousel
 
-   The section owns a tall runway; a 100vh stage sticks inside it; the card
-   track translates left as the page scrolls down, so vertical scroll IS the
-   horizontal movement. certs.js measures the track and writes the runway's
-   height so one pixel of scroll equals one pixel of travel - the cards move
-   with the finger rather than at some invented multiple of it.
-
-   Only the transform and opacity of the track and the six cards are animated,
-   so every frame stays on the compositor. All geometry is cached in JS and
-   re-measured on resize, never in the frame loop.
+   The viewport is a native horizontally-scrollable, snapping row: swipe,
+   trackpad, drag, or the arrow keys move it, and the page scrolls normally
+   above and below - nothing here hijacks vertical scroll. certs.js only
+   layers a fade/scale effect on top (--f, by distance from centre) and
+   keeps the dot indicators and the "01 / 06" readout in sync.
 
    Namespaced .cx* - the old .certs/.cert-card rules in the shared stylesheets
    are still used by index.html, index-light.html and index-hero.html.
@@ -29,10 +25,6 @@
   position: relative;
   background: var(--bg-alt);
 }
-/* No overflow on .cx or the runway: a non-visible overflow ancestor takes
-   over as the sticky scrollport and the pin silently stops working. The
-   clipping happens on .cx__viewport instead, which also stops the track
-   from ever widening the page. */
 .cx__runway { position: relative; }
 
 /* --- the backdrop --------------------------------------------------------
@@ -61,19 +53,14 @@
     var(--bg-alt) 100%);
 }
 /* the content sits above both layers */
-.cx__head, .cx__viewport { position: relative; z-index: 1; }
+.cx__head, .cx__viewport, .cx__nav { position: relative; z-index: 1; }
 
 .cx__stage {
-  position: sticky; top: 0;
-  height: 100vh;
+  position: static;
+  height: auto;
   display: flex; flex-direction: column;
   padding: clamp(74px, 9vh, 104px) 0 clamp(40px, 6vh, 64px);
-  overflow: hidden;
-
-  /* The backdrop rides the sticky stage rather than the section, so it holds
-     still for the whole journey without the cost of background-attachment:
-     fixed - the pin is already doing that work. It lives on ::before so the
-     filter cannot touch the content. */
+  overflow: visible;
   background-color: var(--bg-alt);
 }
 
@@ -150,33 +137,41 @@
   color: var(--fg-30);
 }
 
-/* ============================================================== the track */
+/* ============================================================== the track
+   A native horizontally-scrollable, snapping row: swipe, drag, trackpad or
+   the arrow keys move it directly, so the page above and below is free to
+   scroll on its own. certs.js only layers a depth/fade effect on top via
+   --f - it never reads or writes page scroll. */
 .cx__viewport {
   flex: 1 1 auto; min-height: 0;
-  overflow: hidden;
   display: flex; align-items: center;
+  overflow-x: auto; overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
+.cx__viewport::-webkit-scrollbar { display: none; }
+.cx__viewport:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .cx__track {
   list-style: none; margin: 0;
-  /* certs.js overwrites this with the exact half-leftover gutter that centres
-     the first and last card; this is only what shows before it measures, and
-     what the reduced-motion fallback keeps */
   padding: 0 var(--pad);
   display: flex; align-items: stretch;
   gap: var(--cx-gap);
   width: max-content;
-  will-change: transform;
 }
 
 /* ================================================================= a card
-   --f is written per frame by certs.js: 1 when the card is centred in the
-   viewport, 0 when it is a screen away. Everything that marks the active
-   card hangs off it, so the depth hierarchy is one number. */
+   --f is toggled by certs.js: 1 on whichever card is nearest the centre of
+   the viewport, 0 on every other card. Everything that marks the active
+   card hangs off that one number - never opacity or transform, so an
+   inactive card is never partly see-through. */
 .cx__card {
   --f: 0;
   position: relative;
   flex: 0 0 var(--cx-card-w);
   width: var(--cx-card-w);
+  scroll-snap-align: center;
   display: flex; flex-direction: column;
   padding: clamp(28px, 2.5vw, 46px);
   background: #fff;
@@ -396,7 +391,7 @@
   .cx__count { justify-content: flex-start; }
   .cx__count b { font-size: 22px; }
   .cx__hint { display: none; }
-  .cx__track { padding: 0 8vw; }   /* JS replaces this; fallback only */
+  .cx__track { padding: 0 8vw; }
   .cx__card { padding: 22px 20px; border-radius: 18px; }
   .cx__cardhead { margin-bottom: 16px; }
   .cx__logo { height: 50px; margin-bottom: 16px; }
@@ -409,28 +404,69 @@
   .cx__meta { margin-left: 0; width: 100%; }
 }
 
-/* ===========================================================================
-   Reduced motion / no JS
-
-   The pin and the scrub ARE the animation, so both go. The same track
-   becomes a normal horizontally scrollable, snapping list that a keyboard or
-   a screen reader walks through in order - the content is never reachable
-   only through the animation.
-   =========================================================================== */
-@media (prefers-reduced-motion: reduce) {
-  .cx__runway { height: auto !important; }
-  .cx__stage { position: static; height: auto; padding: 84px 0; overflow: visible; }
-  .cx__viewport { overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; }
-  .cx__track { transform: none !important; padding-bottom: 8px; }
-  .cx__card {
-    --f: 1;
-    transform: none !important; opacity: 1 !important;
-    scroll-snap-align: center;
-  }
-  .cx__hint { display: none; }
+/* ======================================================= nav: arrows + dots
+   Previous/next sit either side of the dot row, so the whole control reads
+   as one unit centred under the cards - the arrows are the obvious, clickable
+   affordance; the dots are the at-a-glance position readout. */
+.cx__nav {
+  flex: none;
+  display: flex; align-items: center; justify-content: center;
+  gap: clamp(16px, 2vw, 28px);
+  margin: clamp(20px, 2.6vh, 32px) auto 0;
 }
 
-html:not(.js) .cx__runway { height: auto !important; }
-html:not(.js) .cx__stage { position: static; height: auto; overflow: visible; }
-html:not(.js) .cx__viewport { overflow-x: auto; }
-html:not(.js) .cx__card { --f: 1; opacity: 1; }
+.cx__arrow {
+  flex: none;
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0;
+  border: 1px solid var(--cx-rule); border-radius: 50%;
+  background: #fff;
+  color: var(--fg-55);
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(10, 10, 10, .04);
+  transition: background .18s ease, border-color .18s ease, color .18s ease,
+    transform .18s ease, box-shadow .18s ease;
+}
+.cx__arrow svg { width: 19px; height: 19px; }
+.cx__arrow:hover:not(:disabled) {
+  border-color: var(--accent); color: var(--accent);
+  box-shadow: 0 4px 14px rgba(30, 111, 217, .16);
+}
+.cx__arrow:active:not(:disabled) { transform: scale(.94); }
+.cx__arrow:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.cx__arrow:disabled { opacity: .32; cursor: default; box-shadow: none; }
+
+.cx__dots {
+  flex: none;
+  display: flex; align-items: center; justify-content: center;
+  gap: 10px;
+}
+.cx__dot {
+  width: 8px; height: 8px; padding: 0;
+  border: none; border-radius: 50%;
+  background: rgba(10, 10, 10, .16);
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+}
+.cx__dot:hover { background: rgba(10, 10, 10, .3); }
+.cx__dot.is-active { background: var(--accent); transform: scale(1.3); }
+.cx__dot:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+@media (max-width: 760px) {
+  .cx__nav { gap: 14px; }
+  .cx__arrow { width: 38px; height: 38px; }
+  .cx__arrow svg { width: 17px; height: 17px; }
+}
+
+/* ===========================================================================
+   Reduced motion
+
+   The fade/scale on the cards is a purely cosmetic layer on top of the
+   native scroller (see certs.js) - it never gates access to any card, so
+   the only thing reduced motion needs to turn off is the animated feel.
+   =========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .cx__viewport { scroll-behavior: auto; }
+  .cx__card { --f: 1; transform: none !important; opacity: 1 !important; }
+}
