@@ -51,6 +51,46 @@
   --sx: calc(var(--pw) / 2);
   --sy: calc(var(--ph) / 2);
   --sz: calc(var(--pd) / 2);
+
+  /* Act 3 hands off from this flat crossfade to the live three.js render in
+     .hc__model3d, so it fades out exactly as that fades in. */
+  opacity: calc(1 - (var(--hp) - 0.82) * 5.6);
+}
+
+/* ----------------------------------------------------- act 3 : live model
+   Same box as .hc__model - width/height come from .hc__device (--pw/--ph) -
+   so the live render lands at exactly the size and position the flat
+   crossfade photo used. It sits behind the flat layer and only becomes
+   visible as that fades out near the end of the sequence. */
+.hc__model3d {
+  position: absolute; inset: 0;
+  opacity: calc((var(--hp) - 0.82) * 5.6);
+  pointer-events: none;
+}
+/* Only takes pointer input once it has actually crossfaded in - otherwise it
+   would swallow clicks through an invisible layer, same reasoning as
+   .hc__grid.is-live. It never spins on its own; drag turns it, which is
+   also what the cursor here promises. */
+.hc__model3d.is-live { pointer-events: auto; cursor: grab; touch-action: none; }
+/* .is-holding only lands after the press-and-hold in hero-cinema.js fires -
+   a plain press or an in-progress hold that turns out to be a scroll never
+   gets this class, so the grabbing cursor only ever shows once the model is
+   actually about to turn. */
+.hc__model3d.is-holding { cursor: grabbing; }
+.hc__model3d canvas { width: 100%; height: 100%; display: block; }
+
+/* .hc__grid sits above .hc__devbox (z-index 6 vs 3) so acts 1-2 can show the
+   headline in front of the device. Once the grid is live that ordering has
+   to flip for the well's rectangle specifically: .hc__grid itself accepts
+   pointer events there (for its tiles and CTAs elsewhere in the grid), so
+   without this it - not just the empty .hc__well child - would sit on top
+   of the live model and eat the drag before the canvas ever saw it. Safe to
+   raise for the whole box: by the time this class is on, .hc__band and
+   .hc__scrub above it have already faded past pointer-events:none. */
+.hc__devbox.is-live { z-index: 7; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hc__model3d { display: none; }
 }
 
 .hc__f {

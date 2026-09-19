@@ -1056,7 +1056,7 @@ window.__tovModel.catch(function(){ /* surfaced by the tech-overview consumer */
 
         </div>
 
-        <div class="tov-cue" id="tovCue"><span class="tov-cue__chevron"></span>Auto-playing</div>
+        <div class="tov-cue" id="tovCue"><span class="tov-cue__chevron"></span>Tap for next</div>
 
       </div>
     </section>
@@ -1064,17 +1064,14 @@ window.__tovModel.catch(function(){ /* surfaced by the tech-overview consumer */
 
 <script>
 (function(){
-  var tov = document.querySelector('#tov-embed .tov');
+  var stage = document.getElementById('tovStage');
   var acts = [document.getElementById('tovAct0'), document.getElementById('tovAct1'), document.getElementById('tovAct2'), document.getElementById('tovAct3'), document.getElementById('tovAct4')];
   var navItems = document.querySelectorAll('#tov-embed .tov-sidenav__item');
   var railFill = document.getElementById('tovRailFill');
-  var cue = document.getElementById('tovCue');
   var phone = document.getElementById('tovPhone');
   var revealSets = acts.map(function(a){ return Array.prototype.slice.call(a.querySelectorAll('[data-r]')); });
   var phoneTargets = [74, 26, 74, 26, 74];
-  var phoneLeftCurrent = phoneTargets[0];
-
-  function clamp01(v){ return v < 0 ? 0 : (v > 1 ? 1 : v); }
+  var N = acts.length;
 
   var embed = document.getElementById('tov-embed');
   var frameWCache = 0, frameWAt = -1;
@@ -1085,114 +1082,56 @@ window.__tovModel.catch(function(){ /* surfaced by the tech-overview consumer */
     frameWAt = window.innerWidth;
     return frameWCache;
   }
-  function ease(v){ var t = clamp01(v); return t * t * (3 - 2 * t); }
 
-  var lens = [1,1,1,1,1];
-  var total = lens.reduce(function(a,b){ return a+b; }, 0);
-  var bounds = [0];
-  lens.forEach(function(l){ bounds.push(bounds[bounds.length-1] + l/total); });
+  /* Tap-driven, not scroll- or time-driven: each chapter cuts straight to
+     fully shown - no crossfade sweep, no staggered line-by-line reveal -
+     because the point is to read the specs at a glance, not watch them
+     play out. A tap anywhere on the stage steps to the next chapter and
+     wraps back to the first after the last; a tap on a sidenav item jumps
+     straight to that one. */
+  var idx = 0;
 
-  var hp = 0;
-
-  function renderReveals(dt, items){
-    items.forEach(function(el){
-      var at = parseFloat(el.getAttribute('data-r')) || 0;
-      var t = ease(clamp01((dt - at) / 0.08));
-      el.style.opacity = t.toFixed(3);
-      el.style.transform = 'translateY(' + ((1 - t) * 14).toFixed(2) + 'px)';
-    });
+  function positionPhone(){
+    if (window.innerWidth <= 900) { return; }
+    var frameW = Math.min(frameWidthPx(), window.innerWidth);
+    var offset = (phoneTargets[idx] / 100 - 0.5) * frameW;
+    phone.style.left = 'calc(50% + ' + offset.toFixed(1) + 'px)';
   }
 
   function render(){
-    railFill.style.height = (hp*100).toFixed(2) + '%';
-    cue.style.opacity = hp < 0.015 ? 1 : 0;
+    railFill.style.height = (((idx + 1) / N) * 100).toFixed(2) + '%';
+    navItems.forEach(function(el, i){ el.classList.toggle('is-active', i === idx); });
 
-    var activeIdx = 0;
-    for (var i = 0; i < 5; i++) {
-      if (hp >= bounds[i] && hp < bounds[i+1]) { activeIdx = i; break; }
-      if (hp >= bounds[5]) { activeIdx = 4; }
-    }
-    navItems.forEach(function(el, i){ el.classList.toggle('is-active', i === activeIdx); });
+    acts.forEach(function(a, k){
+      var active = k === idx;
+      a.style.opacity = active ? '1' : '0';
+      a.style.pointerEvents = active ? 'auto' : 'none';
+      a.style.transform = 'none';
+      revealSets[k].forEach(function(el){
+        el.style.opacity = active ? '1' : '0';
+        el.style.transform = 'translateY(0px)';
+      });
+    });
 
-    var EDGE = 0.09;
-    var OVERLAP = 0.045;
-    var fade = [];
-    var weightedLeft = 0, weightSum = 0;
-    for (var k = 0; k < 5; k++) {
-      var fadeIn  = (k === 0) ? 1 : ease((hp - (bounds[k] - OVERLAP)) / EDGE);
-      var fadeOut = (k === 4) ? 1 : ease(((bounds[k+1] + OVERLAP) - hp) / EDGE);
-      fade[k] = Math.min(fadeIn, fadeOut);
-      acts[k].style.opacity = fade[k].toFixed(3);
-      acts[k].style.pointerEvents = fade[k] > 0.5 ? 'auto' : 'none';
-      acts[k].style.transform = 'translateY(' + ((1-fade[k]) * 10).toFixed(2) + 'px)';
-
-      weightedLeft += fade[k] * phoneTargets[k];
-      weightSum += fade[k];
-
-      if (fade[k] > 0.001) {
-        var dt = clamp01((hp - bounds[k]) / (bounds[k+1] - bounds[k]));
-        renderReveals(dt, revealSets[k]);
-      }
-    }
-
-    if (window.innerWidth > 900 && weightSum > 0.0001) {
-      var weightedTarget = weightedLeft / weightSum;
-      phoneLeftCurrent += (weightedTarget - phoneLeftCurrent) * 0.045;
-      var frameW = Math.min(frameWidthPx(), window.innerWidth);
-      var offset = (phoneLeftCurrent / 100 - 0.5) * frameW;
-      phone.style.left = 'calc(50% + ' + offset.toFixed(1) + 'px)';
-    }
+    positionPhone();
   }
 
-  /* The section is a single viewport tall now, so nothing here is
-     scroll-scrubbed any more: hp is driven by elapsed time instead of scroll
-     position. It autoplays through the five chapters once per time the
-     section enters the viewport (so scrolling back up to it replays the
-     sequence), and a click on a sidenav item jumps straight to that chapter
-     and keeps playing from there. */
-  var raf = 0, running = false, startTs = null;
-  var DURATION = 20000; // ms for the full 5-chapter sweep
-
-  function frame(ts){
-    hp = clamp01((ts - startTs) / DURATION);
+  function goTo(i){
+    idx = ((i % N) + N) % N;
     render();
-    if (hp < 1 && running) {
-      raf = requestAnimationFrame(frame);
-    } else {
-      running = false;
-    }
   }
-  function startFrom(fromHp){
-    running = true;
-    startTs = performance.now() - fromHp * DURATION;
-    if (raf) { cancelAnimationFrame(raf); }
-    raf = requestAnimationFrame(frame);
-  }
-  function start(){ if (!running) { startFrom(0); } }
-  function stop(){ running = false; if (raf) { cancelAnimationFrame(raf); raf = 0; } }
-
-  window.addEventListener('resize', function(){ frameWAt = -1; render(); });
 
   navItems.forEach(function(el, i){
     el.style.cursor = 'pointer';
-    el.addEventListener('click', function(){ startFrom(bounds[i]); });
+    el.addEventListener('click', function(e){ e.stopPropagation(); goTo(i); });
   });
+
+  stage.style.cursor = 'pointer';
+  stage.addEventListener('click', function(){ goTo(idx + 1); });
+
+  window.addEventListener('resize', function(){ frameWAt = -1; positionPhone(); });
 
   render();
-
-  // inView has to be tracked, not just reacted to: IntersectionObserver only
-  // fires on a *change*, so a visibilitychange that stops the loop while the
-  // section is already on screen would otherwise never be resumed.
-  var inView = false;
-  new IntersectionObserver(function(entries){
-    inView = entries[0].isIntersecting;
-    if (inView) { start(); } else { stop(); }
-  }, { rootMargin: '10% 0px' }).observe(tov);
-
-  document.addEventListener('visibilitychange', function(){
-    if (document.hidden) { stop(); }
-    else if (inView) { start(); }
-  });
 })();
 </script>
 
@@ -1413,6 +1352,7 @@ window.__tovModel.catch(function(){ /* surfaced by the tech-overview consumer */
   }
 })();
 </script>
+
 </section>
 
 <!-- ============================================================= ANATOMY -->

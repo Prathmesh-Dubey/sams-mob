@@ -97,9 +97,14 @@
 .hc__col > .hc__tile { width: 100% !important; max-width: 280px; }
 
 /* The well is layout only - it reserves the device's footprint so the two
-   columns can never be pushed under it. light-redesign.css hides it. */
+   columns can never be pushed under it. light-redesign.css hides it.
+   .hc__grid sits at a higher z-index than .hc__devbox (6 vs 3) so this empty
+   placeholder, despite painting nothing, would otherwise sit on top of the
+   live 3D layer at that exact spot and eat the drag that is meant to turn
+   it - pointer-events has to be turned back off explicitly. */
 .hc__well {
   display: block !important;
+  pointer-events: none;
   grid-column: 2; grid-row: 2;
   width: var(--pw); height: var(--ph);
   border: 0 !important; background: none !important;
