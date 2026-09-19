@@ -190,8 +190,6 @@
   [title, colL, well, colR, pair, tail].forEach(function (n) { grid.appendChild(n); });
   hc.appendChild(grid);
 
-  var cue = el('div', 'hc__cue', 'Scroll <span></span>');
-  hc.appendChild(cue);
 
   copy.style.display = 'none';
   stage.appendChild(hc);
@@ -266,7 +264,7 @@
     }
   }
 
-  var hp = 0, target = 0, raf = 0, gridLive = false;
+  var hp = 0, raf = 0, gridLive = false;
 
   function paint() {
     hc.style.setProperty('--hp', hp.toFixed(4));
@@ -282,39 +280,34 @@
     }
   }
 
-  /* A rAF loop while the hero is on screen, rather than a scroll listener.
-     Scroll events can be throttled, coalesced, or not fired at all for
-     programmatic scrolling; a frame loop is immune to all of that and gives
-     the scrub one sample per painted frame, which is what makes it smooth.
-     An IntersectionObserver parks the loop whenever the hero is off screen,
-     so an idle page costs nothing.
-
-     The raw scroll position is only ever a *target* - hp itself eases
-     toward it a fraction of the remaining distance every frame. That turns
-     every mouse-wheel tick or trackpad flick, which arrives in coarse,
-     uneven jumps, into a continuous glide, the same trick smooth-scroll
-     libraries use. */
+  /* The section is a single viewport tall now, so nothing about it is
+     scroll-scrubbed any more: hp is driven by elapsed time instead of scroll
+     position, on a rAF loop while the hero is on screen. It plays through
+     once per time the hero enters the viewport (so scrolling back up to it
+     replays the sequence), then holds on the finished spec grid. An
+     IntersectionObserver starts/stops the loop so an idle page costs
+     nothing and nothing plays while the hero is off screen. */
   var running = false;
-  var EASE = 0.14;
+  var DURATION = 9000; // ms for the full act 1 -> act 3 sweep
+  var startTs = null;
 
-  function sample() {
-    var r = hero.getBoundingClientRect();
-    var range = r.height - window.innerHeight;
-    var p = range > 0 ? (-r.top) / range : 0;
-    target = p < 0 ? 0 : (p > 1 ? 1 : p);
-  }
+  function clamp01v(v) { return v < 0 ? 0 : (v > 1 ? 1 : v); }
 
-  function frame() {
-    sample();
-    var d = target - hp;
-    hp = Math.abs(d) < 0.0006 ? target : hp + d * EASE;
+  function frame(ts) {
+    if (startTs === null) { startTs = ts; }
+    hp = clamp01v((ts - startTs) / DURATION);
     paint();
-    if (running) { raf = requestAnimationFrame(frame); }
+    if (hp < 1) {
+      raf = requestAnimationFrame(frame);
+    } else {
+      running = false;
+    }
   }
 
   function start() {
     if (running) { return; }
     running = true;
+    startTs = null;
     raf = requestAnimationFrame(frame);
   }
 
@@ -331,37 +324,29 @@
     return;
   }
 
+  var inView = false;
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) { start(); } else { stop(); } });
+      entries.forEach(function (e) {
+        inView = e.isIntersecting;
+        if (inView) { start(); } else { stop(); }
+      });
     }, { rootMargin: '10% 0px' }).observe(hero);
   } else {
+    inView = true;
     start();
   }
 
-  /* Belt and braces: browsers pause rAF for a hidden or backgrounded
-     document, and some embedded viewers never paint at all. A scroll and
-     resize listener samples synchronously so the sequence still tracks
-     even when the frame loop is parked - since nothing is left to ease it
-     in on the next tick, this snaps hp straight to the target instead of
-     easing. */
-  function syncNow() {
-    sample();
-    hp = target;
-    placeDevice();
-    paint();
-  }
-  window.addEventListener('scroll', function () { if (!running) { syncNow(); } }, { passive: true });
-  window.addEventListener('resize', function () { placeDevice(); if (!running) { syncNow(); } });
+  window.addEventListener('resize', placeDevice);
   /* web fonts land after first paint and change how the tile rows wrap, which
      moves the well - re-measure once they have */
   window.addEventListener('load', placeDevice);
   if (document.fonts && document.fonts.ready) { document.fonts.ready.then(placeDevice); }
 
   document.addEventListener('visibilitychange', function () {
-    if (document.hidden) { stop(); } else { start(); }
+    if (document.hidden) { stop(); } else if (inView) { start(); }
   });
 
-  syncNow();
-  start();
+  placeDevice();
+  paint();
 })();

@@ -12,7 +12,10 @@
    hero-cinema.js on rAF. No layout is read during the scroll.
    =========================================================================== */
 
-.hero { height: 340vh !important; position: relative; }
+/* Auto-playing, not scroll-scrubbed: the section is one viewport tall so it
+   never forces extra page scrolling, and the sequence below plays on a timer
+   once the hero is in view instead of being driven by scroll position. */
+.hero { height: 100vh !important; position: relative; }
 .hero__stage {
   position: sticky !important; top: 0;
   height: 100vh !important;
@@ -213,7 +216,7 @@
 
 /* ------------------------------------------------------------ responsive */
 @media (max-width: 900px) {
-  .hero { height: 300vh !important; }
+  .hero { height: 100vh !important; }
   .hc { --ins-x: calc(var(--hp) * 12%); }
   .hc__band { grid-template-columns: 1fr; text-align: center; align-content: start;
               padding-top: clamp(96px, 16vh, 150px); gap: 10px; }

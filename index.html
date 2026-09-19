@@ -653,9 +653,10 @@ window.__tovModel.catch(function(){ /* surfaced by the tech-overview consumer */
     #tov-embed .tov-eyebrow-wrap .eyebrow{ font-family:var(--tov-mono); font-size:clamp(11px,.72vw,13px); letter-spacing:.22em; text-transform:uppercase; color:var(--tov-accent); display:flex; align-items:center; gap:10px; }
     #tov-embed .tov-eyebrow-wrap .eyebrow::before{ content:""; width:6px; height:6px; border-radius:50%; background:var(--tov-accent); }
 
-    #tov-embed .tov{ position:relative; height:700vh; background:transparent; }
-    html.is-debug #tov-embed .tov{ height:100vh !important; }
-    html.is-debug #tov-embed .tov__stage{ position:relative !important; }
+    /* Auto-playing, not scroll-scrubbed: one viewport tall so it never forces
+       extra page scrolling. The five chapters below advance on a timer once
+       the section is in view instead of being driven by scroll position. */
+    #tov-embed .tov{ position:relative; height:100vh; background:transparent; }
     #tov-embed .tov__stage{
       position:sticky; top:0; height:100vh; overflow:hidden;
       z-index:1; background:transparent;
@@ -1055,7 +1056,7 @@ window.__tovModel.catch(function(){ /* surfaced by the tech-overview consumer */
 
         </div>
 
-        <div class="tov-cue" id="tovCue"><span class="tov-cue__chevron"></span>Scroll</div>
+        <div class="tov-cue" id="tovCue"><span class="tov-cue__chevron"></span>Auto-playing</div>
 
       </div>
     </section>
@@ -1091,14 +1092,7 @@ window.__tovModel.catch(function(){ /* surfaced by the tech-overview consumer */
   var bounds = [0];
   lens.forEach(function(l){ bounds.push(bounds[bounds.length-1] + l/total); });
 
-  var target = 0, hp = 0;
-
-  function sample(){
-    var r = tov.getBoundingClientRect();
-    var range = r.height - window.innerHeight;
-    var p = range > 0 ? (-r.top) / range : 0;
-    target = clamp01(p);
-  }
+  var hp = 0;
 
   function renderReveals(dt, items){
     items.forEach(function(el){
@@ -1150,21 +1144,41 @@ window.__tovModel.catch(function(){ /* surfaced by the tech-overview consumer */
     }
   }
 
-  var raf = 0, running = false, EASE = 0.09;
-  function frame(){
-    sample();
-    var d = target - hp;
-    hp = Math.abs(d) < 0.0005 ? target : hp + d * EASE;
+  /* The section is a single viewport tall now, so nothing here is
+     scroll-scrubbed any more: hp is driven by elapsed time instead of scroll
+     position. It autoplays through the five chapters once per time the
+     section enters the viewport (so scrolling back up to it replays the
+     sequence), and a click on a sidenav item jumps straight to that chapter
+     and keeps playing from there. */
+  var raf = 0, running = false, startTs = null;
+  var DURATION = 20000; // ms for the full 5-chapter sweep
+
+  function frame(ts){
+    hp = clamp01((ts - startTs) / DURATION);
     render();
-    if (running) { raf = requestAnimationFrame(frame); }
+    if (hp < 1 && running) {
+      raf = requestAnimationFrame(frame);
+    } else {
+      running = false;
+    }
   }
-  function start(){ if (running) return; running = true; raf = requestAnimationFrame(frame); }
+  function startFrom(fromHp){
+    running = true;
+    startTs = performance.now() - fromHp * DURATION;
+    if (raf) { cancelAnimationFrame(raf); }
+    raf = requestAnimationFrame(frame);
+  }
+  function start(){ if (!running) { startFrom(0); } }
   function stop(){ running = false; if (raf) { cancelAnimationFrame(raf); raf = 0; } }
 
-  window.addEventListener('scroll', function(){ if (!running) { sample(); hp = target; render(); } }, { passive:true });
-  window.addEventListener('resize', function(){ frameWAt = -1; sample(); render(); });
+  window.addEventListener('resize', function(){ frameWAt = -1; render(); });
 
-  sample(); hp = target; render();
+  navItems.forEach(function(el, i){
+    el.style.cursor = 'pointer';
+    el.addEventListener('click', function(){ startFrom(bounds[i]); });
+  });
+
+  render();
 
   // inView has to be tracked, not just reacted to: IntersectionObserver only
   // fires on a *change*, so a visibilitychange that stops the loop while the
@@ -1172,7 +1186,7 @@ window.__tovModel.catch(function(){ /* surfaced by the tech-overview consumer */
   var inView = false;
   new IntersectionObserver(function(entries){
     inView = entries[0].isIntersecting;
-    if (inView) { start(); } else { stop(); sample(); hp = target; render(); }
+    if (inView) { start(); } else { stop(); }
   }, { rootMargin: '10% 0px' }).observe(tov);
 
   document.addEventListener('visibilitychange', function(){
